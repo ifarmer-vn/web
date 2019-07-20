@@ -1,1 +1,10 @@
+@import "../../../styles/standards/index";
+
 .f2{ font-size: 4rem};
+
+
+@include breakpoint-l {
+  .f1-l {
+    font-size: 8rem
+  }
+}

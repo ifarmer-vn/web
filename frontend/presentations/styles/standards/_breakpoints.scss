@@ -1,0 +1,50 @@
+/////////////////////
+// Breakpoints
+/////////////////////
+/*
+ default  | ------------  not small  --------------------------------->
+ default  | --- medium --- | --- large ------------------------------->
+ default  | --- medium --- | --- only large --- | --- extra large ---->
+          |                |                    |
+         30em             60em                 75em
+ */
+
+/////////////////////
+// variables
+/////////////////////
+$breakpoint-1: 30em; // 480px
+$breakpoint-2: 60em; // 960px
+$breakpoint-3: 75em; // 1200px
+
+/////////////////////
+// mixins
+/////////////////////
+@mixin breakpoint-ns() { // not small
+  @media screen and (min-width: $breakpoint-1) {
+    @content;
+  }
+}
+
+@mixin breakpoint-m() { // medium
+  @media screen and (min-width: $breakpoint-1) and (max-width: $breakpoint-2) {
+    @content;
+  }
+}
+
+@mixin breakpoint-l() { // large
+  @media screen and (min-width: $breakpoint-2) {
+    @content;
+  }
+}
+
+@mixin breakpoint-ol() { // only large
+  @media screen and (min-width: $breakpoint-2) and (max-width: $breakpoint-3) {
+    @content;
+  }
+}
+
+@mixin breakpoint-xl() { // extra large
+  @media screen and (min-width: $breakpoint-3) {
+    @content;
+  }
+}
