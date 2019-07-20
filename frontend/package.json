@@ -15,5 +15,11 @@
     "node-env-file": "^0.1.8",
     "path": "^0.12.7",
     "pug": "^2.0.4"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-csso": "^3.0.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2"
   }
 }

@@ -1,9 +1,8 @@
 {
-  "spec_dir":
-    "frontend/presentations"
-  ,
+  "spec_dir":"",
   "spec_files": [
-    "**/*[sS]pec.js"
+    "**/*[S]pec.js",
+    "!node_modules/"
   ],
   "stopSpecOnExpectationFailure": false,
   "random": true
