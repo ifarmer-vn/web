@@ -1,5 +1,6 @@
 const { series } = require('gulp');
 const css = require("./gulp/tasks/css");
+const develop = require("./gulp/tasks/develop");
 
 // The `clean` function is not exported so it can be considered a private task.
 // It can still be used within the `series()` composition.
@@ -15,6 +16,13 @@ function build(cb) {
 	css();
 	cb();
 }
+function dev(cb){
+	console.log("dev");
+	develop();
+	cb();
+}
 
 exports.build = build;
+exports.dev = dev;
+exports.css = css;
 exports.default = series(clean, build);
