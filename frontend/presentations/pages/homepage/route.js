@@ -1,5 +1,5 @@
 var router = require('express').Router();
-const controller = require("./controller");
+const controller = require("./homepageController");
 
 router.get('/', controller);
 
