@@ -1,23 +1,24 @@
-// const {watch, series} = require('gulp');
-const nodemon = require('gulp-nodemon');
+// const {watch, series} = require("gulp");
+const nodemon = require("gulp-nodemon");
 
 const develop = (done) => {
 	const stream = nodemon({
-		script: 'server.js',
-		ext: 'pug js scss',
+		script: "server.js",
+		ext: "js scss",
 		ignore: [
-			'assets/**/*.*'
+			"assets/**/*.*",
+			"gulp/**/*.*"
 		],
 		tasks: [ "css"],
 		done: done
 	});
 	stream
-		.on('restart', function () {
-			console.log('restarted!');
+		.on("restart", function () {
+			console.log("restarted!");
 		})
-		.on('crash', function () {
-			console.error('Application has crashed!\n');
-			stream.emit('restart', 10)  // restart the server in 10 seconds
+		.on("crash", function () {
+			console.error("Application has crashed!\n");
+			stream.emit("restart", 10)  // restart the server in 10 seconds
 		});
 };
 
