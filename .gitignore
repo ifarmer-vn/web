@@ -2,3 +2,5 @@ node_modules/
 .idea
 .env
 assets/
+frontend/Dockerfile
+docker-compose.yml

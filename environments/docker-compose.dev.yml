@@ -1,0 +1,19 @@
+version: "2"
+
+services:
+  nginx:
+    build: ./docker/nginx
+    links:
+      - frontend:frontend
+    ports:
+      - "80:80"
+
+  frontend:
+    build: ./frontend
+    container_name: "ifarmer_dev"
+    volumes:
+      - ./frontend:/var/www/ifarmer
+      - /var/www/ifarmer/node_modules
+    ports:
+      - "3000:3000"
+    command: "npm run dev"
