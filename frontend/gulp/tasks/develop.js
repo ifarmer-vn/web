@@ -4,12 +4,15 @@ const nodemon = require("gulp-nodemon");
 const develop = (done) => {
 	const stream = nodemon({
 		script: "server.js",
-		ext: "js scss",
+		ext: "ejs js scss",
 		ignore: [
 			"assets/**/*.*",
-			"gulp/**/*.*"
+			"gulp/**/*.*",
+			"**/*used.scss",
+			"frontend/presentations/styles/base-css/mixin.scss",
+			"frontend/presentations/styles/base-css/property-mixin.scss",
 		],
-		tasks: [ "css"],
+		tasks: ["reduceCSS", "css"],
 		done: done
 	});
 	stream
