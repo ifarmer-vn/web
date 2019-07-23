@@ -12,7 +12,10 @@ const develop = (done) => {
 			"frontend/presentations/styles/base-css/mixin.scss",
 			"frontend/presentations/styles/base-css/property-mixin.scss",
 		],
-		tasks: ["reduceCSS", "css"],
+		tasks: [
+			// "reduceCSS",
+			"css"
+		],
 		done: done
 	});
 	stream

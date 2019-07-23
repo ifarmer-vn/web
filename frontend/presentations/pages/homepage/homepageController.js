@@ -1,8 +1,8 @@
 const css = require("../../../src/css/css");
 const homepageService = require("./services/homepageService");
 
-const homepageController = (req, res) => {
-	let data = homepageService.buildData();
+let homepageController = async (req, res) => {
+	let data = await homepageService.buildData();
 	console.time("Test");
 
 	data.css = css.getFileContent("./assets/css/ifarmer-homepage-min.css");

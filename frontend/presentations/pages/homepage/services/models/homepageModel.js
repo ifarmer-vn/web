@@ -7,6 +7,9 @@ const homepageModel = {
 	get heading() {
 		return data.heading;
 	},
+	get categories() {
+		return data.categories;
+	},
 	set data(d) {
 		data = d;
 	}
