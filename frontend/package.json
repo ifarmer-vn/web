@@ -14,7 +14,8 @@
     "jasmine": "^3.4.0",
     "library": "git+ssh://git@github.com/ifarmer-vn/elastic.git#develop",
     "morgan": "^1.9.1",
-    "node-env-file": "^0.1.8"
+    "node-env-file": "^0.1.8",
+    "ramda": "^0.26.1"
   },
   "devDependencies": {
     "gulp": "^4.0.2",

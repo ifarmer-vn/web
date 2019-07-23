@@ -13,7 +13,7 @@ const homepageModel = {
 	get categories() {
 		return data.categories;
 	},
-	set data(d) {
+	set __data(d) {
 		data = d;
 	}
 
