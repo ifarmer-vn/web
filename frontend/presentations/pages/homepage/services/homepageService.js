@@ -1,38 +1,19 @@
 const homepageModel = require("./models/homepageModel");
+const css = require("../../../../src/css/css");
+const categories = require("./categories");
 let data = require("../data-feed/homepage");
-const {search} = require("library");
-let buildData = async () => {
-	console.log("buildData");
+let prepareData = async () => {
 	//Todo later should have validator
-	data.categories = await getAllCategories();
+	data.categories = await categories.getAllCategories();
+	data.css = css.getFileContent("./assets/css/ifarmer-homepage-min.css");
+
 	homepageModel.data = data;
 	// get data from somewhere
 
 	return homepageModel;
 };
 
-const getAllCategories = async () => {
-	const data = await search.query("categories_v1")({
-		"query": {
-			"bool": {
-				"must_not": {
-					"bool": {
-						"should": [
-							{
-								"match": {
-									"hide": true
-								}
-							}
-						]
-					}
-				}
-			}
-		}
-	});
-	return data.hits;
-};
-
 const revealed = {
-	buildData
+	prepareData
 };
 module.exports = revealed;
