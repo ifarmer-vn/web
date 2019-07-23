@@ -12,6 +12,7 @@
     "globule": "^1.2.1",
     "http-errors": "^1.7.3",
     "jasmine": "^3.4.0",
+    "library": "git+ssh://git@github.com/ifarmer-vn/elastic.git#develop",
     "morgan": "^1.9.1",
     "node-env-file": "^0.1.8"
   },
