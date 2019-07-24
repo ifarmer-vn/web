@@ -9,7 +9,7 @@ WORKDIR /var/www/ifarmer
 
 COPY package.json ./
 COPY package-lock.json ./
-RUN npm install
+CMD ["npm", "install"]
 
 COPY . .
 
