@@ -13,9 +13,12 @@ const homepageModel = {
 	get categories() {
 		return data.categories;
 	},
+	get canonical(){
+		return data.canonical;
+	},
 	set __data(d) {
 		data = d;
-	}
+	},
 
 };
 module.exports = homepageModel;
