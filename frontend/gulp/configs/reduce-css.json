@@ -2,14 +2,14 @@
   "paths": [
     {
       "path": [
-        "presentations/pages/homepage/**/*.ejs"
+        "resources/pages/homepage/**/*.ejs"
       ],
-      "out": "presentations/pages/homepage/views/used.scss"
+      "out": "resources/pages/homepage/views/used.scss"
     }
   ],
   "baseCSS": [
-    "presentations/styles/base-css/**/*.css"
+    "resources/styles/base-css/**/*.css"
   ],
-  "baseMixin": "presentations/styles/base-css/mixin.scss",
-  "propertyMixin": "presentations/styles/base-css/property-mixin.scss"
+  "baseMixin": "resources/styles/base-css/mixin.scss",
+  "propertyMixin": "resources/styles/base-css/property-mixin.scss"
 }

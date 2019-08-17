@@ -9,8 +9,8 @@ const develop = (done) => {
 			"assets/**/*.*",
 			"gulp/**/*.*",
 			"**/*used.scss",
-			"frontend/presentations/styles/base-css/mixin.scss",
-			"frontend/presentations/styles/base-css/property-mixin.scss",
+			"frontend/resources/styles/base-css/mixin.scss",
+			"frontend/resources/styles/base-css/property-mixin.scss",
 		],
 		tasks: [
 			// "reduceCSS",

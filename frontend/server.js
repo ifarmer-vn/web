@@ -3,7 +3,7 @@ const server = express();
 const port = 3000;
 const routes = require("./routes");
 
-server.set('views', "presentations");
+server.set('views', "resources");
 server.set('view engine', 'ejs');
 
 server.use(routes);

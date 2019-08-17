@@ -3,7 +3,7 @@ const csso = require("gulp-csso");
 const rename = require("gulp-rename");
 const {src, dest} = require("gulp");
 const css = () =>
-	src("presentations/pages/**/ifarmer-*.scss")
+	src("resources/pages/**/ifarmer-*.scss")
 		.pipe(sass())
 		.pipe(rename({dirname: ''}))
 		.pipe(dest("assets/css/"))
