@@ -5,7 +5,5 @@ let files = globule.find('resources/pages/*/route.js');
 _.each(files, file => {
 	router.use(require("./" + file));
 });
-// router.use(require("./views/pages/category/fallback-route"));
-
 
 module.exports = router;

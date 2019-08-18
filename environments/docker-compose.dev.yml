@@ -5,15 +5,29 @@ services:
     build: ./docker/nginx
     links:
       - frontend:frontend
+    volumes:
+      - /var/log/ifarmer/nginx:/var/log/nginx
     ports:
       - "80:80"
+    networks:
+      - web
+      - docker-elk_elk
 
   frontend:
     build: ./frontend
     container_name: "ifarmer_dev"
     volumes:
       - ./frontend:/var/www/ifarmer
-      - /var/www/ifarmer/node_modules
+      - ./frontend/node_modules:/var/www/ifarmer/node_modules
     ports:
       - "3000:3000"
+    networks:
+      - web
+      - docker-elk_elk
     command: "npm run dev"
+
+networks:
+  web:
+    driver: bridge
+  docker-elk_elk:
+    external: true
