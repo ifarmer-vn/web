@@ -8,3 +8,4 @@ docker-compose.yml
 **/*combine.scss
 **/base-css/mixin.scss
 **/base-css/property-mixin.scss
+*credential.json
