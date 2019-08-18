@@ -5,6 +5,7 @@
     "dev": "gulp dev"
   },
   "dependencies": {
+    "clean-css": "^4.2.1",
     "cookie-parser": "^1.4.4",
     "debug": "^4.1.1",
     "ejs": "^2.6.2",
