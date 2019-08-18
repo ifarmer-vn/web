@@ -20,7 +20,9 @@ const getAllCategories = async () => {
 	});
 	return data.hits;
 };
+
 const revealed = {
 	getAllCategories
 };
+
 module.exports = revealed;

@@ -1,10 +1,13 @@
 const express = require('express');
 const server = express();
 const port = 3000;
-const routes = require("./routes");
+const routes = require("./middewares/routes");
+const assets = require("./middewares/assets");
 
 server.set('views', "resources");
 server.set('view engine', 'ejs');
+
+server.use(assets);
 
 server.use(routes);
 
