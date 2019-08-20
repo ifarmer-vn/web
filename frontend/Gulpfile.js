@@ -1,7 +1,7 @@
 const {series} = require('gulp');
 const css = require("./gulp/tasks/css");
-const develop = require("./gulp/tasks/develop");
 const reduceCSS = require("./gulp/tasks/reduce-css");
+const allWatchers = require("./gulp/tasks/watch");
 
 // The `clean` function is not exported so it can be considered a private task.
 // It can still be used within the `series()` composition.
@@ -20,7 +20,7 @@ function build(cb) {
 }
 
 exports.build = build;
-exports.dev = series(reduceCSS, css, develop);
+exports.dev = series(reduceCSS, css, allWatchers);
 exports.css = css;
 exports.reduceCSS = reduceCSS;
 exports.default = series(clean, build);

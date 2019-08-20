@@ -1,0 +1,58 @@
+@include white;
+@include scorpion;
+@include bg-white;
+@include bg-theme-color;
+
+
+.box-shadow-1 {
+  box-shadow: 0 5px 4px 0 $box-shadow-color;
+}
+
+.b-bottom-1 {
+  border-bottom: 1px solid $border-color;
+}
+
+.hover:hover {
+  color: $hover;
+}
+
+.pointer:hover {
+  cursor: pointer;
+}
+
+.category-toggle-wrap {
+  &::before {
+    background: #80bb01;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 15px;
+    z-index: 1;
+    transform: translateX(-100%);
+  }
+
+  &::after {
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid transparent;
+    border-top: 15px solid #5d8801;
+    bottom: 0;
+    content: '';
+    left: -15px;
+    position: absolute;
+    z-index: 1;
+    transform: translateY(100%);
+  }
+}
+
+.category-menu {
+  li {
+    // Child Selector
+    &:last-child {
+      & > a {
+        border-bottom: none;
+      }
+    }
+  }
+}
