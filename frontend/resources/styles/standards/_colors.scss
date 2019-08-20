@@ -1,9 +1,9 @@
 /////////////////////
-// Colours
+// variables
 /////////////////////
 
 /////////////////////
-// variables
+// Colours
 /////////////////////
 $alto: #ddd;
 $alto1: #e0e0e0;
@@ -42,6 +42,7 @@ $prairie-sand: #a43d21;
 $red: #ff0000;
 $san-juan: #30436b;
 $san-marino: #4867AA;
+$scorpion: #606060;
 $sea-buckthorn: #F99C3A;
 $silver: #c7c7c7;
 $silver-chalice: #a4a4a4;
@@ -55,3 +56,72 @@ $white-a: rgba(255, 255, 255, 0.95);
 $black-a: rgba(0, 0, 0, 0.03);
 $black-a1: rgba(0, 0, 0, 0.04);
 $black-a2: rgba(0, 0, 0, 0.05);
+
+$hover: #80bb01;
+
+// Theme Color
+$theme-color: #80bb01;
+$hover-color: #80bb01;
+$dark-hover-color: #5d8801;
+
+// Border color
+$border-color: #e8e8e8;
+
+//Box shadow color
+$box-shadow-color: rgba(0, 0, 0, 0.1);
+
+
+@mixin theme-color {
+  .theme-color {
+    color: $theme-color;
+  }
+}
+
+@mixin bg-theme-color {
+  .bg-theme-color {
+    background: $theme-color;
+  }
+}
+
+@mixin b--theme-color {
+  .b--theme-color {
+    border-color: $theme-color;
+  }
+}
+
+@mixin scorpion {
+  .scorpion {
+    color: $scorpion;
+  }
+}
+
+@mixin bg-scorpion {
+  .bg-scorpion {
+    background: $scorpion;
+  }
+}
+
+@mixin b--scorpion {
+  .b--scorpion {
+    border-color: $scorpion;
+  }
+}
+
+@mixin white {
+  .white {
+    color: $white;
+  }
+}
+
+@mixin bg-white {
+  .bg-white {
+    background: $white;
+  }
+}
+
+@mixin b--white {
+  .b--white {
+    border-color: $white;
+  }
+}
+
