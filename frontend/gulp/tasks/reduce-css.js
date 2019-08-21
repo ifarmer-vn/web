@@ -4,4 +4,10 @@ const scan = () => {
     reduceCSS.initConfig(config);
     return reduceCSS.run();
 };
-module.exports = scan;
+const generateUsedClass = async () => {
+    reduceCSS.initConfig(config);
+    await reduceCSS.readUsedClass();
+    return reduceCSS.generateUsedClass();
+};
+exports.generateUsedClass = generateUsedClass;
+exports.scan = scan;
