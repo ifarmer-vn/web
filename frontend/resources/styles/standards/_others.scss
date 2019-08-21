@@ -1,3 +1,10 @@
 *, *::after, *::before {
   box-sizing: border-box;
 }
+a, button {
+  color: inherit;
+  display: inline-block;
+  line-height: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}

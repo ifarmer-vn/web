@@ -125,3 +125,22 @@ $box-shadow-color: rgba(0, 0, 0, 0.1);
   }
 }
 
+
+@mixin will-sand {
+  .will-sand {
+    color: $will-sand;
+  }
+}
+
+@mixin bg-will-sand {
+  .bg-will-sand {
+    background: $will-sand;
+  }
+}
+
+@mixin b--will-sand {
+  .b--will-sand {
+    border-color: $will-sand;
+  }
+}
+
