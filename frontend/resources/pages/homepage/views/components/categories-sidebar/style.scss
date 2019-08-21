@@ -20,7 +20,7 @@
   cursor: pointer;
 }
 
-.category-toggle-wrap {
+.header-wrap {
   &::before {
     background: #80bb01;
     content: '';
@@ -46,7 +46,7 @@
   }
 }
 
-.category-menu {
+.none-border-bottom-list {
   li {
     // Child Selector
     &:last-child {
