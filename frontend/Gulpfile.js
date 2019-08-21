@@ -14,13 +14,12 @@ function clean(cb) {
 // It can also be used within the `series()` composition.
 function build(cb) {
     console.log("build");
-    reduceCSS();
+    reduceCSS.scan();
     css();
     cb();
 }
 
 exports.build = build;
-exports.dev = series(reduceCSS, css, allWatchers);
+exports.dev = series(reduceCSS.scan, css, allWatchers);
 exports.css = css;
-exports.reduceCSS = reduceCSS;
 exports.default = series(clean, build);

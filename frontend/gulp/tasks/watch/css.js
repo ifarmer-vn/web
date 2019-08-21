@@ -1,7 +1,6 @@
 const {watch} = require('gulp');
 const css = require('../css');
 
-
 const cssWatcher = () => {
     watch(
         [
