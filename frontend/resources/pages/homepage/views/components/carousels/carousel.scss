@@ -1,17 +1,12 @@
 .none-scrollbar > div::-webkit-scrollbar {
   display: none;
 }
-
-.slider-container {
-  top: -64px;
-  padding: 50px 0 0 0;
-
+amp-carousel
+{
   & > div:first-child {
-    padding: 2rem 0;
     background-color: white;
     box-shadow: 1px 4px 4px -1px rgba(0, 0, 0, .1)
   }
-
   .amp-carousel-button-next, .amp-carousel-button-prev {
     top: 27px;
     border-radius: 50%;
@@ -21,5 +16,7 @@
     left: unset;
     right: 54px;
   }
-
+  .no-padding-item {
+    margin-left: 0;
+  }
 }

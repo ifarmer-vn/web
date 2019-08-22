@@ -1,11 +1,15 @@
 .w-131 {
     width: 131px;
 }
+
 .w-212 {
     width: 212px;
 }
 
+.w-224 {
+    width: 224px;
+}
 
-.min-w-44{
+.min-w-44 {
     min-width: 44px;
 }
