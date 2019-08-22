@@ -1,7 +1,13 @@
-.pa-1-2 {
-    padding: .75rem 1.5rem
+.pa-heading-panel{
+    padding: .75rem .5rem
 }
 
 .pa-1-2_4 {
     padding: .625rem 1.5rem;
+}
+.pa-item {
+    padding: 20px 10px;
+}
+.pa-sale{
+    padding: 0 9px;
 }
