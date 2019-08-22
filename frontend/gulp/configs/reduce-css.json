@@ -10,6 +10,6 @@
   "baseCSS": [
     "resources/styles/base-css/**/*.css"
   ],
-  "baseMixin": "resources/styles/base-css/mixin.scss",
-  "propertyMixin": "resources/styles/base-css/property-mixin.scss"
+  "baseMixin": "resources/styles/generated/mixin.scss",
+  "propertyMixin": "resources/styles/generated/property-mixin.scss"
 }

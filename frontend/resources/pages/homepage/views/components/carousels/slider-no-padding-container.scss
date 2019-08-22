@@ -1,0 +1,9 @@
+.slider-no-padding-container {
+  top: -64px;
+  padding: 50px 0 0 0;
+
+  & > div:first-child {
+    padding: 0;
+  }
+
+}

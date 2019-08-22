@@ -14,11 +14,17 @@
     font-size: 15px;
 }
 
+.f16 {
+    font-size: 16px;
+}
 .f17 {
     font-size: 17px;
 }
 .f21 {
     font-size: 21px;
+}
+.f30 {
+    font-size: 30px;
 }
 
 .fw-500{

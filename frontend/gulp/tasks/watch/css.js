@@ -6,8 +6,8 @@ const cssWatcher = () => {
         [
             'resources/**/*.scss',
             "!**/*used.scss",
-            '!**/base-css/mixin.scss',
-            '!**/base-css/property-mixin.scss',
+            '!**/generated/mixin.scss',
+            '!**/generated/property-mixin.scss',
         ], css);
 };
 

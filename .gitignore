@@ -6,6 +6,5 @@ frontend/Dockerfile
 docker-compose.yml
 **/*used.scss
 **/*combine.scss
-**/base-css/mixin.scss
-**/base-css/property-mixin.scss
+generated
 *credential.json
