@@ -9,3 +9,9 @@
 .b-bold-1{
     border: 5px solid #ddd;
 }
+.b-bottom-2{
+    border-bottom: 1px solid #e0e0e0;
+}
+.b-right-2{
+    border-right: 1px solid #e0e0e0;
+}

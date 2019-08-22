@@ -1,26 +1,5 @@
-.none-scrollbar > div::-webkit-scrollbar {
-  display: none;
-}
+@import "../slide-container/style";
 
-.slider-container {
-  top: -60px;
-  padding: 60px 0 0 0;
-  box-shadow: 0 5px 4px 0 rgba(0, 0, 0, 0.1);
-  &>div:first-child{
-    padding: 2rem 0;
-    background-color: white;
-  }
-
-  .amp-carousel-button-next,.amp-carousel-button-prev{
-    top: 26px;
-    border-radius: 50%;
-  }
-  .amp-carousel-button-prev{
-    left: unset;
-    right: 54px;
-  }
-
-}
 .single-item {
   &:first-child {
     margin-left: 2rem;
@@ -28,8 +7,8 @@
   &:last-child{
     margin-right: 2rem;
   }
-
 }
+
 .b-bold-1{
   &:hover {
     border-color: $theme-color;
