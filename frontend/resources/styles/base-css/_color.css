@@ -1,9 +1,15 @@
-.bg-sale{
-    background-color: #ffaf00;
+.dove-gray {
+    color: #666;
 }
+
 .dusty-ray {
     color: #999;
 }
+
 .limeade1 {
     color: #80bb01;
+}
+
+.bg-sale {
+    background-color: #ffaf00;
 }
