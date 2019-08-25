@@ -1,7 +1,7 @@
 {
-  "spec_dir":"",
+  "spec_dir":"gulp",
   "spec_files": [
-    "**/*[S]pec.js",
+    "**/*[sS]pec.js",
     "!node_modules/"
   ],
   "stopSpecOnExpectationFailure": false,
