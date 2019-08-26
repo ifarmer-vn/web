@@ -3,7 +3,6 @@ const csso = require("gulp-csso");
 const rename = require("gulp-rename");
 const {src, dest} = require("gulp");
 const css = () => {
-    console.log("run css");
     return src("resources/pages/**/ifarmer-*.scss")
         .pipe(sass())
         .pipe(rename({dirname: ''}))
