@@ -9,14 +9,14 @@ String.prototype.replaceAll = function (search, replacement) {
 const regexMatching = regexString => (str, cb) => {
     return new Promise(async resolve => {
         let matches;
-        console.time("regexMatching" + str.length);
-        console.log("regexString", regexString);
+        // console.time("regexMatching" + str.length);
+        // console.log("regexString", regexString);
         while ((matches = regexString.exec(str))) {
             // console.log("start cb");
             await cb(matches);
             // console.log("end  cb");
         }
-        console.timeEnd("regexMatching" + str.length);
+        // console.timeEnd("regexMatching" + str.length);
         resolve();
     });
 };
@@ -74,7 +74,7 @@ const createBaseClasses = arr => {
             return;
         }
         const className = item
-            .replace(/[\t;#]/g, '')
+            .replace(/[\t;#(),.]/g, '')
             .replace(': ', ':')
             .replace(/[ :]/g, '-')
             .replace(/[%]/g, '-percent');
