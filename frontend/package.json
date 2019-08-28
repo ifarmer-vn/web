@@ -17,6 +17,7 @@
     "library": "git+ssh://git@github.com/ifarmer-vn/elastic.git#develop",
     "morgan": "^1.9.1",
     "node-env-file": "^0.1.8",
+    "npm": "^6.11.2",
     "ramda": "^0.26.1",
     "serve-assets": "0.0.1"
   },

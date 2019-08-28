@@ -2,3 +2,11 @@
 .width-95-percent{width: 95%}
 .width-2px{width: 2px}
 .width-100-percent{width: 100%}
+.width-80px{width:80px}
+
+
+
+@media screen and (min-width: 60em) {
+    .width-56px-l{width: 56px}
+    .width-111px-l{width:111px}
+}

@@ -5,7 +5,7 @@ const reduceCss = require('../reduce-css');
 const baseCSSWatcher = () => {
     watch(
         [
-            'resources/**/base-css/*.css',
+            'resources/**/base-css/**/*.css',
         ], series(reduceCss.scan, css));
 };
 
