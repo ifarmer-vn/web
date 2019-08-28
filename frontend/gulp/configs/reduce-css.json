@@ -4,6 +4,7 @@
       "path": [
         "resources/pages/homepage/**/*.ejs",
         "resources/components/master/*.ejs",
+        "resources/components/footer/*.ejs",
         "resources/components/header/*.ejs"
       ],
       "out": "resources/pages/homepage/views/used.scss"
