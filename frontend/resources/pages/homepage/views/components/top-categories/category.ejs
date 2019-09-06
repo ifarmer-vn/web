@@ -1,0 +1,12 @@
+<a href="shop-left-sidebar.html" class="single-item ml-3">
+    <div class="mb2">
+        <% console.log(category._source.images[0])%>
+        <div class="dib br-50 b-bold-1 w-131 h-131" title="Vegetables">
+            <amp-img width="131" height="131" src="<%= category._source.images[0].url %>"
+                 alt="<%= category._source.name %>" class="br-50"></amp-img>
+        </div>
+    </div>
+    <div class="tc">
+        <%= category._source.name %>
+    </div>
+</a>
