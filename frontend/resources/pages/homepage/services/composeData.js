@@ -5,7 +5,7 @@ let data = require("../data-feed/homepage");
 
 const getData = async () => {
 	let result = R.clone(data);
-	// result.categories = await categories.getAllCategories();
+	result.categories = await categories.getAllCategories();
 	result.css = css.getFileContent("./assets/css/ifarmer-homepage-min.css");
 	return result;
 };
