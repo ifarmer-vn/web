@@ -13,6 +13,9 @@ const homepageModel = {
 	get categories() {
 		return data.categories;
 	},
+	get topProducts() {
+		return data.topProducts;
+	},
 	get canonical(){
 		return data.canonical;
 	},

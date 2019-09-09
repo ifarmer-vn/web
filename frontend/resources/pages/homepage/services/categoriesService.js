@@ -4,6 +4,11 @@ const searchCategories = search("categories");
 const getAllCategories = async () => {
 
 	const data = await searchCategories({
+        "_source": [
+            "url",
+            "name",
+            "images.url"
+        ],
         "query": {
             "bool": {
                 "must_not": {
@@ -11,6 +16,12 @@ const getAllCategories = async () => {
                         "hide": true
                     }
                 }
+            }
+        },
+        "size": 16,
+        "sort": {
+            "impressions": {
+                "order": "desc"
             }
         }
     });

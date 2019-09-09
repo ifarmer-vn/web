@@ -8,42 +8,15 @@
             class="none-scrollbar slider-no-padding-container z-1 tc"
             controls
     >
-
-        <div class="no-padding-item ws-normal w-212"
-        >
-            <%- include("../product-card/product.ejs") -%>
-            <%- include("../product-card/product.ejs") -%>
-        </div>
-
-        <div class="no-padding-item ws-normal w-212"
-        >
-            <%- include("../product-card/product.ejs") -%>
-            <%- include("../product-card/product.ejs") -%>
-        </div>
-
-        <div class="no-padding-item ws-normal w-212"
-        >
-            <%- include("../product-card/product.ejs") -%>
-            <%- include("../product-card/product.ejs") -%>
-        </div>
-
-        <div class="no-padding-item ws-normal w-212"
-        >
-            <%- include("../product-card/product.ejs") -%>
-            <%- include("../product-card/product.ejs") -%>
-        </div>
-
-        <div class="no-padding-item ws-normal w-212"
-        >
-            <%- include("../product-card/product.ejs") -%>
-            <%- include("../product-card/product.ejs") -%>
-        </div>
-
-        <div class="no-padding-item ws-normal w-212"
-        >
-            <%- include("../product-card/product.ejs") -%>
-            <%- include("../product-card/product.ejs") -%>
-        </div>
+        <% for(let i = 0; i < topProducts.length; i += 2){ %>
+            <div class="no-padding-item ws-normal w-212"
+            >
+                <% let productData = topProducts[i] %>
+                <% let productData1 = topProducts[i + 1] %>
+                <%- include('../product-card/product', {product: productData}); %>
+                <%- include('../product-card/product', {product: productData1}); %>
+            </div>
+        <% } %>
 
     </amp-carousel>
 </section>

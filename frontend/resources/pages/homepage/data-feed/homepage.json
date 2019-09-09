@@ -2,6 +2,56 @@
   "title": "Hai Bui Cool",
   "heading": "Hai Bui oi co len",
   "categories": [],
+  "topProducts": [
+    {
+      "_source": {
+        "images": {
+          "url": "test"
+        },
+        "title": "test"
+      }
+    },
+    {
+      "_source": {
+        "images": {
+          "url": "test"
+        },
+        "title": "test1"
+      }
+    },
+    {
+      "_source": {
+        "images": {
+          "url": "test"
+        },
+        "title": "test2"
+      }
+    },
+    {
+      "_source": {
+        "images": {
+          "url": "test"
+        },
+        "title": "test3"
+      }
+    },
+    {
+      "_source": {
+        "images": {
+          "url": "test"
+        },
+        "title": "test4"
+      }
+    },
+    {
+      "_source": {
+        "images": {
+          "url": "test"
+        },
+        "title": "test5"
+      }
+    }
+  ],
   "css": "",
   "canonical": "/"
 }
