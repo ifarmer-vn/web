@@ -16,8 +16,14 @@ const homepageModel = {
 	get topProducts() {
 		return data.topProducts;
 	},
+	get newProducts() {
+		return data.newProducts;
+	},
 	get topArticles() {
 		return data.topArticles;
+	},
+	get newArticles() {
+		return data.newArticles;
 	},
 	get canonical(){
 		return data.canonical;
