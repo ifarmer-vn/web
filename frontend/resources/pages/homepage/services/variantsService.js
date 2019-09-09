@@ -46,9 +46,25 @@ const getTopProducts = async () => {
     const data = await searchVariant(query);
     return data.hits;
 };
+const getNewProducts = async () => {
+
+    const query = {
+        "_source": variantSource,
+        "size": 20,
+        "query": defaultVariantQuery,
+        "sort": {
+            "updatedAt": {
+                "order": "desc"
+            }
+        }
+    };
+    const data = await searchVariant(query);
+    return data.hits;
+};
 
 const revealed = {
-    getTopProducts
+    getTopProducts,
+    getNewProducts
 };
 
 module.exports = revealed;
