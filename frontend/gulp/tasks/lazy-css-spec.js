@@ -115,7 +115,7 @@ describe("lazyCSS", () => {
         });
     });
     describe("processView", () => {
-        fit("should return correct data", async () => {
+        it("should return correct data", async () => {
             let input =simpleInput;
             // console.log(input);
             // const data = await lazyCSS.processView(input);
