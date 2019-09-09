@@ -35,9 +35,24 @@ const getTopArticles = async () => {
     const data = await searchArticles(query);
     return data.hits;
 };
+const getNewArticles = async () => {
+    const query = {
+        "_source": articleSource,
+        "size": 20,
+        "query": defaultArticleQuery,
+        "sort": {
+            "updatedAt": {
+                "order": "desc"
+            }
+        }
+    };
+    const data = await searchArticles(query);
+    return data.hits;
+};
 
 const revealed = {
-    getTopArticles
+    getTopArticles,
+    getNewArticles
 };
 
 module.exports = revealed;

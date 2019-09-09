@@ -10,6 +10,7 @@ const getData = async () => {
 	result.categories = await categories.getAllCategories();
 	result.topProducts = await variants.getTopProducts();
 	result.topArticles = await articles.getTopArticles();
+	result.newArticles = await articles.getNewArticles();
 	result.css = css.getFileContent("./assets/css/ifarmer-homepage-min.css");
 	return result;
 };

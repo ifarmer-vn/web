@@ -1,60 +1,7 @@
 <div class="flex flex-wrap bg-white">
-    <div class="w-50 w-33-m w-25-l">
-        <%- include("../article-card/article.ejs") -%>
-    </div>
-    <div class="w-50 w-33-m w-25-l">
-        <%- include("../article-card/article.ejs") -%>
-    </div>
-
-    <div class="w-50 w-33-m w-25-l">
-        <%- include("../article-card/article.ejs") -%>
-    </div>
-    <div class="w-50 w-33-m w-25-l">
-        <%- include("../article-card/article.ejs") -%>
-    </div>
-    <div class="w-50 w-33-m w-25-l">
-        <%- include("../article-card/article.ejs") -%>
-    </div>
-    <div class="w-50 w-33-m w-25-l">
-        <%- include("../article-card/article.ejs") -%>
-    </div>
-    <div class="w-50 w-33-m w-25-l">
-        <%- include("../article-card/article.ejs") -%>
-    </div>
-    <div class="w-50 w-33-m w-25-l">
-        <%- include("../article-card/article.ejs") -%>
-    </div>
-
-    <div class="w-50 w-33-m w-25-l">
-        <%- include("../article-card/article.ejs") -%>
-    </div>
-    <div class="w-50 w-33-m w-25-l">
-        <%- include("../article-card/article.ejs") -%>
-    </div>
-    <div class="w-50 w-33-m w-25-l">
-        <%- include("../article-card/article.ejs") -%>
-    </div>
-    <div class="w-50 w-33-m w-25-l">
-        <%- include("../article-card/article.ejs") -%>
-    </div>
-
-    <div class="w-50 w-33-m w-25-l">
-        <%- include("../article-card/article.ejs") -%>
-    </div>
-    <div class="w-50 w-33-m w-25-l">
-        <%- include("../article-card/article.ejs") -%>
-    </div>
-
-    <div class="w-50 w-33-m w-25-l">
-        <%- include("../article-card/article.ejs") -%>
-    </div>
-    <div class="w-50 w-33-m w-25-l">
-        <%- include("../article-card/article.ejs") -%>
-    </div>
-    <div class="w-50 w-33-m w-25-l">
-        <%- include("../article-card/article.ejs") -%>
-    </div>
-    <div class="w-50 w-33-m w-25-l">
-        <%- include("../article-card/article.ejs") -%>
-    </div>
+    <% newArticles.forEach(article =>{ %>
+        <div class="w-50 w-33-m w-25-l">
+            <%- include("../article-card/article.ejs", {article: article}) -%>
+        </div>
+    <% }) %>
 </div>
