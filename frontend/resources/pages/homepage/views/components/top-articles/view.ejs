@@ -7,64 +7,11 @@
             type="carousel"
             controls
     >
-        <div class="item ws-normal w-224">
-            <%-     include("../article-card/article.ejs") -%>
-        </div>
-        <div class="item ws-normal w-224">
-            <%-     include("../article-card/article.ejs") -%>
-        </div>
 
-        <div class="item ws-normal w-224">
-            <%-     include("../article-card/article.ejs") -%>
-        </div>
-        <div class="item ws-normal w-224">
-            <%-     include("../article-card/article.ejs") -%>
-        </div>
-        <div class="item ws-normal w-224">
-            <%-     include("../article-card/article.ejs") -%>
-        </div>
-        <div class="item ws-normal w-224">
-            <%-     include("../article-card/article.ejs") -%>
-        </div>
-        <div class="item ws-normal w-224">
-            <%-     include("../article-card/article.ejs") -%>
-        </div>
-        <div class="item ws-normal w-224">
-            <%-     include("../article-card/article.ejs") -%>
-        </div>
-
-        <div class="item ws-normal w-224">
-            <%-     include("../article-card/article.ejs") -%>
-        </div>
-        <div class="item ws-normal w-224">
-            <%-     include("../article-card/article.ejs") -%>
-        </div>
-        <div class="item ws-normal w-224">
-            <%-     include("../article-card/article.ejs") -%>
-        </div>
-        <div class="item ws-normal w-224">
-            <%-     include("../article-card/article.ejs") -%>
-        </div>
-
-        <div class="item ws-normal w-224">
-            <%-     include("../article-card/article.ejs") -%>
-        </div>
-        <div class="item ws-normal w-224">
-            <%-     include("../article-card/article.ejs") -%>
-        </div>
-
-        <div class="item ws-normal w-224">
-            <%-     include("../article-card/article.ejs") -%>
-        </div>
-        <div class="item ws-normal w-224">
-            <%-     include("../article-card/article.ejs") -%>
-        </div>
-        <div class="item ws-normal w-224">
-            <%-     include("../article-card/article.ejs") -%>
-        </div>
-        <div class="item ws-normal w-224">
-            <%-     include("../article-card/article.ejs") -%>
-        </div>
-
+        <% topArticles.forEach(article =>{ %>
+            <div class="item ws-normal w-224">
+                <%- include('../article-card/article.ejs', {article: article}); %>
+            </div>
+        <% }) %>
     </amp-carousel>
 </section>
