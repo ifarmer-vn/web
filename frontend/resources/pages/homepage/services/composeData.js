@@ -4,6 +4,7 @@ const categories = require("./categoriesService");
 const variants = require("./variantsService");
 const variantTypes = require("./variantTypesService");
 const articles = require("./articlesService");
+const products = require("./productsService");
 let data = require("../data-feed/homepage");
 
 const getData = async () => {
@@ -14,11 +15,23 @@ const getData = async () => {
     result.newArticles = await articles.getNewArticles();
     result.newProducts = await variants.getNewProducts();
     result.variant = await variants.getVariant("ba-khia-hang-xuat-khau-trong-luong-1-kg");
+    const product = await products.getProduct(result.variant._source.productSource.url);
+    result.productDetail = buildProductDetail(product, result.variant);
+    console.log(result.productDetail);
     const variantTypesData = await variantTypes.getAllVariantTypes();
     const relatedVariants = await variants.getVariantsByProduct("ba-khia");
     result.variantGroups = buildVariantGroups(result.variant._source.url, relatedVariants, variantTypesData);
 
     result.css = css.getFileContent("./assets/css/ifarmer-homepage-min.css");
+    return result;
+};
+
+const buildProductDetail = (product, variant) => {
+    let result = {
+        ...product._source,
+        ...variant._source,
+        h1: `${product._source.title}  ${variant._source.extraTitle}`
+    };
     return result;
 };
 
@@ -31,22 +44,22 @@ const convertArrayToObject = (arr, field) => {
     return result;
 };
 
-const convertObjectToArrayByOrder = (obj, field)=>{
+const convertObjectToArrayByOrder = (obj, field) => {
     let arr = R.values(obj);
-    arr.sort((a,b)=>{
-        if(a.currentType){
-            a.variants = convertObjectToArrayByOrder(a.currentType,'order');
+    arr.sort((a, b) => {
+        if (a.currentType) {
+            a.variants = convertObjectToArrayByOrder(a.currentType, 'order');
             delete a.children;
             delete a.currentType;
             delete a.show_name;
-            if(!b.variants){
-                b.variants = convertObjectToArrayByOrder(b.currentType,'order');
+            if (!b.variants) {
+                b.variants = convertObjectToArrayByOrder(b.currentType, 'order');
                 delete b.children;
                 delete b.currentType;
                 delete b.show_name;
             }
         }
-        if(isNaN(a[field])){
+        if (isNaN(a[field])) {
             return true;
         }
         return a[field] > b[field];
@@ -54,8 +67,8 @@ const convertObjectToArrayByOrder = (obj, field)=>{
     return arr;
 };
 
-const buildVariantGroups = (currentVariantUrl,variants, variantTypes) => {
-    let variantTypesObj = convertArrayToObject(variantTypes,'url');
+const buildVariantGroups = (currentVariantUrl, variants, variantTypes) => {
+    let variantTypesObj = convertArrayToObject(variantTypes, 'url');
     let foundedVariantTypes = {};
     variants.map(variant => {
         const source = variant._source;
@@ -76,15 +89,15 @@ const buildVariantGroups = (currentVariantUrl,variants, variantTypes) => {
                 ...variantType.children[valueVariantType],
                 active: source.url === currentVariantUrl
             };
-            if(!foundedVariantTypes[pp].currentType[valueVariantType]){
+            if (!foundedVariantTypes[pp].currentType[valueVariantType]) {
                 foundedVariantTypes[pp].currentType[valueVariantType] = childType;
             }
-            if(childType.active){
+            if (childType.active) {
                 foundedVariantTypes[pp].currentType[valueVariantType] = childType;
             }
         }
     });
-    foundedVariantTypes = convertObjectToArrayByOrder(foundedVariantTypes,'oder');
+    foundedVariantTypes = convertObjectToArrayByOrder(foundedVariantTypes, 'oder');
     return foundedVariantTypes;
 };
 

@@ -31,6 +31,9 @@ const homepageModel = {
 	get variant() {
 		return data.variant;
 	},
+	get productDetail() {
+		return data.productDetail;
+	},
 	get canonical(){
 		return data.canonical;
 	},
