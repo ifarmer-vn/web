@@ -1,5 +1,5 @@
 {
-  "spec_dir":"gulp",
+  "spec_dir":"resources",
   "spec_files": [
     "**/*[sS]pec.js",
     "!node_modules/"

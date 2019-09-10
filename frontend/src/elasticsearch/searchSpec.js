@@ -2,7 +2,7 @@ const search = require("./search");
 
 describe("search", () => {
 	describe("query", () => {
-		fit("should return correct data 1", async () => {
+		it("should return correct data 1", async () => {
 			// Let's search!
 			let output = await search.search("categories_v1")({
 				"search": {
