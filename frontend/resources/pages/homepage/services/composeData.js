@@ -15,6 +15,7 @@ const getData = async () => {
     result.newArticles = await articles.getNewArticles();
     result.newProducts = await variants.getNewProducts();
     result.variant = await variants.getVariant("ba-khia-hang-xuat-khau-trong-luong-1-kg");
+    result.relatedVariants = await variants.getRelatedVariantsByCategory(result.variant._source.category);
     const product = await products.getProduct(result.variant._source.productSource.url);
     result.productDetail = buildProductDetail(product, result.variant);
     console.log(result.productDetail);
