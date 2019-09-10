@@ -99,7 +99,10 @@ const getVariantsByProduct = async (productUrl) => {
 const getVariant = async (variantUrl) => {
 
     const query = {
-        "_source": variantSource,
+        "_source": [
+            ...variantSource,
+            "description",
+        ],
         "query": {
             "match": {
                 "url": variantUrl
