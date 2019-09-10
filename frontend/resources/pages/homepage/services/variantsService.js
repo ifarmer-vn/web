@@ -95,6 +95,43 @@ const getVariantsByProduct = async (productUrl) => {
     const data = await searchVariant(query);
     return data.hits;
 };
+const getRelatedVariantsByCategory = async (categoryUrl) => {
+
+    const query = {
+        "_source": variantSource,
+        "query": {
+            "bool": {
+                "must": [
+                    {
+                        "term": {
+                            "default": {
+                                "value": "true"
+                            }
+                        }
+
+                    },
+                    {
+                        "term": {
+                            "category.keyword": {
+                                "value": categoryUrl
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "size": 20,
+        "sort": [
+            {
+                "impressions": {
+                    "order": "desc"
+                }
+            }
+        ]
+    };
+    const data = await searchVariant(query);
+    return data.hits;
+};
 
 const getVariant = async (variantUrl) => {
 
@@ -118,7 +155,8 @@ const revealed = {
     getTopProducts,
     getNewProducts,
     getVariantsByProduct,
-    getVariant
+    getVariant,
+    getRelatedVariantsByCategory
 };
 
 module.exports = revealed;
