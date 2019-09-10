@@ -25,6 +25,12 @@ const homepageModel = {
 	get newArticles() {
 		return data.newArticles;
 	},
+	get variantGroups() {
+		return data.variantGroups;
+	},
+	get variant() {
+		return data.variant;
+	},
 	get canonical(){
 		return data.canonical;
 	},

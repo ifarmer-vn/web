@@ -95,10 +95,27 @@ const getVariantsByProduct = async (productUrl) => {
     const data = await searchVariant(query);
     return data.hits;
 };
+
+const getVariant = async (variantUrl) => {
+
+    const query = {
+        "_source": variantSource,
+        "query": {
+            "match": {
+                "url": variantUrl
+            }
+        },
+    };
+    const data = await searchVariant(query);
+    return data.hits[0];
+};
+
+
 const revealed = {
     getTopProducts,
     getNewProducts,
-    getVariantsByProduct
+    getVariantsByProduct,
+    getVariant
 };
 
 module.exports = revealed;

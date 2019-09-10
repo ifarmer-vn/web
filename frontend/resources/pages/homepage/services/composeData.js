@@ -13,10 +13,11 @@ const getData = async () => {
     result.topArticles = await articles.getTopArticles();
     result.newArticles = await articles.getNewArticles();
     result.newProducts = await variants.getNewProducts();
-    result.variantTypes = await variantTypes.getAllVariantTypes();
-    result.relatedVariants = await variants.getVariantsByProduct("ba-khia");
-    console.log(JSON.stringify(result.variantTypes));
-    console.log(JSON.stringify(result.relatedVariants));
+    result.variant = await variants.getVariant("ba-khia-hang-xuat-khau-trong-luong-1-kg");
+    const variantTypesData = await variantTypes.getAllVariantTypes();
+    const relatedVariants = await variants.getVariantsByProduct("ba-khia");
+    result.variantGroups = buildVariantGroups(result.variant._source.url, relatedVariants, variantTypesData);
+
     result.css = css.getFileContent("./assets/css/ifarmer-homepage-min.css");
     return result;
 };
@@ -34,12 +35,12 @@ const convertObjectToArrayByOrder = (obj, field)=>{
     let arr = R.values(obj);
     arr.sort((a,b)=>{
         if(a.currentType){
-            a.currentTypeArr = convertObjectToArrayByOrder(a.currentType,'order');
+            a.variants = convertObjectToArrayByOrder(a.currentType,'order');
             delete a.children;
             delete a.currentType;
             delete a.show_name;
-            if(!b.currentTypeArr){
-                b.currentTypeArr = convertObjectToArrayByOrder(b.currentType,'order');
+            if(!b.variants){
+                b.variants = convertObjectToArrayByOrder(b.currentType,'order');
                 delete b.children;
                 delete b.currentType;
                 delete b.show_name;
@@ -53,12 +54,12 @@ const convertObjectToArrayByOrder = (obj, field)=>{
     return arr;
 };
 
-const buildVariantGroups = (variants, variantTypes) => {
-    let result = [];
+const buildVariantGroups = (currentVariantUrl,variants, variantTypes) => {
     let variantTypesObj = convertArrayToObject(variantTypes,'url');
     let foundedVariantTypes = {};
     variants.map(variant => {
-        const vTypes = variant._source.variantTypes;
+        const source = variant._source;
+        const vTypes = source.variantTypes;
         for (const pp in vTypes) {
             const valueVariantType = vTypes[pp];
             let foundedVariantType = foundedVariantTypes[pp];
@@ -70,8 +71,17 @@ const buildVariantGroups = (variants, variantTypes) => {
                 };
             }
             // console.log(variantType.children);
-            const childType = variantType.children[valueVariantType];
-            foundedVariantTypes[pp].currentType[valueVariantType] = childType;
+            const childType = {
+                ...source,
+                ...variantType.children[valueVariantType],
+                active: source.url === currentVariantUrl
+            };
+            if(!foundedVariantTypes[pp].currentType[valueVariantType]){
+                foundedVariantTypes[pp].currentType[valueVariantType] = childType;
+            }
+            if(childType.active){
+                foundedVariantTypes[pp].currentType[valueVariantType] = childType;
+            }
         }
     });
     foundedVariantTypes = convertObjectToArrayByOrder(foundedVariantTypes,'oder');

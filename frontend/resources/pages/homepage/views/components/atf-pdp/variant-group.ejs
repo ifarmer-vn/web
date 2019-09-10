@@ -1,0 +1,9 @@
+<div>
+    <p class="f4 b mv2"><%= variantGroup.name%></p>
+
+    <div class="flex flex-wrap-l overflow-x-auto overflow-y-hidden">
+        <% variantGroup.variants.forEach(variant =>{ %>
+                <%- include("./variant.ejs", {variant: variant}) -%>
+        <% }) %>
+    </div>
+</div>
