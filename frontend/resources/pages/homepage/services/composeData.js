@@ -16,6 +16,7 @@ const getData = async () => {
     result.newProducts = await variants.getNewProducts();
     result.variant = await variants.getVariant("ba-khia-hang-xuat-khau-trong-luong-1-kg");
     result.articleDetail = await articles.getArticle("bach-thuoc-loi-tieu-chua-dau-bung-kinh-nguyet-khong-deu-mo-hoi-trom");
+    result.topArticlesADP = await articles.getTopArticles(5);
     // result.relatedVariants = await variants.getRelatedVariantsByCategory(result.variant._source.category);
     const relatedVariants = await variants.getVariantsByProduct("ba-khia");
     const variantTypesData = await variantTypes.getAllVariantTypes();

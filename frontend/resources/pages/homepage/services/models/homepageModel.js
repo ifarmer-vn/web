@@ -37,6 +37,9 @@ const homepageModel = {
 	get articleDetail() {
 		return data.articleDetail;
 	},
+	get topArticlesADP() {
+		return data.topArticlesADP;
+	},
 	get canonical(){
 		return data.canonical;
 	},
