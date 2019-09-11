@@ -15,14 +15,13 @@ const getData = async () => {
     result.newArticles = await articles.getNewArticles();
     result.newProducts = await variants.getNewProducts();
     result.variant = await variants.getVariant("ba-khia-hang-xuat-khau-trong-luong-1-kg");
-    result.relatedVariants = await variants.getRelatedVariantsByCategory(result.variant._source.category);
+    result.articleDetail = await articles.getArticle("bach-thuoc-loi-tieu-chua-dau-bung-kinh-nguyet-khong-deu-mo-hoi-trom");
+    // result.relatedVariants = await variants.getRelatedVariantsByCategory(result.variant._source.category);
+    const relatedVariants = await variants.getVariantsByProduct("ba-khia");
+    const variantTypesData = await variantTypes.getAllVariantTypes();
     const product = await products.getProduct(result.variant._source.productSource.url);
     result.productDetail = buildProductDetail(product, result.variant);
-    console.log(result.productDetail);
-    const variantTypesData = await variantTypes.getAllVariantTypes();
-    const relatedVariants = await variants.getVariantsByProduct("ba-khia");
     result.variantGroups = buildVariantGroups(result.variant._source.url, relatedVariants, variantTypesData);
-
     result.css = css.getFileContent("./assets/css/ifarmer-homepage-min.css");
     return result;
 };
