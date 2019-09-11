@@ -1,56 +1,14 @@
 <div class="top-0 right-0 mt3">
     <div>
-        <h2 class="f4 mt0 mb2 border-color-0f9d58 border-bottom-style-solid border-bottom-width-2px"><span class="dib pa2 white background-color-0f9d58">Bài Viết Nổi Bật</span></h2>
-        <div class="ph2 pt1 pb2 shadow-4 br3 flex flex-wrap"><a
-                    class="w-100 w-50-m w-100-l flex flex-wrap mt1 items-center link"
-                    href="/bai-viet/dau-gac-rat-tot-cho-tre-em/" data-vars-click-ga-trigger="click_popular_article_item"
-                    data-vars-label="name:/bai-viet/dau-gac-rat-tot-cho-tre-em/" title="Dầu gấc rất tốt cho trẻ em">
-                <div class="width-5rem height-5rem">
-                    <amp-img width="1" height="1" layout="responsive"
-                             src="https://firebasestorage.googleapis.com/v0/b/ifarmer-e25f1.appspot.com/o/assets%2Fimg%2Fdau-gac%2Fsmall%2Fdau-gac-tre-em256.jpg?alt=media&amp;token=2cafcdef-85e7-48e7-bb4a-9ffbbb3e6bc1"
-                             alt="Dầu gấc rất tốt cho trẻ em"></amp-img>
-                </div>
-                <div class="pl2 w3 flex-grow-1"><h3 class="f7 dark-green mv0">Dầu gấc rất tốt cho trẻ em</h3>
-                    <div class="f8 gray mt1">12/3/2019<!-- --> Nguồn <!-- -->Ông Tư Tóc Bạc</div>
-                </div>
-            </a><a class="w-100 w-50-m w-100-l flex flex-wrap mt1 items-center link"
-                   href="/bai-viet/dau-gac-giup-ngan-ngua-ung-thu/"
-                   data-vars-click-ga-trigger="click_popular_article_item"
-                   data-vars-label="name:/bai-viet/dau-gac-giup-ngan-ngua-ung-thu/"
-                   title="Dầu gấc giúp ngăn ngừa ung thư">
-                <div class="width-5rem height-5rem">
-                    <amp-img width="1" height="1" layout="responsive"
-                             src="https://firebasestorage.googleapis.com/v0/b/ifarmer-e25f1.appspot.com/o/assets%2Fimg%2Fdau-gac%2Fsmall%2Fung.jpg?alt=media&amp;token=13180f00-81ca-4bd9-95bb-bba1c0244c19"
-                             alt="Dầu gấc giúp ngăn ngừa ung thư"></amp-img>
-                </div>
-                <div class="pl2 w3 flex-grow-1"><h3 class="f7 dark-green mv0">Dầu gấc giúp ngăn ngừa ung thư</h3>
-                    <div class="f8 gray mt1">12/3/2019<!-- --> Nguồn <!-- -->Ông Tư Tóc Bạc</div>
-                </div>
-            </a><a class="w-100 w-50-m w-100-l flex flex-wrap mt1 items-center link"
-                   href="/bai-viet/cong-dung-cua-dau-gac-doi-voi-me-bau/"
-                   data-vars-click-ga-trigger="click_popular_article_item"
-                   data-vars-label="name:/bai-viet/cong-dung-cua-dau-gac-doi-voi-me-bau/"
-                   title="Công dụng của dầu gấc đối với mẹ bầu">
-                <div class="width-5rem height-5rem">
-                    <amp-img width="1" height="1" layout="responsive"
-                             src="https://firebasestorage.googleapis.com/v0/b/ifarmer-e25f1.appspot.com/o/assets%2Fimg%2Fdau-gac%2Fsmall%2Fbau.jpg?alt=media&amp;token=3baad933-e38e-444b-aa1d-527b19dce26d"
-                             alt="Công dụng của dầu gấc đối với mẹ bầu"></amp-img>
-                </div>
-                <div class="pl2 w3 flex-grow-1"><h3 class="f7 dark-green mv0">Công dụng của dầu gấc đối với mẹ bầu</h3>
-                    <div class="f8 gray mt1">12/3/2019<!-- --> Nguồn <!-- -->Ông Tư Tóc Bạc</div>
-                </div>
-            </a><a class="w-100 w-50-m w-100-l flex flex-wrap mt1 items-center link"
-                   href="/bai-viet/tac-dung-cua-dau-gac-voi-mat/"
-                   data-vars-click-ga-trigger="click_popular_article_item"
-                   data-vars-label="name:/bai-viet/tac-dung-cua-dau-gac-voi-mat/" title="Tác dụng dầu gấc đối với mắt">
-                <div class="width-5rem height-5rem">
-                    <amp-img width="1" height="1" layout="responsive"
-                             src="https://firebasestorage.googleapis.com/v0/b/ifarmer-e25f1.appspot.com/o/assets%2Fimg%2Fdau-gac%2Fsmall%2Fdau-gac-doi-mat256.jpg?alt=media&amp;token=7f8cc86b-19cd-40fe-9daa-8daa611d769e"
-                             alt="Tác dụng dầu gấc đối với mắt"></amp-img>
-                </div>
-                <div class="pl2 w3 flex-grow-1"><h3 class="f7 dark-green mv0">Tác dụng dầu gấc đối với mắt</h3>
-                    <div class="f8 gray mt1">12/3/2019<!-- --> Nguồn <!-- -->Ông Tư Tóc Bạc</div>
-                </div>
-            </a></div>
+        <h2 class="f4 mt0 mb2 border-color-0f9d58 border-bottom-style-solid border-bottom-width-2px"><span
+                    class="dib pa2 white background-color-0f9d58">Bài Viết Nổi Bật</span></h2>
+        <div class="ph2 pt1 pb2 shadow-4 br3 flex flex-wrap">
+
+            <% topArticlesADP.forEach(article =>{ %>
+                    <%- include('./article.ejs', {article: article}); %>
+            <% }) %>
+
+        </div>
+
     </div>
 </div>

@@ -21,10 +21,10 @@ const defaultArticleQuery = {
         ],
     }
 };
-const getTopArticles = async () => {
+const getTopArticles = async (size) => {
     const query = {
         "_source": articleSource,
-        "size": 20,
+        "size": size || 20,
         "query": defaultArticleQuery,
         "sort": {
             "impressions": {
@@ -35,10 +35,10 @@ const getTopArticles = async () => {
     const data = await searchArticles(query);
     return data.hits;
 };
-const getNewArticles = async () => {
+const getNewArticles = async (size) => {
     const query = {
         "_source": articleSource,
-        "size": 20,
+        "size": size || 20,
         "query": defaultArticleQuery,
         "sort": {
             "updatedAt": {
