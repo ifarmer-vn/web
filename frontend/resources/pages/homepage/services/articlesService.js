@@ -50,9 +50,24 @@ const getNewArticles = async () => {
     return data.hits;
 };
 
+const getArticle = async (articleUrl) => {
+    const query = {
+        "query": {
+            "term": {
+                "url": {
+                    "value": articleUrl
+                }
+            }
+        }
+    };
+    const data = await searchArticles(query);
+    return data.hits[0];
+};
+
 const revealed = {
     getTopArticles,
-    getNewArticles
+    getNewArticles,
+    getArticle
 };
 
 module.exports = revealed;
