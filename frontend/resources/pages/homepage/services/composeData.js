@@ -2,9 +2,7 @@ const css = require("../../../../src/css/css");
 const R = require("ramda");
 const categories = require("../../../../src/categories/categoriesService");
 const variants = require("../../../../src/variants/variantsService");
-const variantTypes = require("../../../../src/variant-types/variantTypesService");
 const articles = require("../../../../src/articles/articlesService");
-const products = require("../../../../src/products/productsService");
 let data = require("../data-feed/homepage");
 
 const getData = async () => {

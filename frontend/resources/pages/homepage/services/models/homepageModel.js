@@ -34,12 +34,6 @@ const homepageModel = {
 	get productDetail() {
 		return data.productDetail;
 	},
-	get articleDetail() {
-		return data.articleDetail;
-	},
-	get topArticlesADP() {
-		return data.topArticlesADP;
-	},
 	get canonical(){
 		return data.canonical;
 	},
