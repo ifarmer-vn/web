@@ -1,4 +1,4 @@
-const {search} = require("../../../../src/elasticsearch/search");
+const {search} = require("../elasticsearch/search");
 
 const searchArticles = search("articles");
 
