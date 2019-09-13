@@ -26,6 +26,15 @@
         "resources/components/header/*.ejs"
       ],
       "out": "resources/pages/adp/views/used.scss"
+    },
+    {
+      "path": [
+        "resources/pages/alp/**/*.ejs",
+        "resources/components/master/*.ejs",
+        "resources/components/footer/*.ejs",
+        "resources/components/header/*.ejs"
+      ],
+      "out": "resources/pages/alp/views/used.scss"
     }
   ],
   "baseCSS": [
