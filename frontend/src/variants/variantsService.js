@@ -2,16 +2,6 @@ const {search} = require("../elasticsearch/search");
 
 const searchVariant = search("variants");
 
-const variantSource = [
-    "url",
-    "impressions",
-    "price",
-    "images.url",
-    "productSource",
-    "title",
-    "extraTitle",
-    "variantTypes"
-];
 const defaultVariantQuery = {
     "bool": {
         "must_not": [
@@ -35,7 +25,6 @@ const defaultVariantQuery = {
 const getTopProducts = async () => {
 
     const query = {
-        "_source": variantSource,
         "size": 20,
         "query": defaultVariantQuery,
         "sort": {
@@ -50,7 +39,6 @@ const getTopProducts = async () => {
 const getNewProducts = async () => {
 
     const query = {
-        "_source": variantSource,
         "size": 20,
         "query": defaultVariantQuery,
         "sort": {
@@ -66,7 +54,6 @@ const getNewProducts = async () => {
 const getVariantsByProduct = async (productUrl) => {
 
     const query = {
-        "_source": variantSource,
         "size": 20,
         "query": {
             "nested": {
@@ -95,10 +82,9 @@ const getVariantsByProduct = async (productUrl) => {
     const data = await searchVariant(query);
     return data.hits;
 };
-const getRelatedVariantsByCategory = async (categoryUrl) => {
+const getProductsByCategory = async (categoryUrl) => {
 
     const query = {
-        "_source": variantSource,
         "query": {
             "bool": {
                 "must": [
@@ -137,7 +123,6 @@ const getVariant = async (variantUrl) => {
 
     const query = {
         "_source": [
-            ...variantSource,
             "description",
         ],
         "query": {
@@ -156,7 +141,7 @@ const revealed = {
     getNewProducts,
     getVariantsByProduct,
     getVariant,
-    getRelatedVariantsByCategory
+    getProductsByCategory,
 };
 
 module.exports = revealed;

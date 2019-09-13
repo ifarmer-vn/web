@@ -13,8 +13,8 @@
             >
                 <% let productData = topProducts[i] %>
                 <% let productData1 = topProducts[i + 1] %>
-                <%- include('../product-card/product', {product: productData}); %>
-                <%- include('../product-card/product', {product: productData1}); %>
+                <%- include('../../../../../components/product-card/product', {product: productData}); %>
+                <%- include('../../../../../components/product-card/product', {product: productData1}); %>
             </div>
         <% } %>
 

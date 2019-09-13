@@ -9,7 +9,7 @@ const getData = async (productID) => {
     let result = R.clone(data);
     result.topProducts = await variants.getTopProducts();
     result.variant = await variants.getVariant(productID);
-    // result.relatedVariants = await variants.getRelatedVariantsByCategory(result.variant._source.category);
+    // result.relatedVariants = await variants.getProductsByCategory(result.variant._source.category);
     const relatedVariants = await variants.getVariantsByProduct(result.variant._source.productSource.url);
     const variantTypesData = await variantTypes.getAllVariantTypes();
     const product = await products.getProduct(result.variant._source.productSource.url);
