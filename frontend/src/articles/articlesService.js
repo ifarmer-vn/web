@@ -35,6 +35,7 @@ const getTopArticles = async (size) => {
     const data = await searchArticles(query);
     return data.hits;
 };
+
 const getNewArticles = async (size) => {
     const query = {
         "_source": articleSource,
@@ -42,6 +43,20 @@ const getNewArticles = async (size) => {
         "query": defaultArticleQuery,
         "sort": {
             "updatedAt": {
+                "order": "desc"
+            }
+        }
+    };
+    const data = await searchArticles(query);
+    return data.hits;
+};
+
+const getArticlesByArticleCategory = async (articleCategoryID, size) => {
+    const query = {
+        "_source": articleSource,
+        "size": size || 20,
+        "sort": {
+            "impressions": {
                 "order": "desc"
             }
         }
@@ -67,6 +82,7 @@ const getArticle = async (articleUrl) => {
 const revealed = {
     getTopArticles,
     getNewArticles,
+    getArticlesByArticleCategory,
     getArticle
 };
 
