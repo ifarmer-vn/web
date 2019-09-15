@@ -2,27 +2,36 @@
 
 <h1 class="f2 f1-l"><%= heading %></h1>
 
-<div class="pa3">
+<div class="pa2 pa3-ns">
+    <%-     include("./components/top-categories/view.ejs") -%>
+</div>
+
+<div class="pa2 pa3-ns">
+    <%-     include("./components/top-products/view.ejs") -%>
+</div>
+
+<div class="pa2 pa3-ns background-ffffff">
+    <%-     include("./components/top-articles/view.ejs") -%>
+</div>
+
+<div class="pa2 pa3-ns">
+    <h2 class="pa2">New products</h2>
     <%-     include("../../../components/products-list/view.ejs", {products: newProducts}) -%>
 </div>
 
-<div class="pa3">
+<div class="pa2 pa3-ns background-ffffff">
+    <%-     include("./components/top-articles/view.ejs") -%>
+</div>
+
+<div class="pa2 pa3-ns background-ffffff">
+    <h2 class="pa2">New articles</h2>
     <%-     include("../../../components/articles-list/view.ejs", { articles:newArticles }) -%>
 </div>
 
 
-<div class="pa3">
-    <%-     include("./components/top-articles/view.ejs") -%>
-</div>
 
-<div class="pa3">
-    <%-     include("./components/top-products/view.ejs") -%>
-</div>
 
-<div class="pa3">
-    <%-     include("./components/top-categories/view.ejs") -%>
-</div>
-<div class="pa3">
+<div class="pa2 pa3-ns">
     <%-     include("./components/categories-sidebar/view.ejs") -%>
 </div>
 

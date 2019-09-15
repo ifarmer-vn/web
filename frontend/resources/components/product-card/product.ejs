@@ -1,21 +1,22 @@
 <a href="shop-left-sidebar.html" class="db relative b-bottom-2 b-right-2 pa-item"
 >
-    <span
-            class="top-40 z-1 ttu right-auto absolute bg-sale pa-sale white f10 fw-500 h-24 left-20 lh-24 min-h-auto min-w-44">Sale!</span>
-    <div class="dib" title="Vegetables">
-        <amp-img width="212" height="212" layout="responsive"
+
+    <div>
+        <amp-img class="margin-auto" width="212" height="212" layout="responsive"
 
                  src="<%= product._source.images.url %>"
-                 alt="<%= product._source.extraTitle %>"></amp-img>
+                 alt="<%= product._source.productSource.title + " " + product._source.extraTitle %>"></amp-img>
         <div>
-            <div class="f13 dusty-ray" tabindex="0"><%= product._source.extraTitle %>
+            <div class="f13 dusty-ray h1" tabindex="0">
+                <% if(product._source.categorySource){ %>
+                    <%= product._source.categorySource.title %>
+                <% } %>
             </div>
-            <h3>
-                <%= product._source.extraTitle %>
+            <h3 class="line-height-15rem truncate height-15rem">
+                <%= product._source.productSource.title + " " + product._source.extraTitle %>
             </h3>
             <div>
-                <span class="dusty-ray f17 strike mr2"><%= product._source.price %></span>
-                <span class="limeade1 f21"><%= product._source.price %></span>
+                <span class="limeade1 f21"><%= product._source.price || "Lien He" %></span>
             </div>
         </div>
     </div>
