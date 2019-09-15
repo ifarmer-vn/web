@@ -1,15 +1,15 @@
-<section>
+<div class="margin-bottom--62px">
     <h2 class="z-2 header-wrap relative b ttu pa-heading-panel dib b-top-right-radius-5 bg-theme-color f15 white lh-30">
         Top Products</h2>
     <amp-carousel
-            height="732"
+            height="650"
             layout="fixed-height"
             type="carousel"
             class="none-scrollbar slider-no-padding-container z-1 tc"
             controls
     >
         <% for(let i = 0; i < topProducts.length; i += 2){ %>
-            <div class="no-padding-item ws-normal w-212"
+            <div class="no-padding-item ws-normal w-212 v-top"
             >
                 <% let productData = topProducts[i] %>
                 <% let productData1 = topProducts[i + 1] %>
@@ -17,6 +17,5 @@
                 <%- include('../../../../../components/product-card/product', {product: productData1}); %>
             </div>
         <% } %>
-
     </amp-carousel>
-</section>
+</div>
