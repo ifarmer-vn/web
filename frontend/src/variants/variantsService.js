@@ -106,7 +106,7 @@ const getProductsByCategory = async (categoryUrl) => {
                 ]
             }
         },
-        "size": 20,
+        "size": 200,
         "sort": [
             {
                 "impressions": {
