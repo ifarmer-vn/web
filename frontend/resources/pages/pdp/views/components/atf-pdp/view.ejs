@@ -2,17 +2,16 @@
     <div>
         <%- include("./product-images.ejs") -%>
     </div>
-    <div>
+    <div id="title-section">
         <h1 class="mt3"><%= productDetail.h1%></h1>
     </div>
     <div class="font-weight-400 color-80bb01 font-size-28px margin-bottom-15px">
-        <span class="main-price color-999 text-decoration-line-through"><%= productDetail.price%></span>
         <span class="discounted-price"> <%= productDetail.price%></span>
     </div>
     <div class="font-size-15px line-height-30px border-none padding-0">
         <p><%= productDetail.description%></p>
     </div>
-    <div class="width-fit-content margin-auto ttu">
+    <div  class="width-fit-content margin-auto ttu">
         <a class="dib background-color-80bb01 border-color-80bb01 color-ffffff font-size-15px text-transform-uppercase border-radius-50px padding-0-30px border-2px-solid-e0e0e0font-weight-500 height-45px line-height-43px min-width-130px padding-0-15px text-align-center">
             <amp-img class="dib" width="20" height="20"
                      src="/assets/images/icon-phone.png"

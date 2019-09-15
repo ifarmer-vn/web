@@ -122,11 +122,8 @@ const getProductsByCategory = async (categoryUrl) => {
 const getVariant = async (variantUrl) => {
 
     const query = {
-        "_source": [
-            "description",
-        ],
         "query": {
-            "match": {
+            "term": {
                 "url": variantUrl
             }
         },
