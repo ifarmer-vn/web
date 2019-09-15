@@ -1,13 +1,14 @@
-<a href="shop-left-sidebar.html" class="db pa2"
+<a href="bai-viet/<%= article._source.url %>/" class="db pa2"
 >
     <div class="pa2 relative b-left-1">
-        <div class="f13 dusty-ray" tabindex="0"><%= article._source.updatedAt.split('T')[0] + ' ' + article._source.author%>
+        <div class="f13 dusty-ray"
+             tabindex="0"><%= article._source.updatedAt.split('T')[0] + ' ' + article._source.author %>
         </div>
         <h3 class="pv2 f16">
-            <%= article._source.title%>
+            <%= article._source.title %>
         </h3>
     </div>
     <amp-img width="212" height="212" layout="responsive"
-             src="<%= article._source.images[0].url%>"
-             alt="<%= article._source.title%>"></amp-img>
+             src="<%= article._source.images[0].url %>"
+             alt="<%= article._source.title %>"></amp-img>
 </a>
