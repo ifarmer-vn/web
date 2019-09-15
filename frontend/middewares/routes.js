@@ -6,5 +6,6 @@ console.log("test", files.length);
 _.each(files, file => {
 	router.use(require(file));
 });
+router.use(require("../resources/pages/plp/fallback-route"));
 
 module.exports = router;
