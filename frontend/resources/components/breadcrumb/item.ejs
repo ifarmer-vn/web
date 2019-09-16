@@ -1,0 +1,17 @@
+<li class="vertical-align-middle display-inline-block font-weight-300 line-height-3rem font-size-14px">
+    <% if(item.url !== undefined){ %>
+        <a class="display-inline-block vertical-align-middle color-1a9cb7"
+           title="<%= item.title %>"
+           href="<%= item.url %>">
+            <%= item.title %>
+        </a>
+        <span class="display-inline-block vertical-align-middle"> > </span>
+
+    <% }else { %>
+        <span class="display-inline-block vertical-align-middle"
+              title="<%= item.title %>"
+              href="">
+                <%= item.title %>
+            </span>
+    <% } %>
+</li>

@@ -16,6 +16,9 @@ const pdpModel = {
 	get variant() {
 		return data.variant;
 	},
+	get breadcrumb() {
+		return data.breadcrumb;
+	},
 	get productDetail() {
 		return data.productDetail;
 	},

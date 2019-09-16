@@ -10,6 +10,9 @@ const plpModel = {
 	get css() {
 		return data.css;
 	},
+	get breadcrumb() {
+		return data.breadcrumb;
+	},
 	get products() {
 		return data.products;
 	},

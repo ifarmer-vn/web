@@ -15,10 +15,28 @@ const getData = async (productID) => {
     const product = await products.getProduct(result.variant._source.productSource.url);
     result.productDetail = buildProductDetail(product, result.variant);
     result.variantGroups = buildVariantGroups(result.variant._source.url, relatedVariants, variantTypesData);
+    result.breadcrumb = buildBreadcrumb(result.productDetail.categorySource,
+        `${result.productDetail.productSource.title} ${result.productDetail.extraTitle}`);
     result.css = css.getFileContent("./assets/css/ifarmer-pdp-min.css");
     return result;
 };
 
+const buildBreadcrumb = (category, title) => {
+    let result = [
+        {
+            "title": "Home",
+            "url": "/"
+        }
+    ];
+    result.push({
+        "title": category.title,
+        "url": `/${category.url}/`
+    });
+    result.push({
+        "title": title
+    });
+    return result;
+};
 const buildProductDetail = (product, variant) => {
     let result = {
         ...product._source,
