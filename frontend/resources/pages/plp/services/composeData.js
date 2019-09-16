@@ -9,8 +9,46 @@ const getData = async (categoryID) => {
     result.products = await variants.getProductsByCategory(categoryID);
     result.category = await categories.getCategory(categoryID);
     result.breadcrumb = buildBreadcrumb(result.category._source.name);
+    result.structuredData = buildStructuredData(result.products);
     result.css = css.getFileContent("./assets/css/ifarmer-plp-min.css");
     return result;
+};
+
+const buildStructuredData = (products) => {
+    let result = [];
+    result.push(buildProductStructuredData(products));
+    return result;
+};
+const buildProductStructuredData = (products) => {
+    let itemListElement = [];
+    products.map((product, index) => {
+        const productDetail = product._source;
+        console.log(productDetail);
+        const url = `http://ifarmer.vn/san-pham/${productDetail.url}/`;
+        const title = `${productDetail.productSource.title} ${productDetail.extraTitle}`;
+        let item = {
+            "@type": "Product",
+            "position": index + 1,
+            "url": url,
+            "name": title,
+            "offers": {
+                "@type": "Offer",
+                "availability": "http://schema.org/InStock",
+                "price": productDetail.price,
+                "priceCurrency": "VND"
+            }
+        };
+        if (productDetail.images) {
+            item.image = productDetail.images.url;
+        }
+        itemListElement.push(item);
+    });
+
+    return {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+        "itemListElement": itemListElement,
+    };
 };
 
 const buildBreadcrumb = (title) => {

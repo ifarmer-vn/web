@@ -16,6 +16,9 @@ const plpModel = {
 	get products() {
 		return data.products;
 	},
+	get structuredData() {
+		return data.structuredData;
+	},
 	get canonical(){
 		return data.canonical;
 	},
