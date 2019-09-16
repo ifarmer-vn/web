@@ -1,0 +1,36 @@
+<amp-analytics type="googleanalytics">
+    <script type="application/json">{
+            "vars": {
+                "gaPageName": "Ifarmer",
+                "account": "UA-119170930-1"
+            },
+            "triggers": {
+                "trackPageView": {
+                    "on": "visible",
+                    "request": "pageview"
+                },
+                "trackClicks": {
+                    "on": "click",
+                    "selector": "[data-vars-click-ga-trigger]",
+                    "request": "event",
+                    "vars": {
+                        "eventCategory": "click",
+                        "eventAction": "${clickGaTrigger}",
+                        "eventLabel": "${label}"
+                    }
+                },
+                "trackConversions": {
+                    "on": "click",
+                    "selector": "[data-ga-trigger=ga-conversion]",
+                    "request": "event",
+                    "vars": {
+                        "eventCategory": "conversion",
+                        "eventAction": "${action}",
+                        "eventLabel": "${merchant}",
+                        "anonymizeIP": ""
+                    }
+                }
+            }
+        }
+    </script>
+</amp-analytics>
