@@ -1,4 +1,6 @@
 <%- include("../../../components/master/head") -%>
+
+
 <div class="pa2 pa3-ns">
     <%- include("../../../components/breadcrumb/view.ejs", {breadcrumb:breadcrumb}) -%>
 </div>
@@ -14,6 +16,8 @@
 <div class="pa2 pa3-ns">
     <%- include("./components/content-pdp/view.ejs") -%>
 </div>
+
+<%- include("../../../components/structured-data/view.ejs", {structuredData:structuredData}) -%>
 
 
 <%- include("../../../components/master/footer") -%>

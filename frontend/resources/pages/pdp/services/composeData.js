@@ -17,14 +17,84 @@ const getData = async (productID) => {
     result.variantGroups = buildVariantGroups(result.variant._source.url, relatedVariants, variantTypesData);
     result.breadcrumb = buildBreadcrumb(result.productDetail.categorySource,
         `${result.productDetail.productSource.title} ${result.productDetail.extraTitle}`);
+    result.structuredData = buildStructuredData(result.productDetail.categorySource, result.productDetail);
+
     result.css = css.getFileContent("./assets/css/ifarmer-pdp-min.css");
+    return result;
+};
+const buildStructuredData = (category, product) => {
+    let result = [];
+    result.push(buildProductStructuredData(product));
+    if (category) {
+        result.push(buildBreadcrumbStructuredData(category));
+    }
+    return result;
+};
+const buildBreadcrumbStructuredData = (category) => {
+    const itemListElement = [
+        {
+            "@type": "ListItem",
+            "position": "1",
+            "item": {
+                "@type": "Thing",
+                "name": "Trang Chủ",
+                "@id": "http://ifarmer.vn",
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": "2",
+            "item": {
+                "@type": "Thing",
+                "name": category.title,
+                "@id": `http://ifarmer.vn/${category.url}/`,
+            }
+        }
+    ];
+    return {
+        "@context": "http://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": itemListElement,
+    };
+};
+
+const buildProductStructuredData = (productDetail) => {
+    const url = `http://ifarmer.vn/san-pham/${productDetail.url}/`;
+    const title = `${productDetail.productSource.title} ${productDetail.extraTitle}`;
+    var result = {
+        "@context": "http://schema.org",
+        "@type": "Product",
+        "mainEntityOfPage": url,
+        "url": url,
+        "name": title,
+        "description": productDetail.description + " | Bán sản phẩm " + title
+            + " | ifarmer.vn - Tôi là nông dân",
+        "category": productDetail.categorySource.title,
+        "offers": {
+            "@type": "Offer",
+            "availability": "http://schema.org/InStock",
+            "price": productDetail.price,
+            "priceCurrency": "VND"
+        }
+    };
+    if (isNaN(productDetail.price)) {
+        delete result.offers;
+    }
+    if (productDetail.images) {
+        result["image"] = {
+            "@type": "ImageObject",
+            "url": productDetail.images.url,
+            "height": 256,
+            "width": 256
+        };
+    }
     return result;
 };
 
 const buildBreadcrumb = (category, title) => {
     let result = [
         {
-            "title": "Home",
+            "title": "Trang Chủ",
             "url": "/"
         }
     ];
@@ -37,6 +107,7 @@ const buildBreadcrumb = (category, title) => {
     });
     return result;
 };
+
 const buildProductDetail = (product, variant) => {
     let result = {
         ...product._source,
