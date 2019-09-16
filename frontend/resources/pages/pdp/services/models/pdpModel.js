@@ -19,6 +19,9 @@ const pdpModel = {
 	get breadcrumb() {
 		return data.breadcrumb;
 	},
+	get structuredData() {
+		return data.structuredData;
+	},
 	get productDetail() {
 		return data.productDetail;
 	},
