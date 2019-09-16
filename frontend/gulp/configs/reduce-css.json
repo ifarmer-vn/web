@@ -16,6 +16,7 @@
     {
       "path": [
         "resources/pages/pdp/**/*.ejs",
+        "resources/components/breadcrumb/**/*.ejs",
         "resources/components/master/*.ejs",
         "resources/components/footer/*.ejs",
         "resources/components/header/*.ejs"
@@ -45,6 +46,7 @@
     {
       "path": [
         "resources/pages/plp/**/*.ejs",
+        "resources/components/breadcrumb/**/*.ejs",
         "resources/components/product-list/**/*.ejs",
         "resources/components/product-card/**/*.ejs",
         "resources/components/master/*.ejs",

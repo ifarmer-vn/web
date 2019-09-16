@@ -3,7 +3,7 @@ const {search} = require("../elasticsearch/search");
 const searchCategories = search("categories");
 const getAllCategories = async () => {
 
-	const data = await searchCategories({
+    const data = await searchCategories({
         "_source": [
             "url",
             "name",
@@ -27,9 +27,23 @@ const getAllCategories = async () => {
     });
     return data.hits;
 };
+const getCategory = async (categoryUrl) => {
+
+    const data = await searchCategories({
+        "query": {
+            "term": {
+                "url": {
+                    "value": categoryUrl
+                }
+            }
+        },
+    });
+    return data.hits[0];
+};
 
 const revealed = {
-    getAllCategories
+    getAllCategories,
+    getCategory
 };
 
 module.exports = revealed;

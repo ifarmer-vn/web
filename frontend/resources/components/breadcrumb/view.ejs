@@ -1,0 +1,7 @@
+<div id="breadcrumb-list">
+    <ul>
+        <% breadcrumb.map(item=>{ %>
+            <%- include("./item.ejs", {item:item}) %>
+        <% }) %>
+    </ul>
+</div>

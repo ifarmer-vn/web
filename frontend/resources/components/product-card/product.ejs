@@ -1,10 +1,11 @@
 <a href="/san-pham/<%= product._source.url %>/" class="db relative b-bottom-2 b-right-2 pa-item"
 >
-
     <div>
-        <amp-img class="margin-auto" width="212" height="212" layout="responsive"
 
+        <amp-img class="margin-auto" width="212" height="212" layout="responsive"
+        <% if(product._source.images) { %>
                  src="<%= product._source.images.url %>"
+                <% } %>
                  alt="<%= product._source.productSource.title + " " + product._source.extraTitle %>"></amp-img>
         <div>
             <div class="f13 dusty-ray h1" tabindex="0">
