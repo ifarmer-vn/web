@@ -1,4 +1,4 @@
-const alpService = require("./services/alpService");
+	const alpService = require("./services/alpService");
 
 let alpController = async (req, res) => {
 	let articleCategoryID = req.params.articleCategoryID;
