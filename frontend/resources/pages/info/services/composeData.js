@@ -1,9 +1,10 @@
 const css = require("../../../../src/css/css");
 const R = require("ramda");
 let data = require("../data-feed/info");
-
-const getData = async () => {
+let pagesService = require("../../../../src/pages/pagesService");
+const getData = async (path) => {
     let result = R.clone(data);
+    result.page = await pagesService.getPage(path);
     result.css = css.getFileContent("./assets/css/ifarmer-info-min.css");
     return result;
 };
