@@ -10,8 +10,8 @@ const infoModel = {
 	get css() {
 		return data.css;
 	},
-	get articles() {
-		return data.articles;
+	get page() {
+		return data.page;
 	},
 	get canonical(){
 		return data.canonical;
