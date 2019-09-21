@@ -1,6 +1,7 @@
 const css = require("../../../../src/css/css");
 const R = require("ramda");
 const variants = require("../../../../src/variants/variantsService");
+const articles = require("../../../../src/articles/articlesService");
 const variantTypes = require("../../../../src/variant-types/variantTypesService");
 const products = require("../../../../src/products/productsService");
 let data = require("../data-feed/pdp");
@@ -10,9 +11,13 @@ const getData = async (productID) => {
     result.topProducts = await variants.getTopProducts();
     result.variant = await variants.getVariant(productID);
     // result.relatedVariants = await variants.getProductsByCategory(result.variant._source.category);
-    const relatedVariants = await variants.getVariantsByProduct(result.variant._source.productSource.url);
+    const productUrl = result.variant._source.productSource.url;
+    const relatedVariants = await variants.getVariantsByProduct(productUrl);
     const variantTypesData = await variantTypes.getAllVariantTypes();
-    const product = await products.getProduct(result.variant._source.productSource.url);
+    const product = await products.getProduct(productUrl);
+    console.log("test");
+    const relatedArticles = await articles.getRelatedArticlesByProduct(productUrl,8);
+    result.relatedArticles = buildRelatedArticles(relatedArticles);
     result.productDetail = buildProductDetail(product, result.variant);
     result.variantGroups = buildVariantGroups(result.variant._source.url, relatedVariants, variantTypesData);
     result.breadcrumb = buildBreadcrumb(result.productDetail.categorySource,
@@ -21,6 +26,13 @@ const getData = async (productID) => {
 
     result.css = css.getFileContent("./assets/css/ifarmer-pdp-min.css");
     return result;
+};
+
+const buildRelatedArticles = (relatedArticles) => {
+  return {
+      articles: relatedArticles.slice(0,3),
+      shortenArticles: relatedArticles.slice(3,relatedArticles.length)
+  }
 };
 const buildStructuredData = (category, product) => {
     let result = [];
