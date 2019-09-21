@@ -1,13 +1,14 @@
-<a href="/san-pham/<%= variant.url%>/#title-section"
-   class="link outline-0"
+<a href="/san-pham/<%= variant.url %>/#title-section"
+   class="link outline-0 "
    data-vars-click-ga-trigger="click_variant_item"
-   data-vars-label="name:<%= variant.url%>"
-   title="<%= variant.name%>">
-<!--    class="bg-sale"-->
-    <div class="ba pa1 tc min-w4 dark-gray ma1 nowrap <%= variant.active? 'bg-sale ': 'inactive '%> ba b--green"><span class="dib v-base"><amp-img
-                    src="<%= variant.images.url%>"
+   data-vars-label="name:<%= variant.url %>"
+   title="<%= variant.name %>">
+    <!--    class="background-color-ecd198"-->
+    <div class="ba pa1 tc min-w4 dark-gray ma1 nowrap <%= variant.active ? 'background-color-ecd198' : '' %> ba b--green"><span
+                class="dib v-base"><amp-img
+                    src="<%= variant.images.url %>"
                     width="40" height="40"
             ></amp-img></span><span
-                class="dib v-base"><span class="db"><%= variant.name%><!-- --> </span>  <span
-                    class="ma1 green"><%= variant.price%></span></span></div>
+                class="dib v-base"><span class="db"><%= variant.name %><!-- --> </span>  <span
+                    class="ma1 green"><%= variant.price.toString().money() %></span></span></div>
 </a>

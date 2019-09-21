@@ -17,7 +17,11 @@
                 <%= product._source.productSource.title + " " + product._source.extraTitle %>
             </h3>
             <div>
-                <span class="limeade1 f21"><%= product._source.price || "Lien He" %></span>
+                <% if(product._source.price) { %>
+                    <span class="limeade1 f21"><%= product._source.price.toString().money() %></span>
+                <% }else{ %>
+                    <span class="limeade1 f21">Liên Hệ</span>
+                <% } %>
             </div>
         </div>
     </div>
