@@ -1,2 +1,10 @@
 @import "../../../styles/standards/index";
+
+@import "../../../components/products-carousel/style";
+
 @import "used";
+
+@include white;
+@include scorpion;
+@include bg-white;
+@include bg-theme-color;
