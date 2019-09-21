@@ -1,0 +1,15 @@
+<a class="overflow-hidden mt2 db link"
+   href="/bai-viet/<%= article._source.url %>/"
+   data-vars-click-ga-trigger="click_articles_item"
+   data-vars-label="name:articles:<%= article._source.url %>">
+    <div class="absolute  w4 h4 w-12-ns h-12-ns">
+        <amp-img class="br-100" width="8rem" height="8rem" layout="responsive"
+                 src="<%= article._source.images[0].url %>"></amp-img>
+    </div>
+
+    <div class="min-h-auto-ns ml6 ml-12-ns pa2 min-height-8rem">
+        <div class="f4 overflow-hidden blue"><%= article._source.title %></div>
+        <div class="f7 gray mt1"><%= article._source.updatedAt.split('T')[0] + ' ' + article._source.author %></div>
+    </div>
+    <div class="box-3 ml-12-ns pa2 lh-title overflow-hidden f6 height-6rem"><%= article._source.description %></div>
+</a>

@@ -8,10 +8,11 @@
 <div class="pa2 pa3-ns">
     <%- include("./components/atf-pdp/view.ejs") -%>
 </div>
-
-<div class="pa2 pa3-ns">
-    <%- include("./components/related-articles/view.ejs") -%>
-</div>
+<% if(relatedArticles){ %>
+    <div class="pa2 pa3-ns">
+        <%- include("./components/related-articles/view.ejs") -%>
+    </div>
+<% } %>
 
 <div class="pa2 pa3-ns">
     <%- include("./components/content-pdp/view.ejs") -%>

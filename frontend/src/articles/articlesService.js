@@ -2,14 +2,7 @@ const {search} = require("../elasticsearch/search");
 
 const searchArticles = search("articles");
 
-const articleSource = [
-    "url",
-    "impressions",
-    "images.url",
-    "title",
-    "author",
-    "updatedAt"
-];
+
 const defaultArticleQuery = {
     "bool": {
         "must_not": [
@@ -23,7 +16,6 @@ const defaultArticleQuery = {
 };
 const getTopArticles = async (size) => {
     const query = {
-        "_source": articleSource,
         "size": size || 20,
         "query": defaultArticleQuery,
         "sort": {
@@ -38,7 +30,6 @@ const getTopArticles = async (size) => {
 
 const getNewArticles = async (size) => {
     const query = {
-        "_source": articleSource,
         "size": size || 20,
         "query": defaultArticleQuery,
         "sort": {
@@ -53,8 +44,31 @@ const getNewArticles = async (size) => {
 
 const getArticlesByArticleCategory = async (articleCategoryID, size) => {
     const query = {
-        "_source": articleSource,
         "size": size || 20,
+        "sort": {
+            "impressions": {
+                "order": "desc"
+            }
+        }
+    };
+    const data = await searchArticles(query);
+    return data.hits;
+};
+
+const getRelatedArticlesByProduct = async (productID, size) => {
+    const query = {
+        "size": size || 20,
+        "query": {
+            "bool": {
+                "must": [
+                    {
+                        "match_phrase": {
+                            "related_products": productID
+                        }
+                    }
+                ]
+            }
+        },
         "sort": {
             "impressions": {
                 "order": "desc"
@@ -83,7 +97,8 @@ const revealed = {
     getTopArticles,
     getNewArticles,
     getArticlesByArticleCategory,
-    getArticle
+    getRelatedArticlesByProduct,
+    getArticle,
 };
 
 module.exports = revealed;
