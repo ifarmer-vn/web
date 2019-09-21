@@ -1,4 +1,5 @@
 const express = require('express');
+const utils = require('./src/utils');
 const server = express();
 const port = 3000;
 const routes = require("./middewares/routes");

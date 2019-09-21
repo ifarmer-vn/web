@@ -1,24 +1,24 @@
-<div class="bg-white pa3">
-    <div>
+<div class="bg-white pa3 relative pl7-l flex-l flex-wrap-l">
+    <div class="absolute-l h5 w5 margin-auto top-1 left-1">
         <%- include("./product-images.ejs") -%>
     </div>
-    <div id="title-section">
+    <div id="title-section" class="pl4-l w-100-l">
         <h1 class="mt3"><%= productDetail.h1%></h1>
     </div>
-    <div class="font-weight-400 color-80bb01 font-size-28px margin-bottom-15px">
-        <span class="discounted-price"> <%= productDetail.price%></span>
+    <div class="font-weight-400 color-80bb01 font-size-28px margin-bottom-15px pl4-l w-100-l">
+        <span class="discounted-price"> <%= productDetail.price.toString().money()%></span>
     </div>
-    <div class="font-size-15px line-height-30px border-none padding-0">
+    <div class="font-size-15px line-height-30px border-none padding-0 pl4-l w-100-l">
         <p><%= productDetail.description%></p>
     </div>
-    <div  class="width-fit-content margin-auto ttu">
+    <div  class="width-fit-content margin-auto ttu pl4-l w-100-l">
         <a class="dib background-color-80bb01 border-color-80bb01 color-ffffff font-size-15px text-transform-uppercase border-radius-50px padding-0-30px border-2px-solid-e0e0e0font-weight-500 height-45px line-height-43px min-width-130px padding-0-15px text-align-center">
-            <amp-img class="dib" width="20" height="20"
+            <amp-img class="dib v-mid" width="30" height="30"
                      src="/assets/images/svg/ios-cart.svg"
                      ></amp-img>
-            <div class="dib">Mua hàng</div></a>
+            <div class="dib v-mid">Mua hàng</div></a>
     </div>
-    <div>
+    <div class="pl4-l w-100-l">
         <%- include("./variants.ejs") -%>
     </div>
     <!--    <div>Categories</div>-->
