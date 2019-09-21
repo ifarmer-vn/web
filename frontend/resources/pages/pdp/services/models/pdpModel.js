@@ -19,6 +19,9 @@ const pdpModel = {
 	get relatedArticles() {
 		return data.relatedArticles;
 	},
+	get relatedProducts() {
+		return data.relatedProducts;
+	},
 	get breadcrumb() {
 		return data.breadcrumb;
 	},

@@ -82,7 +82,50 @@ const getVariantsByProduct = async (productUrl) => {
     const data = await searchVariant(query);
     return data.hits;
 };
-const getProductsByCategory = async (categoryUrl) => {
+const getRelatedProductsByCategory = async (categoryUrl, productUrl, size) => {
+
+    const query = {
+        "query": {
+            "bool": {
+                "must": [
+                    {
+                        "term": {
+                            "default": {
+                                "value": "true"
+                            }
+                        }
+
+                    },
+                    {
+                        "term": {
+                            "category.keyword": {
+                                "value": categoryUrl
+                            }
+                        }
+                    }
+                ],
+                "must_not": [
+                    {
+                        "term": {
+                            "product": productUrl
+                        }
+                    }
+                ]
+            }
+        },
+        "size": size || 20,
+        "sort": [
+            {
+                "impressions": {
+                    "order": "desc"
+                }
+            }
+        ]
+    };
+    const data = await searchVariant(query);
+    return data.hits;
+};
+const getProductsByCategory = async (categoryUrl, size) => {
 
     const query = {
         "query": {
@@ -106,7 +149,7 @@ const getProductsByCategory = async (categoryUrl) => {
                 ]
             }
         },
-        "size": 200,
+        "size": size || 20,
         "sort": [
             {
                 "impressions": {
@@ -139,6 +182,7 @@ const revealed = {
     getVariantsByProduct,
     getVariant,
     getProductsByCategory,
+    getRelatedProductsByCategory,
 };
 
 module.exports = revealed;
