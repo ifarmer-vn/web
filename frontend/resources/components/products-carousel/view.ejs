@@ -15,7 +15,9 @@
                 <% let productData = products[i] %>
                 <% let productData1 = products[i + 1] %>
                 <%- include('../product-card/product', {product: productData}); %>
-                <%- include('../product-card/product', {product: productData1}); %>
+                <% if(productData1){ %>
+                    <%- include('../product-card/product', {product: productData1}); %>
+                <% } %>
             </div>
         <% } %>
     </amp-carousel>
