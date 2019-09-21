@@ -16,6 +16,9 @@ const adpModel = {
     get relatedArticles() {
         return data.relatedArticles;
     },
+    get relatedProducts() {
+        return data.relatedProducts;
+    },
     get articleDetail() {
         return data.articleDetail;
     },

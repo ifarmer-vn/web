@@ -1,6 +1,7 @@
 const css = require("../../../../src/css/css");
 const R = require("ramda");
 const articles = require("../../../../src/articles/articlesService");
+const variants = require("../../../../src/variants/variantsService");
 let data = require("../data-feed/adp");
 
 const getData = async (articleID) => {
@@ -8,7 +9,8 @@ const getData = async (articleID) => {
     result.topArticles = await articles.getTopArticles();
     result.articleDetail = await articles.getArticle(articleID);
     result.topArticlesADP = await articles.getTopArticles(5);
-    const related_products = result.articleDetail._source.related_products;
+    const related_products = result.articleDetail._source.related_products.split(',')[0];
+    result.relatedProducts = await variants.getVariantsByProduct(related_products);
     const relatedArticlesByProduct = await articles.getRelatedArticlesByProduct(related_products, articleID, 20);
     result.relatedArticles = relatedArticlesByProduct;
     result.structuredData = buildStructuredData(result.articleDetail);

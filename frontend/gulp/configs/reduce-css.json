@@ -33,6 +33,8 @@
         "resources/components/master/*.ejs",
         "resources/components/articles-carousel/**/*.ejs",
         "resources/components/article-card/**/*.ejs",
+        "resources/components/products-carousel/**/*.ejs",
+        "resources/components/product-card/**/*.ejs",
         "resources/components/footer/*.ejs",
         "resources/components/header/*.ejs"
       ],
