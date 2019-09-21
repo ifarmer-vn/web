@@ -1,5 +1,5 @@
 <div class="margin-bottom--62px">
-    <h2 class="pa-heading-panel dib relative b z-2 f30 black lh-30">Top Bài Viết</h2>
+    <h2 class="pa-heading-panel dib relative b z-2 f30 black lh-30"><%= heading %></h2>
     <amp-carousel
             class="none-scrollbar slider-article bg-white z-1"
             height="402"
@@ -8,9 +8,9 @@
             controls
     >
 
-        <% topArticles.forEach(article =>{ %>
+        <% articles.forEach(article =>{ %>
             <div class="item ws-normal w-224">
-                <%- include('../../../../../components/article-card/article.ejs', {article: article}); %>
+                <%- include('../article-card/article.ejs', {article: article}); %>
             </div>
         <% }) %>
     </amp-carousel>

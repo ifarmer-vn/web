@@ -13,6 +13,9 @@ const adpModel = {
     get topArticles() {
         return data.topArticles;
     },
+    get relatedArticles() {
+        return data.relatedArticles;
+    },
     get articleDetail() {
         return data.articleDetail;
     },

@@ -11,7 +11,7 @@
 </div>
 
 <div class="pa2 pa3-ns background-ffffff">
-    <%-     include("./components/top-articles/view.ejs") -%>
+    <%-     include("../../../components/articles-carousel/view.ejs", {articles: topArticles, heading:"Bài Viết Nổi Bật"}) -%>
 </div>
 
 <div class="pa2 pa3-ns">
@@ -19,9 +19,6 @@
     <%-     include("../../../components/products-list/view.ejs", {products: newProducts}) -%>
 </div>
 
-<div class="pa2 pa3-ns background-ffffff">
-    <%-     include("./components/top-articles/view.ejs") -%>
-</div>
 
 <div class="pa2 pa3-ns background-ffffff">
     <h2 class="pa2">Bài Viết Mới</h2>
