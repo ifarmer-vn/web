@@ -8,6 +8,9 @@ const getData = async (articleID) => {
     result.topArticles = await articles.getTopArticles();
     result.articleDetail = await articles.getArticle(articleID);
     result.topArticlesADP = await articles.getTopArticles(5);
+    const related_products = result.articleDetail._source.related_products;
+    const relatedArticlesByProduct = await articles.getRelatedArticlesByProduct(related_products, articleID, 20);
+    result.relatedArticles = relatedArticlesByProduct;
     result.structuredData = buildStructuredData(result.articleDetail);
     result.css = css.getFileContent("./assets/css/ifarmer-adp-min.css");
     return result;
@@ -55,8 +58,7 @@ const buildArticleStructuredData = (article) => {
         },
     };
     //Todo article must have hero image
-    if(articleDetail.images)
-    {
+    if (articleDetail.images) {
         result.image = {
             "@type": "ImageObject",
             url: articleDetail.images[0].url,

@@ -10,6 +10,11 @@
     <%-     include("./components/top-articles-adp/view.ejs") -%>
 </div>
 
+<div class="pa2 pa3-ns background-ffffff">
+    <%-     include("../../../components/articles-carousel/view.ejs", {articles: relatedArticles, heading:"Bài Viết Liên Quan"}) -%>
+</div>
+
+
 <%- include("../../../components/structured-data/view.ejs", {structuredData:structuredData}) -%>
 
 
