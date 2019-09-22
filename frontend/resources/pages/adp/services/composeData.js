@@ -8,6 +8,7 @@ const getData = async (articleID) => {
     let result = R.clone(data);
     result.topArticles = await articles.getTopArticles();
     result.articleDetail = await articles.getArticle(articleID);
+    result.newArticles = await articles.getNewArticles(5);
     result.topArticlesADP = await articles.getTopArticles(5);
     const related_products = result.articleDetail._source.related_products.split(',')[0];
     result.relatedProducts = await variants.getVariantsByProduct(related_products);

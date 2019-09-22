@@ -11,3 +11,8 @@
 .pa-sale{
     padding: 0 9px;
 }
+@media screen and (min-width: 60em) {
+    .pr-20-l {
+        padding-right: 20rem;
+    }
+}

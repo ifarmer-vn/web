@@ -12,8 +12,6 @@ const getData = async () => {
     result.topArticles = await articles.getTopArticles();
     result.newArticles = await articles.getNewArticles();
     result.newProducts = await variants.getNewProducts();
-    result.articleDetail = await articles.getArticle("bach-thuoc-loi-tieu-chua-dau-bung-kinh-nguyet-khong-deu-mo-hoi-trom");
-    result.topArticlesADP = await articles.getTopArticles(5);
     result.css = css.getFileContent("./assets/css/ifarmer-homepage-min.css");
     return result;
 };
