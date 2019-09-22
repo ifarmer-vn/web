@@ -1,26 +1,27 @@
 <%- include("../../../components/master/head") -%>
-
-<h1 class="f2 f1-l mv3"><%= heading %></h1>
-<p>Cầu nối giữa người nông dân và người tiêu dùng</p>
-<div class="pa2 pa3-ns">
+<div class="pa2 pa0-ns">
+    <h1 class="f2 f1-l mv3"><%= heading %></h1>
+    <p>Cầu nối giữa người nông dân và người tiêu dùng</p>
+</div>
+<div class="pa2 pa0-ns">
     <%-     include("./components/top-categories/view.ejs") -%>
 </div>
 
-<div class="pa2 pa3-ns">
+<div class="pa2 pa0-ns">
     <%-     include("../../../components/products-carousel/view.ejs", {products: topProducts, heading:"Sản phẩm Nổi Bật"}) -%>
 </div>
 
-<div class="pa2 pa3-ns background-ffffff">
+<div class="pa2 pa0-ns background-ffffff">
     <%-     include("../../../components/articles-carousel/view.ejs", {articles: topArticles, heading:"Bài Viết Nổi Bật"}) -%>
 </div>
 
-<div class="pa2 pa3-ns background-ffffff">
-    <h2 class="pa2">Bài Viết Mới</h2>
+<div class="pa2 pa0-ns background-ffffff">
+    <h2 class="pa2 pa0-ns">Bài Viết Mới</h2>
     <%-     include("../../../components/articles-list/view.ejs", { articles:newArticles }) -%>
 </div>
 
-<div class="pa2 pa3-ns">
-    <h2 class="pa2">Sản Phẩm Mới</h2>
+<div class="pa2 pa0-ns">
+    <h2 class="pa2 pa0-ns">Sản Phẩm Mới</h2>
     <%-     include("../../../components/products-list/view.ejs", {products: newProducts}) -%>
 </div>
 
