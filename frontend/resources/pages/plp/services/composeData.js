@@ -23,7 +23,6 @@ const buildProductStructuredData = (products) => {
     let itemListElement = [];
     products.map((product, index) => {
         const productDetail = product._source;
-        console.log(productDetail);
         const url = `http://ifarmer.vn/san-pham/${productDetail.url}/`;
         const title = `${productDetail.productSource.title} ${productDetail.extraTitle}`;
         let item = {

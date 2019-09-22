@@ -1,7 +1,7 @@
 node_modules/
 .idea
 .env
-assets/
+frontend/assets/
 frontend/Dockerfile
 docker-compose.yml
 **/*used.scss

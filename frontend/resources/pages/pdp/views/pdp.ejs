@@ -1,25 +1,25 @@
 <%- include("../../../components/master/head") -%>
 
 
-<div class="pa2 pa3-ns">
+<div class="pa2 pa0-ns">
     <%- include("../../../components/breadcrumb/view.ejs", {breadcrumb:breadcrumb}) -%>
 </div>
 
-<div class="pa2 pa3-ns">
+<div class="pa2 pa0-ns">
     <%- include("./components/atf-pdp/view.ejs") -%>
 </div>
 <% if(relatedArticles.articles.length>0){ %>
-    <div class="pa2 pa3-ns">
+    <div class="pa2 pa0-ns">
         <%- include("./components/related-articles/view.ejs") -%>
     </div>
 <% } %>
 
-<div class="pa2 pa3-ns">
+<div class="pa2 pa0-ns">
     <%- include("./components/content-pdp/view.ejs") -%>
 </div>
 
 <% if(relatedProducts.length > 0){ %>
-    <div class="pa2 pa3-ns">
+    <div class="pa2 pa0-ns">
         <%- include("../../../components/products-carousel/view.ejs", {products: relatedProducts, heading:"Sản phẩm liên quan"}) %>
     </div>
 <% } %>
