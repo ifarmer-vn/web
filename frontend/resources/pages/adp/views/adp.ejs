@@ -7,28 +7,34 @@
     </div>
 </div>
 
-<div class="pa2 pa0-ns relative-l">
-    <div class="pr-20-l">
+<div class="pa2 pa0-ns flex-l flex-wrap-l">
+    <div class="w-73-l">
         <%- include("./components/content-adp/view.ejs") -%>
     </div>
-    <div class="absolute-l right-0-l top-0-l width-300px mt3 mt0-l">
-        <div class="mt3 mt0-l">
-            <%- include("./components/articles-panel/view.ejs", {articles:topArticlesADP, heading:"Bài Viết Nổi Bật"}) -%>
-        </div>
-        <div class="mt3">
-            <%- include("./components/articles-panel/view.ejs", {articles:newArticles, heading:"Bài Viết Mới"}) -%>
+    <div class="w-27-l">
+        <div class="w-300px-l mt3 mt0-l margin-left-auto">
+            <div class="mt3 mt0-l">
+                <%- include("./components/articles-panel/view.ejs", {articles:topArticlesADP, heading:"Bài Viết Nổi Bật"}) -%>
+            </div>
+            <div class="mt3">
+                <%- include("./components/articles-panel/view.ejs", {articles:newArticles, heading:"Bài Viết Mới"}) -%>
+            </div>
         </div>
     </div>
 
 </div>
 
-<div class="pa2 pa0-ns background-ffffff">
-    <%- include("../../../components/articles-carousel/view.ejs", {articles: relatedArticles, heading:"Bài Viết Liên Quan"}) -%>
-</div>
+<% if(relatedArticles.length){ %>
+    <div class="pa2 pa0-ns background-ffffff">
+        <%- include("../../../components/articles-carousel/view.ejs", {articles: relatedArticles, heading:"Bài Viết Liên Quan"}) -%>
+    </div>
+<% } %>
+<% if(relatedProducts.length){ %>
 
-<div class="pa2 pa0-ns">
-    <%- include("../../../components/products-carousel/view.ejs", {products: relatedProducts, heading:"Sản phẩm Liên Quan"}) -%>
-</div>
+    <div class="pa2 pa0-ns">
+        <%- include("../../../components/products-carousel/view.ejs", {products: relatedProducts, heading:"Sản phẩm Liên Quan"}) -%>
+    </div>
+<% } %>
 
 <%- include("../../../components/structured-data/view.ejs", {structuredData:structuredData}) -%>
 

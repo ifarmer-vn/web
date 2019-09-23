@@ -15,4 +15,7 @@
 }
 @media screen and (min-width: 60em) {
     .width-fit-content-l {width: fit-content}
+    .w-73-l {width: 73%}
+    .w-27-l {width: 27%}
+    .w-300px-l {width: 300px}
 }
