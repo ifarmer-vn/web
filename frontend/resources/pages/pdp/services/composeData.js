@@ -14,7 +14,7 @@ const getData = async (productID) => {
     const relatedVariants = await variants.getVariantsByProduct(productUrl);
     const variantTypesData = await variantTypes.getAllVariantTypes();
     const product = await products.getProduct(productUrl);
-    const relatedArticles = await articles.getRelatedArticlesByProduct(productUrl,8);
+    const relatedArticles = await articles.getRelatedArticlesByProduct(productUrl, 8);
     result.relatedProducts = await variants.getRelatedProductsByCategory(result.variant._source.category, productUrl);
     result.relatedArticles = buildRelatedArticles(relatedArticles);
     result.productDetail = buildProductDetail(product, result.variant);
@@ -23,15 +23,17 @@ const getData = async (productID) => {
         `${result.productDetail.productSource.title} ${result.productDetail.extraTitle}`);
     result.structuredData = buildStructuredData(result.productDetail.categorySource, result.productDetail);
 
+    result.canonical = `/san-pham/${productID}/`;
+
     result.css = css.getFileContent("./assets/css/ifarmer-pdp-min.css");
     return result;
 };
 
 const buildRelatedArticles = (relatedArticles) => {
-  return {
-      articles: relatedArticles.slice(0,3),
-      shortenArticles: relatedArticles.slice(3,relatedArticles.length)
-  }
+    return {
+        articles: relatedArticles.slice(0, 3),
+        shortenArticles: relatedArticles.slice(3, relatedArticles.length)
+    }
 };
 const buildStructuredData = (category, product) => {
     let result = [];

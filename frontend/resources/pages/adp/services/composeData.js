@@ -16,6 +16,9 @@ const getData = async (articleID) => {
     result.relatedArticles = relatedArticlesByProduct;
     result.structuredData = buildStructuredData(result.articleDetail);
     result.css = css.getFileContent("./assets/css/ifarmer-adp-min.css");
+
+    result.canonical = `/bai-viet/${articleID}/`;
+
     return result;
 };
 
