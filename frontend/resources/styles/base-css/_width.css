@@ -13,3 +13,6 @@
 .min-w-44 {
     min-width: 44px;
 }
+@media screen and (min-width: 60em) {
+    .width-fit-content-l {width: fit-content}
+}
