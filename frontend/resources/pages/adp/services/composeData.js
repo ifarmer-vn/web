@@ -10,7 +10,7 @@ const getData = async (articleID) => {
     result.articleDetail = await articles.getArticle(articleID);
     result.newArticles = await articles.getNewArticles(5);
     result.topArticlesADP = await articles.getTopArticles(5);
-    const related_products = result.articleDetail._source.related_products.split(',')[0];
+    const related_products = result.articleDetail._source.related_products ? result.articleDetail._source.related_products.split(',')[0] : '';
     result.relatedProducts = await variants.getVariantsByProduct(related_products);
     const relatedArticlesByProduct = await articles.getRelatedArticlesByProduct(related_products, articleID, 20);
     result.relatedArticles = relatedArticlesByProduct;
