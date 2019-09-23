@@ -3,25 +3,25 @@
     <h1 class="f2 f1-l mv3"><%= heading %></h1>
     <p>Cầu nối giữa người nông dân và người tiêu dùng</p>
 </div>
-<div class="pa2 pa0-ns">
+<div class="mt3 pa2 pa0-ns">
     <%-     include("./components/top-categories/view.ejs") -%>
 </div>
 
-<div class="pa2 pa0-ns">
+<div class="mt3 pa2 pa0-ns">
     <%-     include("../../../components/products-carousel/view.ejs", {products: topProducts, heading:"Sản phẩm Nổi Bật"}) -%>
 </div>
 
-<div class="pa2 pa0-ns background-ffffff">
+<div class="mt3 pa2 pa0-ns ">
     <%-     include("../../../components/articles-carousel/view.ejs", {articles: topArticles, heading:"Bài Viết Nổi Bật"}) -%>
 </div>
 
-<div class="pa2 pa0-ns background-ffffff">
-    <h2 class="pa2 pa0-ns f21">Bài Viết Mới</h2>
+<div class="mt3 pa2 pa0-ns background-ffffff">
+    <h2 class="pa2 f21">Bài Viết Mới</h2>
     <%-     include("../../../components/articles-list/view.ejs", { articles:newArticles }) -%>
 </div>
 
-<div class="pa2 pa0-ns">
-    <h2 class="pa2 pa0-ns f21">Sản Phẩm Mới</h2>
+<div class="mt3 pa2 pa0-ns">
+    <h2 class="pa2 f21">Sản Phẩm Mới</h2>
     <%-     include("../../../components/products-list/view.ejs", {products: newProducts}) -%>
 </div>
 
