@@ -6,6 +6,9 @@ const getData = async (path) => {
     let result = R.clone(data);
     result.page = await pagesService.getPage(path);
     result.css = css.getFileContent("./assets/css/ifarmer-info-min.css");
+
+    result.canonical = `/${path}/`;
+
     return result;
 };
 const revealed = {

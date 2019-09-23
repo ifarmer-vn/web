@@ -4,6 +4,14 @@
 @import "others";
 @import "typography";
 
+@import "../generated/mixin";
+
 @import "../../components/header/sitebar";
 
-@import "../generated/mixin";
+
+.bg-will-sand {
+  background: #f5f5f5;
+}
+.bg-white {
+  background: $white;
+}

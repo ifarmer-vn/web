@@ -13,7 +13,11 @@ const getData = async () => {
     result.newArticles = await articles.getNewArticles();
     result.newProducts = await variants.getNewProducts();
     result.css = css.getFileContent("./assets/css/ifarmer-homepage-min.css");
+
+    result.canonical = `/`;
+
     return result;
+
 };
 
 const revealed = {

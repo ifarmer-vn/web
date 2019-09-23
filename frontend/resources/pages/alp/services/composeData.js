@@ -7,6 +7,9 @@ const getData = async (articleCategoryID) => {
     let result = R.clone(data);
     result.articles = await articles.getArticlesByArticleCategory(articleCategoryID);
     result.css = css.getFileContent("./assets/css/ifarmer-alp-min.css");
+
+    result.canonical = `/danh-muc-bai-viet/${articleCategoryID}/`;
+
     return result;
 };
 const revealed = {
