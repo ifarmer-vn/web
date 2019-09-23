@@ -1,3 +1,8 @@
 .ml-3{
     margin-left: 3rem;
 }
+@media screen and (min-width: 60em) {
+    .margin-0-auto-l{margin: 0 auto}
+    .margin-right-auto-l{margin-right: auto}
+    .margin-left-auto-l{margin-left: auto}
+}

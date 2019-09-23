@@ -1,0 +1,28 @@
+@include breakpoint-l {
+  #target-element-right .top-menu{
+    margin: 0 auto;
+  }
+  .top-menu a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    border-radius: 4px;
+    background-color: #74ab74;
+    &.new-product {
+      background-color: #FF6633;
+    }
+  }
+  .top-menu a:hover {
+    background-color: #4CAF50;
+    color: #945353;
+  }
+
+  .top-menu a.active {
+    background-color: #4dd;
+    color: white;
+  }
+}
