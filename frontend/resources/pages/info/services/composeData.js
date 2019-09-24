@@ -7,6 +7,8 @@ const getData = async (path) => {
     result.page = await pagesService.getPage(path);
     result.css = css.getFileContent("./assets/css/ifarmer-info-min.css");
 
+    result.title = result.page._source.title;
+
     result.canonical = `/${path}/`;
 
     return result;

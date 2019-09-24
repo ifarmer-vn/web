@@ -11,7 +11,7 @@ const getData = async (term) => {
         minimum_should_match -= 10;
     }
     result.css = css.getFileContent("./assets/css/ifarmer-plp-min.css");
-    result.heading = `Tìm Kiếm "${term}"`;
+    result.title = result.heading = `Tìm Kiếm "${term}"`;
 
     result.canonical = `/tim-kiem/`;
 
