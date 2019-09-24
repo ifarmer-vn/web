@@ -6,12 +6,17 @@ let data = require("../data-feed/plp");
 
 const getData = async (categoryID) => {
     let result = R.clone(data);
-    result.products = await variants.getProductsByCategory(categoryID);
-    result.category = await categories.getCategory(categoryID);
-    result.breadcrumb = buildBreadcrumb(result.category._source.name);
-    result.structuredData = buildStructuredData(result.products);
-    result.css = css.getFileContent("./assets/css/ifarmer-plp-min.css");
-    result.heading = result.category._source.title;
+    try {
+        result.products = await variants.getProductsByCategory(categoryID);
+        result.category = await categories.getCategory(categoryID);
+        result.breadcrumb = buildBreadcrumb(result.category._source.name);
+        result.structuredData = buildStructuredData(result.products);
+        result.css = css.getFileContent("./assets/css/ifarmer-plp-min.css");
+        result.heading = result.category._source.title;
+    } catch (e) {
+        console.log("Not found")
+    }
+
     result.canonical = `/${categoryID}/`;
 
     return result;
