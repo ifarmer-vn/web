@@ -8,6 +8,8 @@ const getData = async (articleCategoryID) => {
     result.articles = await articles.getArticlesByArticleCategory(articleCategoryID);
     result.css = css.getFileContent("./assets/css/ifarmer-alp-min.css");
 
+    result.title = result.articleDetail._source.title;
+
     result.canonical = `/danh-muc-bai-viet/${articleCategoryID}/`;
 
     return result;

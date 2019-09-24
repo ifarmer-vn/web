@@ -17,6 +17,8 @@ const getData = async (articleID) => {
     result.structuredData = buildStructuredData(result.articleDetail);
     result.css = css.getFileContent("./assets/css/ifarmer-adp-min.css");
 
+    result.title = result.articleDetail._source.title;
+
     result.canonical = `/bai-viet/${articleID}/`;
 
     return result;
