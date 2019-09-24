@@ -161,6 +161,55 @@ const getProductsByCategory = async (categoryUrl, size) => {
     const data = await searchVariant(query);
     return data.hits;
 };
+const searchProductsByQuery = async (term, minimum_should_match, size) => {
+    minimum_should_match = minimum_should_match || "100%";
+    const query = {
+        "query": {
+            "bool": {
+                "must": [
+                    {
+                        "term": {
+                            "default": {
+                                "value": "true"
+                            }
+                        }
+                    },
+                    {
+                        "nested": {
+                            "path": "productSource",
+                            "query": {
+                                "bool": {
+                                    "must": [
+                                        {
+                                            "match": {
+                                                "productSource.title": {
+                                                    "query": term,
+                                                    "minimum_should_match": minimum_should_match
+                                                }
+
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "size": size || 20,
+        "sort": [
+            {
+                "impressions": {
+                    "order": "desc"
+                }
+            }
+        ]
+    };
+    console.log(JSON.stringify(query));
+    const data = await searchVariant(query);
+    return data.hits;
+};
 
 const getVariant = async (variantUrl) => {
 
@@ -182,6 +231,7 @@ const revealed = {
     getVariantsByProduct,
     getVariant,
     getProductsByCategory,
+    searchProductsByQuery,
     getRelatedProductsByCategory,
 };
 

@@ -1,14 +1,24 @@
 <%- include("../../../components/master/head") -%>
 
-<h1 class="f2 f1-l"><%= heading %></h1>
-
+<!--class="w-50 w-33-m w-25-l"-->
 <div class="pa2 pa0-ns">
     <%- include("../../../components/breadcrumb/view.ejs", {breadcrumb:breadcrumb}) -%>
 </div>
 
-<div  class="pa2 pa0-ns">
-    <%-     include("../../../components/products-list/view.ejs", {products: products}) -%>
+<div class="pa2 pa0-ns">
+    <h1 class="f2 f1-l mv3"><%= heading %></h1>
 </div>
+
+<% if(products.length){ %>
+    <div class="pa2 pa0-ns">
+        <%- include("../../../components/products-list/view.ejs", {products: products}) -%>
+    </div>
+<% } else{ %>
+    <div class="pa2 pa0-ns">
+        Không Tìm Thấy Sản Phẩm
+    </div>
+<% } %>
+
 
 <%- include("../../../components/structured-data/view.ejs", {structuredData:structuredData}) -%>
 

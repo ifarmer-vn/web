@@ -1,8 +1,8 @@
 const plpModel = require("./models/plpModel");
-const composeData = require("./composeData");
-let prepareData = async (categoryID) => {
+const composeData = require("./composeDataSearch");
+let prepareData = async (term) => {
 	//Todo later should have validator
-	plpModel.__data = await composeData.getData(categoryID);
+	plpModel.__data = await composeData.getData(term);
 
 	return plpModel;
 };

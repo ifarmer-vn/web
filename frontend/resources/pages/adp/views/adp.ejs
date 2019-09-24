@@ -7,7 +7,7 @@
     </div>
 </div>
 
-<div class="pa2 pa0-ns flex-l flex-wrap-l">
+<div class="mt3 pa2 pa0-ns flex-l flex-wrap-l">
     <div class="w-73-l">
         <%- include("./components/content-adp/view.ejs") -%>
     </div>
@@ -25,13 +25,13 @@
 </div>
 
 <% if(relatedArticles.length){ %>
-    <div class="pa2 pa0-ns background-ffffff">
+    <div class="mt3 pa2 pa0-ns background-ffffff">
         <%- include("../../../components/articles-carousel/view.ejs", {articles: relatedArticles, heading:"Bài Viết Liên Quan"}) -%>
     </div>
 <% } %>
 <% if(relatedProducts.length){ %>
 
-    <div class="pa2 pa0-ns">
+    <div class="mt3 pa2 pa0-ns">
         <%- include("../../../components/products-carousel/view.ejs", {products: relatedProducts, heading:"Sản phẩm Liên Quan"}) -%>
     </div>
 <% } %>

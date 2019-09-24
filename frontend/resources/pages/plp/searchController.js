@@ -1,12 +1,9 @@
-const plpService = require("./services/plpService");
+const searchService = require("./services/searchService");
 
 let plpController = async (req, res) => {
-    let categoryID = req.params.categoryID;
-    if (!categoryID) {
-        return;
-    }
+    let term = req.query.q;
     console.time("Prepare data for plp");
-    let data = await plpService.prepareData(categoryID);
+    let data = await searchService.prepareData(term);
     console.timeEnd("Prepare data for plp");
     return res.render("pages/plp/views/plp", data);
 };
