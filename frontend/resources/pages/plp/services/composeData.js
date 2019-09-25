@@ -11,7 +11,6 @@ const getData = async (categoryID) => {
         result.category = await categories.getCategory(categoryID);
         result.breadcrumb = buildBreadcrumb(result.category._source.name);
         result.structuredData = buildStructuredData(result.products);
-        result.css = css.getFileContent("./assets/css/ifarmer-plp-min.css");
         result.title = result.heading = result.category._source.title;
     } catch (e) {
         console.log("Not found")
@@ -19,6 +18,7 @@ const getData = async (categoryID) => {
 
     result.canonical = `/${categoryID}/`;
 
+    result.css = css.getFileContent("./assets/css/ifarmer-plp-min.css");
     return result;
 };
 
