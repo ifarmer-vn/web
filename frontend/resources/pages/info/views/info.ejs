@@ -1,11 +1,11 @@
 <%- include("../../../components/master/head") -%>
 
-
-<div class="pa2 pa0-ns">
-    <h1 class="f2 f1-l"><%= page._source.title %></h1>
+<div class="bg-white">
+    <div class="pa2 pa3-ns mv3">
+        <h1 class="f2 f1-l"><%= page._source.title %></h1>
+    </div>
+    <div class="ph2 ph3-ns">
+        <%- page._source.content %>
+    </div>
 </div>
-<div class="ph2 ph3-ns">
-    <%- page._source.content %>
-</div>
-
 <%- include("../../../components/master/footer") -%>

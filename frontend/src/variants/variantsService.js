@@ -9,6 +9,11 @@ const defaultVariantQuery = {
                 "term": {
                     "hide": true
                 }
+            },
+            {
+                "term": {
+                    "category" : ""
+                }
             }
         ],
         "must": [
@@ -18,7 +23,13 @@ const defaultVariantQuery = {
                         "value": true
                     }
                 }
+            },
+            {
+                "exists": {
+                    "field": "category"
+                }
             }
+
         ]
     }
 };
