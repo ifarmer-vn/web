@@ -152,7 +152,7 @@ const getProductsByCategory = async (categoryUrl, size) => {
                     },
                     {
                         "term": {
-                            "category.keyword": {
+                            "category": {
                                 "value": categoryUrl
                             }
                         }
