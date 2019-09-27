@@ -65,28 +65,18 @@ const getNewProducts = async () => {
 const getVariantsByProduct = async (productUrl) => {
 
     const query = {
-        "size": 20,
+        "size": 100,
         "query": {
-            "nested": {
-                "path": "productSource",
-                "query": {
-                    "bool": {
-                        "must": [
-                            {
-                                "term": {
-                                    "productSource.url.keyword": {
-                                        "value": productUrl
-                                    }
-                                }
+            "bool": {
+                "must": [
+                    {
+                        "term": {
+                            "product": {
+                                "value": productUrl
                             }
-                        ]
+                        }
                     }
-                }
-            }
-        },
-        "sort": {
-            "updatedAt": {
-                "order": "desc"
+                ]
             }
         }
     };
