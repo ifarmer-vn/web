@@ -19,8 +19,25 @@ const getData = async (articleID) => {
 
     result.title = result.articleDetail._source.title;
 
+    transformContent(result.articleDetail._source);
+
+    result.ampLibraries = buildAmpLibraries(result.articleDetail._source.content);
+
+
     result.canonical = `/bai-viet/${articleID}/`;
 
+    return result;
+};
+
+const transformContent = (source) => {
+    source.content = source.content.replace(/<amp-youtube/g, "<amp-youtube layout=\"responsive\"");
+};
+
+const buildAmpLibraries = (content) => {
+    let result = [];
+    if (content.indexOf("<amp-youtube")) {
+        result.push('amp-youtube');
+    }
     return result;
 };
 
