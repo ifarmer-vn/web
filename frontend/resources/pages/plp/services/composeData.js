@@ -7,7 +7,7 @@ let data = require("../data-feed/plp");
 const getData = async (categoryID) => {
     let result = R.clone(data);
     try {
-        result.products = await variants.getProductsByCategory(categoryID);
+        result.products = await variants.getProductsByCategory(categoryID, 200);
         result.category = await categories.getCategory(categoryID);
         result.breadcrumb = buildBreadcrumb(result.category._source.name);
         result.structuredData = buildStructuredData(result.products);
