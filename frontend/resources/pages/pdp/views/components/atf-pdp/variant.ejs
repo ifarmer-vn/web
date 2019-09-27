@@ -10,5 +10,5 @@
                     width="40" height="40"
             ></amp-img></span><span
                 class="dib v-base"><span class="db"><%= variant.name %><!-- --> </span>  <span
-                    class="ma1 green"><%= variant.price.toString().money() %></span></span></div>
+                    class="ma1 green"><%= variant.price? variant.price.toString().money() : "Liên Hệ" %></span></span></div>
 </a>
