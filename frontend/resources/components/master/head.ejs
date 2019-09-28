@@ -1,31 +1,94 @@
 <!DOCTYPE html>
-<html amp>
+<html amp lang="vi">
 <head>
-  <style amp-custom>
-    <%- css%>
-  </style>
-  <meta charset="utf-8">
-  <link rel="dns-prefetch" href="//cdn.ampproject.org">
-  <link rel="dns-prefetch" href="//www.googletagmanager.com">
-  <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <style amp-custom>
+        <%- css%>
+    </style>
+    <meta charset="utf-8">
+    <link rel="dns-prefetch" href="//cdn.ampproject.org">
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
 
-  <%- include("./amp-library/view.ejs") -%>
+    <%- include("./amp-library/view.ejs") -%>
 
-  <meta name="robots" content="index,follow">
-  <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
-  <meta name="fo-verify" content="56bd2285-d29f-417d-81c6-2f3221b2f495">
-  <style amp-boilerplate="">body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
-  <noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
-  <meta property="fb:app_id" content="236452487087200" class="next-head">
-  <link rel="shortcut icon" href="/assets/images/favicon.ico">
-  <meta name="google-site-verification" content="9oqxPwHWQJSatDO-t8HymX-6HZ7FiTSKxH5LS1FcE28">
-  <title><%= title%></title>
-  <link rel="canonical" href="<%= canonical %>">
+    <meta name="robots" content="index,follow">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+    <meta name="fo-verify" content="56bd2285-d29f-417d-81c6-2f3221b2f495">
+    <style amp-boilerplate="">body {
+            -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            animation: -amp-start 8s steps(1, end) 0s 1 normal both
+        }
 
+        @-webkit-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+            to {
+                visibility: visible
+            }
+        }
+
+        @-moz-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+            to {
+                visibility: visible
+            }
+        }
+
+        @-ms-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+            to {
+                visibility: visible
+            }
+        }
+
+        @-o-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+            to {
+                visibility: visible
+            }
+        }
+
+        @keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+            to {
+                visibility: visible
+            }
+        }</style>
+    <noscript>
+        <style amp-boilerplate>body {
+                -webkit-animation: none;
+                -moz-animation: none;
+                -ms-animation: none;
+                animation: none
+            }</style>
+    </noscript>
+    <meta property="fb:app_id" content="236452487087200" class="next-head">
+    <link rel="shortcut icon" href="/assets/images/favicon.ico">
+    <meta name="google-site-verification" content="9oqxPwHWQJSatDO-t8HymX-6HZ7FiTSKxH5LS1FcE28">
+    <title><%= title %></title>
+    <link rel="canonical" href="<%= canonical %>">
+    <link rel="alternate" hreflang="vi-vn" href="<%= canonical %>">
+    <meta name="description"
+          content="<%= description %>">
+    <meta property="og:url" content="<%= canonical %>">
+    <meta property="og:description" content="<%= description %>">
+    <meta property="og:title" content="<%= title %>">
+    <meta property="og:site_name" content="http://ifarmer.vn/">
 </head>
 
 <body class="bg-will-sand dove-gray">
 <div class=" max-width-1200px margin-0-auto">
-<%-     include("../tracking/google-analytics.ejs") -%>
+    <%- include("../tracking/google-analytics.ejs") -%>
 
-<%-     include("../header/view.ejs") -%>
+    <%- include("../header/view.ejs") -%>

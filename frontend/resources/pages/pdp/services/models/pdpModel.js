@@ -1,9 +1,12 @@
 let data = require("../../data-feed/pdp");
 
 const pdpModel = {
-	get title() {
-		return data.title;
-	},
+	 get title() {
+        return data.title;
+    },
+    get description() {
+        return data.description;
+    },
 	get heading() {
 		return data.heading;
 	},

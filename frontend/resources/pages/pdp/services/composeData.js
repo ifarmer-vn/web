@@ -22,6 +22,7 @@ const getData = async (productID) => {
     result.breadcrumb = buildBreadcrumb(result.productDetail.categorySource,
         `${result.productDetail.productSource.title} ${result.productDetail.extraTitle}`);
     result.structuredData = buildStructuredData(result.productDetail.categorySource, result.productDetail);
+    result.description = result.productDetail.description;
 
     result.canonical = `/san-pham/${productID}/`;
     result.title = result.productDetail.h1;

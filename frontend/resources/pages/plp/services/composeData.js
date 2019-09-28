@@ -12,6 +12,7 @@ const getData = async (categoryID) => {
         result.breadcrumb = buildBreadcrumb(result.category._source.name);
         result.structuredData = buildStructuredData(result.products);
         result.title = result.heading = result.category._source.title;
+        result.description = result.category._source.description;
     } catch (e) {
         console.log("Not found")
     }
