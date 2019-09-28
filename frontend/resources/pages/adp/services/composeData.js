@@ -16,7 +16,7 @@ const getData = async (articleID) => {
     result.relatedArticles = relatedArticlesByProduct;
     result.structuredData = buildStructuredData(result.articleDetail);
     result.css = css.getFileContent("./assets/css/ifarmer-adp-min.css");
-
+    result.description = result.articleDetail._source.description;
     result.title = result.articleDetail._source.title;
 
     transformContent(result.articleDetail._source);
