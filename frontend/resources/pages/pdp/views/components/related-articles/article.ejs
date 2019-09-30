@@ -3,8 +3,10 @@
    data-vars-click-ga-trigger="click_articles_item"
    data-vars-label="name:articles:<%= article._source.url %>">
     <div class="absolute  w4 h4 w-12-ns h-12-ns">
-        <amp-img class="br-100" width="8rem" height="8rem" layout="responsive"
-                 src="<%= article._source.images[0].url %>"></amp-img>
+        <% if(article._source.images[0]){ %>
+            <amp-img class="br-100" width="8rem" height="8rem" layout="responsive"
+                     src="<%= article._source.images[0].url %>"></amp-img>
+        <% } %>
     </div>
 
     <div class="min-h-auto-ns ml6 ml-12-ns pa2 min-height-8rem">

@@ -83,7 +83,7 @@ const buildArticleStructuredData = (article) => {
         },
     };
     //Todo article must have hero image
-    if (articleDetail.images) {
+    if (articleDetail.images[0]) {
         result.image = {
             "@type": "ImageObject",
             url: articleDetail.images[0].url,
