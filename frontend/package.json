@@ -2,7 +2,8 @@
   "name": "frontend",
   "private": true,
   "scripts": {
-    "dev": "gulp dev"
+    "dev": "gulp dev",
+    "build": "gulp build"
   },
   "dependencies": {
     "clean-css": "^4.2.1",

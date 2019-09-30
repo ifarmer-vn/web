@@ -24,7 +24,7 @@ const getData = async (articleID) => {
     result.ampLibraries = buildAmpLibraries(result.articleDetail._source.content);
 
 
-    result.canonical = `/bai-viet/${articleID}/`;
+    result.canonical = `http://ifarmer.vn/bai-viet/${articleID}/`;
 
     return result;
 };

@@ -24,7 +24,7 @@ const getData = async (productID) => {
     result.structuredData = buildStructuredData(result.productDetail.categorySource, result.productDetail);
     result.description = result.productDetail.description;
 
-    result.canonical = `/san-pham/${productID}/`;
+    result.canonical = `http://ifarmer.vn/san-pham/${productID}/`;
     result.title = result.productDetail.h1;
 
     result.css = css.getFileContent("./assets/css/ifarmer-pdp-min.css");

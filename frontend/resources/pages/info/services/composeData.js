@@ -9,7 +9,7 @@ const getData = async (path) => {
 
     result.title = result.page._source.title;
 
-    result.canonical = `/${path}/`;
+    result.canonical = `http://ifarmer.vn/${path}/`;
 
     return result;
 };

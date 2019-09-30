@@ -13,7 +13,7 @@ const getData = async (term) => {
     result.css = css.getFileContent("./assets/css/ifarmer-plp-min.css");
     result.title = result.heading = `Tìm Kiếm "${term}"`;
 
-    result.canonical = `/tim-kiem/`;
+    result.canonical = `http://ifarmer.vn/tim-kiem/`;
 
     return result;
 };
