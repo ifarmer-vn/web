@@ -3,9 +3,12 @@
         href="/bai-viet/<%= article._source.url %>/" data-vars-click-ga-trigger="click_popular_article_item"
         data-vars-label="name:/bai-viet/dau-gac-rat-tot-cho-tre-em/" title="Dầu gấc rất tốt cho trẻ em">
     <div class="width-5rem height-5rem">
-        <amp-img width="1" height="1" layout="responsive"
-                 src="<%= article._source.images[0].url %>"
-                 alt="<%= article._source.title %>"></amp-img>
+        <% if(article._source.images[0]){ %>
+            <amp-img width="1" height="1" layout="responsive"
+                     src="<%= article._source.images[0].url %>"
+                     alt="<%= article._source.title %>"></amp-img>
+        <% } %>
+
     </div>
     <div class="pl2 w3 flex-grow-1"><h3 class="f7 dark-green mv0"><%= article._source.title %></h3>
         <div class="f8 gray mt1">

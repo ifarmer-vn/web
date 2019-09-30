@@ -1,8 +1,11 @@
 <div>
-    <amp-img width="16" height="9" layout="responsive"
-             src="<%= articleDetail._source.images[0].url%>"
-             alt="<%= articleDetail._source.title%>>"></amp-img>
+    <% if(articleDetail._source.images[0]){ %>
+        <amp-img width="16" height="9" layout="responsive"
+                 src="<%= articleDetail._source.images[0].url %>"
+                 alt="<%= articleDetail._source.title %>>"></amp-img>
+    <% } %>
+
 </div>
 <article class="mt3">
-    <%- articleDetail._source.content%>
+    <%- articleDetail._source.content %>
 </article>
