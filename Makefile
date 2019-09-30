@@ -11,5 +11,5 @@ build: files
 	docker-compose build
 
 files:
-	cp environments/docker-compose.dev.yml docker-compose.yml
+	cp environments/docker-compose.prod.yml docker-compose.yml
 	cp docker/nodejs/Dockerfile frontend/Dockerfile

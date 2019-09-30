@@ -14,7 +14,7 @@ const getData = async () => {
     result.newProducts = await variants.getNewProducts();
     result.css = css.getFileContent("./assets/css/ifarmer-homepage-min.css");
 
-    result.canonical = `/`;
+    result.canonical = `http://ifarmer.vn/`;
 
     return result;
 

@@ -10,6 +10,7 @@ WORKDIR /var/www/ifarmer
 COPY package.json ./
 COPY package-lock.json ./
 CMD ["npm", "install"]
+CMD ["npm", "build"]
 
 COPY . .
 

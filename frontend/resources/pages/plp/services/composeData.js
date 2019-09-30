@@ -17,7 +17,7 @@ const getData = async (categoryID) => {
         console.log("Not found")
     }
 
-    result.canonical = `/${categoryID}/`;
+    result.canonical = `http://ifarmer.vn/${categoryID}/`;
 
     result.css = css.getFileContent("./assets/css/ifarmer-plp-min.css");
     return result;
