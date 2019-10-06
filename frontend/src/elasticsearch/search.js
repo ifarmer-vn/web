@@ -1,4 +1,4 @@
-const client = require("./elasticsearch").connect();
+const client = require("./elasticsearch");
 const credential = require("./credential");
 
 const queryIndex = (index) => async (query) => {
