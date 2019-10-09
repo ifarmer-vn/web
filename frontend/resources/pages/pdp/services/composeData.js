@@ -18,7 +18,7 @@ const getData = async (productID) => {
     result.relatedProducts = await variants.getRelatedProductsByCategory(result.variant._source.category, productUrl);
     result.relatedArticles = buildRelatedArticles(relatedArticles);
     result.productDetail = buildProductDetail(product, result.variant);
-    result.variantGroups = buildVariantGroups(result.variant._source.url, relatedVariants, variantTypesData);
+    result.variantGroups = buildVariantGroups(result.variant._source.url, result.variant._source.variantTypes, relatedVariants, variantTypesData);
     result.breadcrumb = buildBreadcrumb(result.productDetail.categorySource,
         `${result.productDetail.productSource.title} ${result.productDetail.extraTitle}`);
     result.structuredData = buildStructuredData(result.productDetail.categorySource, result.productDetail);
@@ -76,7 +76,7 @@ const buildBreadcrumbStructuredData = (category) => {
 const buildProductStructuredData = (productDetail) => {
     const url = `http://ifarmer.vn/san-pham/${productDetail.url}/`;
     const title = `${productDetail.productSource.title} ${productDetail.extraTitle}`;
-    var result = {
+    let result = {
         "@context": "http://schema.org",
         "@type": "Product",
         "mainEntityOfPage": url,
@@ -164,13 +164,23 @@ const convertObjectToArrayByOrder = (obj, field) => {
     return arr;
 };
 
-const buildVariantGroups = (currentVariantUrl, variants, variantTypes) => {
+const checkSameOneProperty = (variantTypes1, variantTypes2) => {
+    for (const pp1 in variantTypes1) {
+        for (const pp2 in variantTypes2) {
+            if (variantTypes1[pp1] === variantTypes2[pp2]) {
+                return true;
+            }
+        }
+    }
+    return false;
+};
+const buildVariantGroups = (currentVariantUrl, currentVariantType, variants, variantTypes) => {
     let variantTypesObj = convertArrayToObject(variantTypes, 'url');
     let foundedVariantTypes = {};
     variants.map(variant => {
         const source = variant._source;
         const vTypes = source.variantTypes;
-        for (const pp in vTypes) {
+        for (const pp in currentVariantType) {
             const valueVariantType = vTypes[pp];
             let foundedVariantType = foundedVariantTypes[pp];
             let variantType = variantTypesObj[pp];
@@ -180,21 +190,23 @@ const buildVariantGroups = (currentVariantUrl, variants, variantTypes) => {
                     currentType: {}
                 };
             }
-            // console.log(variantType.children);
             const childType = {
                 ...source,
                 ...variantType.children[valueVariantType],
                 active: source.url === currentVariantUrl
             };
-            if (!foundedVariantTypes[pp].currentType[valueVariantType]) {
-                foundedVariantTypes[pp].currentType[valueVariantType] = childType;
+            if ((checkSameOneProperty(vTypes, currentVariantType) || !foundedVariantTypes[pp].currentType[valueVariantType])) {
+                if (!foundedVariantTypes[pp].currentType[valueVariantType] || !foundedVariantTypes[pp].currentType[valueVariantType].active) {
+                    foundedVariantTypes[pp].currentType[valueVariantType] = childType;
+                }
             }
             if (childType.active) {
                 foundedVariantTypes[pp].currentType[valueVariantType] = childType;
             }
         }
+
     });
-    foundedVariantTypes = convertObjectToArrayByOrder(foundedVariantTypes, 'oder');
+    foundedVariantTypes = convertObjectToArrayByOrder(foundedVariantTypes, 'order');
     return foundedVariantTypes;
 };
 
