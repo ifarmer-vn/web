@@ -1,3 +1,5 @@
+const util = require('util');
+
 const variantTypes = [
     {
         "_source": {
@@ -108,9 +110,9 @@ describe("composeData", () => {
     describe("buildVariantGroups", () => {
         fit("should return correct data 1", () => {
             console.time("test");
-            const output = composeData.buildVariantGroups(variant._source.url, relatedVariants, variantTypes);
+            const output = composeData.buildVariantGroups(variant._source.url, variant._source.variantTypes, relatedVariants, variantTypes);
             console.timeEnd("test");
-            console.log(JSON.stringify(output));
+            console.log(util.inspect(output, false, null, true ));
             const expected = [];
             expect().toEqual(output);
         });
