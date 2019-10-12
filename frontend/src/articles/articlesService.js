@@ -119,6 +119,7 @@ const getArticle = async (articleUrl) => {
 
 const revealed = {
     getTopArticles,
+    getArticle,
     getNewArticles,
     getRelatedArticlesByProduct,
     getArticlesByProducts,
