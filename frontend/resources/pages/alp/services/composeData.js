@@ -10,7 +10,7 @@ const getData = async (articleCategoryID) => {
 
     result.title = result.articleDetail._source.title;
 
-    result.canonical = `http://ifarmer.vn/danh-muc-bai-viet/${articleCategoryID}/`;
+    result.canonical = `https://ifarmer.vn/danh-muc-bai-viet/${articleCategoryID}/`;
 
     return result;
 };

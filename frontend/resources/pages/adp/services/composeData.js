@@ -24,7 +24,7 @@ const getData = async (articleID) => {
     result.ampLibraries = buildAmpLibraries(result.articleDetail._source.content);
 
 
-    result.canonical = `http://ifarmer.vn/bai-viet/${articleID}/`;
+    result.canonical = `https://ifarmer.vn/bai-viet/${articleID}/`;
 
     return result;
 };
@@ -49,7 +49,7 @@ const buildStructuredData = (article) => {
 
 const buildArticleStructuredData = (article) => {
     const articleDetail = article._source;
-    const url = `http://ifarmer.vn/bai-viet/${articleDetail.url}/`;
+    const url = `https://ifarmer.vn/bai-viet/${articleDetail.url}/`;
     let result = {
         "@context": "http://schema.org",
         "@type": "Article",
@@ -72,7 +72,7 @@ const buildArticleStructuredData = (article) => {
             name: "ifarmer.vn",
             logo: {
                 "@type": "ImageObject",
-                url: "http://ifarmer.vn/assets/img/icons/favicon-96x96.png",
+                url: "https://ifarmer.vn/assets/img/icons/favicon-96x96.png",
                 width: 57,
                 height: 57,
                 sameAs: [

@@ -5,7 +5,7 @@ const getData = async (path) => {
     let result = R.clone(data);
     result.css = css.getFileContent("./assets/css/ifarmer-post-product-min.css");
     result.ampLibraries = ['amp-iframe'];
-    result.canonical = `http://ifarmer.vn/`;
+    result.canonical = `https://ifarmer.vn/`;
 
     return result;
 };

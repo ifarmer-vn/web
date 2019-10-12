@@ -96,7 +96,13 @@ const getArticlesByProducts = async (productID, size) => {
     const data = await searchArticles(query);
     return data.hits;
 };
-
+const getAllArticles = async () => {
+    const query = {
+        "size": 10000
+    };
+    const data = await searchArticles(query);
+    return data.hits;
+};
 const getArticle = async (articleUrl) => {
     const query = {
         "query": {
@@ -116,7 +122,7 @@ const revealed = {
     getNewArticles,
     getRelatedArticlesByProduct,
     getArticlesByProducts,
-    getArticle,
+    getAllArticles,
 };
 
 module.exports = revealed;

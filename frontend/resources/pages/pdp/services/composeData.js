@@ -24,7 +24,7 @@ const getData = async (productID) => {
     result.structuredData = buildStructuredData(result.productDetail.categorySource, result.productDetail);
     result.description = result.productDetail.description;
 
-    result.canonical = `http://ifarmer.vn/san-pham/${productID}/`;
+    result.canonical = `https://ifarmer.vn/san-pham/${productID}/`;
     result.title = result.productDetail.h1;
 
     result.css = css.getFileContent("./assets/css/ifarmer-pdp-min.css");
@@ -53,7 +53,7 @@ const buildBreadcrumbStructuredData = (category) => {
             "item": {
                 "@type": "Thing",
                 "name": "Trang Chủ",
-                "@id": "http://ifarmer.vn",
+                "@id": "https://ifarmer.vn",
             }
         },
         {
@@ -62,7 +62,7 @@ const buildBreadcrumbStructuredData = (category) => {
             "item": {
                 "@type": "Thing",
                 "name": category.title,
-                "@id": `http://ifarmer.vn/${category.url}/`,
+                "@id": `https://ifarmer.vn/${category.url}/`,
             }
         }
     ];
@@ -74,7 +74,7 @@ const buildBreadcrumbStructuredData = (category) => {
 };
 
 const buildProductStructuredData = (productDetail) => {
-    const url = `http://ifarmer.vn/san-pham/${productDetail.url}/`;
+    const url = `https://ifarmer.vn/san-pham/${productDetail.url}/`;
     const title = `${productDetail.productSource.title} ${productDetail.extraTitle}`;
     let result = {
         "@context": "http://schema.org",
