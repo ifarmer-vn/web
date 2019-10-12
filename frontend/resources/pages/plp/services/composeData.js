@@ -17,7 +17,7 @@ const getData = async (categoryID) => {
         console.log("Not found")
     }
 
-    result.canonical = `http://ifarmer.vn/${categoryID}/`;
+    result.canonical = `https://ifarmer.vn/${categoryID}/`;
 
     result.css = css.getFileContent("./assets/css/ifarmer-plp-min.css");
     return result;
@@ -32,7 +32,7 @@ const buildProductStructuredData = (products) => {
     let itemListElement = [];
     products.map((product, index) => {
         const productDetail = product._source;
-        const url = `http://ifarmer.vn/san-pham/${productDetail.url}/`;
+        const url = `https://ifarmer.vn/san-pham/${productDetail.url}/`;
         const title = `${productDetail.productSource.title} ${productDetail.extraTitle}`;
         let item = {
             "@type": "Product",

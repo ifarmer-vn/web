@@ -18,7 +18,7 @@ const getAllCategories = async () => {
                 }
             }
         },
-        "size": 16,
+        "size": 20,
         "sort": {
             "impressions": {
                 "order": "desc"

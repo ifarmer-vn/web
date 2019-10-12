@@ -9,6 +9,7 @@ services:
       - /var/log/ifarmer/nginx:/var/log/nginx
     ports:
       - "80:80"
+      - "443:443"
     networks:
       - web
       - docker-elk_elk

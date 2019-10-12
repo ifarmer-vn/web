@@ -212,6 +212,32 @@ const searchProductsByQuery = async (term, minimum_should_match, size) => {
     return data.hits;
 };
 
+const getAllVariantsCategory = async (categoryUrl) => {
+
+    const query = {
+        "query": {
+            "bool": {
+                "must_not": [
+                    {
+                        "term": {
+                            "hide": true
+                        }
+                    },
+                ],
+                "must":[
+                    {
+                        "term":{
+                            "category": categoryUrl
+                        }
+                    }
+                ]
+            }
+        },
+        "size": 10000,
+    };
+    const data = await searchVariant(query);
+    return data.hits;
+};
 const getVariant = async (variantUrl) => {
 
     const query = {
@@ -234,6 +260,7 @@ const revealed = {
     getProductsByCategory,
     searchProductsByQuery,
     getRelatedProductsByCategory,
+    getAllVariantsCategory,
 };
 
 module.exports = revealed;
