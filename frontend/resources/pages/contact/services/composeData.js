@@ -7,7 +7,7 @@ const getData = async (path) => {
     result.page = await pagesService.getPage(path);
     result.css = css.getFileContent("./assets/css/ifarmer-contact-min.css");
 
-    result.canonical = `http://ifarmer.vn/lien-he/`;
+    result.canonical = `https://ifarmer.vn/lien-he/`;
 
     return result;
 };

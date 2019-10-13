@@ -1,33 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://ifarmer.vn/</loc>
+        <loc>https://ifarmer.vn/</loc>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
     <url>
-        <loc>http://ifarmer.vn/gioi-thieu/</loc>
+        <loc>https://ifarmer.vn/gioi-thieu/</loc>
         <changefreq>weekly</changefreq>
         <priority>1</priority>
     </url>
     <url>
-        <loc>http://ifarmer.vn/lien-he/</loc>
+        <loc>https://ifarmer.vn/lien-he/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>http://ifarmer.vn/huong-dan-mua-hang/</loc>
+        <loc>https://ifarmer.vn/huong-dan-mua-hang/</loc>
         <changefreq>weekly</changefreq>
-        <priority>1</priority>
-    </url>
-    <url>
-        <loc>http://ifarmer.vn/san-pham-moi-nhat/</loc>
-        <changefreq>daily</changefreq>
-        <priority>1</priority>
-    </url>
-    <url>
-        <loc>http://ifarmer.vn/bai-viet-moi-nhat/</loc>
-        <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
 </urlset>
