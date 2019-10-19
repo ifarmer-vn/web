@@ -18,23 +18,20 @@ const getData = async () => {
     return result;
 
 };
+
 const getDataFromES = async (result) => {
     let ship = searchProxy.createShip();
-
     ship.addQuery("categories_v1", categories.getCategories());
     ship.addQuery("variants_v1", variants.getTopProducts());
     ship.addQuery("variants_v1", variants.getNewProducts());
     ship.addQuery("articles_v1", articles.getTopArticles());
     ship.addQuery("articles_v1", articles.getNewArticles());
-
     let data = await ship.flush();
-
     result.categories = data[0].hits.hits;
     result.topProducts = data[1].hits.hits;
     result.newProducts = data[2].hits.hits;
     result.topArticles = data[3].hits.hits;
     result.newArticles = data[4].hits.hits;
-
 };
 
 const revealed = {

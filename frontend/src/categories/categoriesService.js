@@ -24,18 +24,16 @@ const getCategories = (size) => {
         }
     };
 };
-const getCategory = async (categoryUrl) => {
-    //
-    // const data = await searchCategories({
-    //     "query": {
-    //         "term": {
-    //             "url": {
-    //                 "value": categoryUrl
-    //             }
-    //         }
-    //     },
-    // });
-    // return data.hits[0];
+const getCategory = (categoryUrl) => {
+    return {
+        "query": {
+            "term": {
+                "url": {
+                    "value": categoryUrl
+                }
+            }
+        },
+    }
 };
 
 const revealed = {

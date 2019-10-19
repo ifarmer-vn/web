@@ -111,9 +111,8 @@ const getRelatedProductsByCategory = async (categoryUrl, productUrl, size) => {
     const data = await searchVariant(query);
     return data.hits;
 };
-const getProductsByCategory = async (categoryUrl, size) => {
-
-    const query = {
+const getProductsByCategory = (categoryUrl, size) => {
+    return {
         "query": {
             "bool": {
                 "must": [
@@ -144,8 +143,6 @@ const getProductsByCategory = async (categoryUrl, size) => {
             }
         ]
     };
-    const data = await searchVariant(query);
-    return data.hits;
 };
 const searchProductsByQuery = async (term, minimum_should_match, size) => {
     minimum_should_match = minimum_should_match || "100%";
