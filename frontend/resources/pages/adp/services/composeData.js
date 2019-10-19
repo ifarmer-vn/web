@@ -1,32 +1,42 @@
 const css = require("../../../../src/css/css");
 const R = require("ramda");
 const articles = require("../../../../src/articles/articlesService");
+const searchProxy = require("../../../../src/elasticsearch/searchProxy");
 const variants = require("../../../../src/variants/variantsService");
 let data = require("../data-feed/adp");
 
 const getData = async (articleID) => {
     let result = R.clone(data);
-    result.topArticles = await articles.getTopArticles();
-    result.articleDetail = await articles.getArticle(articleID);
-    result.newArticles = await articles.getNewArticles(5);
-    result.topArticlesADP = await articles.getTopArticles(5);
-    const related_products = result.articleDetail._source.related_products ? result.articleDetail._source.related_products.split(',')[0] : '';
-    result.relatedProducts = await variants.getVariantsByProduct(related_products);
-    const relatedArticlesByProduct = await articles.getRelatedArticlesByProduct(related_products, articleID, 20);
-    result.relatedArticles = relatedArticlesByProduct;
+
+    await getDataFromES(result, articleID);
+
     result.structuredData = buildStructuredData(result.articleDetail);
     result.css = css.getFileContent("./assets/css/ifarmer-adp-min.css");
     result.description = result.articleDetail._source.description;
     result.title = result.articleDetail._source.title;
-
     transformContent(result.articleDetail._source);
-
     result.ampLibraries = buildAmpLibraries(result.articleDetail._source.content);
-
-
     result.canonical = `https://ifarmer.vn/bai-viet/${articleID}/`;
-
     return result;
+};
+
+const getDataFromES = async (result, articleID) => {
+    let ship = searchProxy.createShip();
+    ship.addQuery("articles_v1", articles.getArticle(articleID));
+    ship.addQuery("articles_v1", articles.getNewArticles(5));
+    ship.addQuery("articles_v1", articles.getTopArticles(5));
+    let data = await ship.flush();
+    result.articleDetail = data[0].hits.hits[0]; //for detail
+    result.newArticles = data[1].hits.hits;
+    result.topArticlesADP = data[2].hits.hits;
+
+    const related_products = result.articleDetail._source.related_products ? result.articleDetail._source.related_products.split(',')[0] : '';
+
+    ship.addQuery("variants_v1", variants.getVariantsByProduct(related_products));
+    ship.addQuery("articles_v1", articles.getRelatedArticlesByProduct(related_products, articleID, 20));
+    data = await ship.flush();
+    result.relatedProducts = data[0].hits.hits;
+    result.relatedArticles = data[1].hits.hits;
 };
 
 const transformContent = (source) => {

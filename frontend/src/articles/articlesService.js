@@ -14,6 +14,7 @@ const defaultArticleQuery = {
         ],
     }
 };
+
 const getTopArticles = (size = 20) => {
     return {
         "size": size,
@@ -90,6 +91,7 @@ const getArticlesByProducts = async (productID, size) => {
     const data = await searchArticles(query);
     return data.hits;
 };
+
 const getAllArticles = async () => {
     const query = {
         "size": 10000
@@ -97,8 +99,9 @@ const getAllArticles = async () => {
     const data = await searchArticles(query);
     return data.hits;
 };
-const getArticle = async (articleUrl) => {
-    const query = {
+
+const getArticle = (articleUrl) => {
+    return {
         "query": {
             "term": {
                 "url": {
@@ -107,8 +110,6 @@ const getArticle = async (articleUrl) => {
             }
         }
     };
-    const data = await searchArticles(query);
-    return data.hits[0];
 };
 
 const revealed = {

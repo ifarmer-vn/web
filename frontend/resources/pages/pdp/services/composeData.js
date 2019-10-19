@@ -10,7 +10,7 @@ let data = require("../data-feed/pdp");
 const getData = async (productID) => {
     let result = R.clone(data);
 
-    await getDataFromES(result, productID);
+        await getDataFromES(result, productID);
 
     result.relatedArticles = buildRelatedArticles(result.relatedArticles);
     result.productDetail = buildProductDetail(result.product, result.variant);
@@ -56,7 +56,6 @@ const getDataFromES = async (result, productID) => {
     result.relatedArticles = data[2].hits.hits; //for detail
     result.relatedProducts = data[3].hits.hits; //for detail
 };
-
 
 const buildRelatedArticles = (relatedArticles) => {
     return {
