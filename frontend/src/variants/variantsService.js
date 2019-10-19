@@ -10,11 +10,6 @@ const defaultVariantQuery = {
                     "hide": true
                 }
             },
-            {
-                "term": {
-                    "category" : ""
-                }
-            }
         ],
         "must": [
             {
@@ -24,19 +19,13 @@ const defaultVariantQuery = {
                     }
                 }
             },
-            {
-                "exists": {
-                    "field": "category"
-                }
-            }
-
         ]
     }
 };
-const getTopProducts = async () => {
+const getTopProducts = (size = 20) => {
 
-    const query = {
-        "size": 20,
+    return {
+        "size": size,
         "query": defaultVariantQuery,
         "sort": {
             "impressions": {
@@ -44,13 +33,11 @@ const getTopProducts = async () => {
             }
         }
     };
-    const data = await searchVariant(query);
-    return data.hits;
 };
-const getNewProducts = async () => {
+const getNewProducts = (size = 20) => {
 
-    const query = {
-        "size": 20,
+    return {
+        "size": size,
         "query": defaultVariantQuery,
         "sort": {
             "updatedAt": {
@@ -58,8 +45,6 @@ const getNewProducts = async () => {
             }
         }
     };
-    const data = await searchVariant(query);
-    return data.hits;
 };
 
 const getVariantsByProduct = async (productUrl) => {
@@ -224,9 +209,9 @@ const getAllVariantsCategory = async (categoryUrl) => {
                         }
                     },
                 ],
-                "must":[
+                "must": [
                     {
-                        "term":{
+                        "term": {
                             "category": categoryUrl
                         }
                     }

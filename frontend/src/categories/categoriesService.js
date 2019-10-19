@@ -1,9 +1,7 @@
-const {search} = require("../elasticsearch/search");
-
-const searchCategories = search("categories");
-const getAllCategories = async () => {
-
-    const data = await searchCategories({
+const nameIndex = "categories_v1";
+const getName = () => nameIndex;
+const getCategories = (size) => {
+    return {
         "_source": [
             "url",
             "name",
@@ -18,32 +16,32 @@ const getAllCategories = async () => {
                 }
             }
         },
-        "size": 20,
+        "size": size || 20,
         "sort": {
             "impressions": {
                 "order": "desc"
             }
         }
-    });
-    return data.hits;
+    };
 };
 const getCategory = async (categoryUrl) => {
-
-    const data = await searchCategories({
-        "query": {
-            "term": {
-                "url": {
-                    "value": categoryUrl
-                }
-            }
-        },
-    });
-    return data.hits[0];
+    //
+    // const data = await searchCategories({
+    //     "query": {
+    //         "term": {
+    //             "url": {
+    //                 "value": categoryUrl
+    //             }
+    //         }
+    //     },
+    // });
+    // return data.hits[0];
 };
 
 const revealed = {
-    getAllCategories,
-    getCategory
+    getCategories,
+    getCategory,
+    getName
 };
 
 module.exports = revealed;

@@ -14,9 +14,9 @@ const defaultArticleQuery = {
         ],
     }
 };
-const getTopArticles = async (size) => {
-    const query = {
-        "size": size || 20,
+const getTopArticles = (size = 20) => {
+    return {
+        "size": size,
         "query": defaultArticleQuery,
         "sort": {
             "impressions": {
@@ -24,13 +24,11 @@ const getTopArticles = async (size) => {
             }
         }
     };
-    const data = await searchArticles(query);
-    return data.hits;
 };
 
-const getNewArticles = async (size) => {
-    const query = {
-        "size": size || 20,
+const getNewArticles = (size = 20) => {
+    return {
+        "size": size,
         "query": defaultArticleQuery,
         "sort": {
             "updatedAt": {
@@ -38,8 +36,6 @@ const getNewArticles = async (size) => {
             }
         }
     };
-    const data = await searchArticles(query);
-    return data.hits;
 };
 
 const getRelatedArticlesByProduct = async (productUrl, articleUrl, size) => {
