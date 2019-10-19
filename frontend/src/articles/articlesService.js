@@ -17,6 +17,14 @@ const defaultArticleQuery = {
 
 const getTopArticles = (size = 20) => {
     return {
+        "_source": [
+            "url",
+            "name",
+            "author",
+            "updatedAt",
+            "title",
+            "images"
+        ],
         "size": size,
         "query": defaultArticleQuery,
         "sort": {
@@ -29,6 +37,14 @@ const getTopArticles = (size = 20) => {
 
 const getNewArticles = (size = 20) => {
     return {
+        "_source": [
+            "url",
+            "name",
+            "author",
+            "updatedAt",
+            "title",
+            "images"
+        ],
         "size": size,
         "query": defaultArticleQuery,
         "sort": {
@@ -42,6 +58,15 @@ const getNewArticles = (size = 20) => {
 const getRelatedArticlesByProduct = (productUrl, articleUrl, size = 200) => {
     return {
         "size": size,
+        "_source": [
+            "url",
+            "name",
+            "author",
+            "updatedAt",
+            "title",
+            "description",
+            "images"
+        ],
         "query": {
             "bool": {
                 "must": [
@@ -71,6 +96,15 @@ const getRelatedArticlesByProduct = (productUrl, articleUrl, size = 200) => {
 const getArticlesByArticleCategory = (articleCategoryUrl, size = 200) => {
     return {
         "size": size,
+        "_source": [
+            "url",
+            "name",
+            "author",
+            "updatedAt",
+            "title",
+            "content",
+            "images"
+        ],
         "query": {
             "bool": {
                 "must": [

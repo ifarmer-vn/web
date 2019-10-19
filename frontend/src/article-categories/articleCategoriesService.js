@@ -26,6 +26,13 @@ const getArticleCategories = (size = 20) => {
 };
 const getArticleCategory = (articleCategoryUrl) => {
     return {
+        "_source": [
+            "url",
+            "name",
+            "title",
+            "content",
+            "images.url"
+        ],
         "query": {
             "term": {
                 "url": {
