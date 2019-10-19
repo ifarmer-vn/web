@@ -1,7 +1,3 @@
-const {search} = require("../elasticsearch/search");
-
-const searchProducts = search("products");
-
 const productSource = [
     "url",
     "name",
@@ -11,17 +7,15 @@ const productSource = [
     "title",
 ];
 
-const getProduct = async (productUrl) => {
-
-	const data = await searchProducts({
+const getProduct = (productUrl) => {
+    return {
         "_source": productSource,
         "query": {
             "match": {
                 "url": productUrl
             }
         }
-    });
-    return data.hits[0];
+    };
 };
 
 const revealed = {
