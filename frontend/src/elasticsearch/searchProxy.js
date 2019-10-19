@@ -13,7 +13,9 @@ const createShip = () => {
         return queriesBody;
     };
     const flush = async () => {
+        console.time("Time retrieve ES");
         let data = await realSearch.mSearch(queriesBody);
+        console.timeEnd("Time retrieve ES");
         queriesBody = [];
         return data;
     };
