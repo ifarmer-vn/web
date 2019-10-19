@@ -1,6 +1,10 @@
+const {search} = require("../elasticsearch/search");
+
+const searchCategories = search("categories");
+
 const nameIndex = "categories_v1";
 const getName = () => nameIndex;
-const getCategories = (size) => {
+const getCategories = (size = 20) => {
     return {
         "_source": [
             "url",
@@ -16,13 +20,40 @@ const getCategories = (size) => {
                 }
             }
         },
-        "size": size || 20,
+        "size": size,
         "sort": {
             "impressions": {
                 "order": "desc"
             }
         }
     };
+};
+
+const getAllCategories = async () => {
+    const query = {
+        "_source": [
+            "url",
+            "name",
+            "images.url"
+        ],
+        "query": {
+            "bool": {
+                "must_not": {
+                    "term": {
+                        "hide": true
+                    }
+                }
+            }
+        },
+        "size": 10000,
+        "sort": {
+            "impressions": {
+                "order": "desc"
+            }
+        }
+    };
+    const data = await searchCategories(query);
+    return data.hits;
 };
 const getCategory = (categoryUrl) => {
     return {
@@ -39,6 +70,7 @@ const getCategory = (categoryUrl) => {
 const revealed = {
     getCategories,
     getCategory,
+    getAllCategories,
     getName
 };
 

@@ -68,18 +68,18 @@ const getRelatedArticlesByProduct = (productUrl, articleUrl, size = 200) => {
     };
 };
 
-const getArticlesByProducts = async (productID, size) => {
-    const query = {
-        "size": size || 20,
+const getArticlesByArticleCategory = (articleCategoryUrl, size = 200) => {
+    return {
+        "size": size,
         "query": {
             "bool": {
                 "must": [
                     {
-                        "match_phrase": {
-                            "related_products": productID
+                        "term": {
+                            "article_category": articleCategoryUrl
                         }
                     }
-                ]
+                ],
             }
         },
         "sort": {
@@ -88,8 +88,6 @@ const getArticlesByProducts = async (productID, size) => {
             }
         }
     };
-    const data = await searchArticles(query);
-    return data.hits;
 };
 
 const getAllArticles = async () => {
@@ -117,7 +115,7 @@ const revealed = {
     getArticle,
     getNewArticles,
     getRelatedArticlesByProduct,
-    getArticlesByProducts,
+    getArticlesByArticleCategory,
     getAllArticles,
 };
 
