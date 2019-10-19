@@ -25,6 +25,18 @@ const defaultVariantQuery = {
 const getTopProducts = (size = 20) => {
 
     return {
+        "_source": [
+            "url",
+            "content",
+            "robot",
+            "category",
+            "title",
+            "extraTitle",
+            "name",
+            "categorySource",
+            "productSource",
+            "images.url"
+        ],
         "size": size,
         "query": defaultVariantQuery,
         "sort": {
@@ -37,6 +49,18 @@ const getTopProducts = (size = 20) => {
 const getNewProducts = (size = 20) => {
 
     return {
+        "_source": [
+            "url",
+            "content",
+            "robot",
+            "category",
+            "title",
+            "extraTitle",
+            "name",
+            "categorySource",
+            "productSource",
+            "images.url"
+        ],
         "size": size,
         "query": defaultVariantQuery,
         "sort": {
