@@ -25,7 +25,7 @@ services:
     networks:
       - web
       - docker-elk_elk
-    command: "pm2 start --no-daemon server.js -i 2"
+    command: "pm2 start --no-daemon server.js -i 1"
 
 networks:
   web:
