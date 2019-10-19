@@ -47,9 +47,8 @@ const getNewProducts = (size = 20) => {
     };
 };
 
-const getVariantsByProduct = async (productUrl) => {
-
-    const query = {
+const getVariantsByProduct = (productUrl) => {
+    return {
         "size": 100,
         "query": {
             "bool": {
@@ -65,12 +64,11 @@ const getVariantsByProduct = async (productUrl) => {
             }
         }
     };
-    const data = await searchVariant(query);
-    return data.hits;
 };
-const getRelatedProductsByCategory = async (categoryUrl, productUrl, size) => {
 
-    const query = {
+const getRelatedProductsByCategory = (categoryUrl, productUrl, size = 20) => {
+
+    return {
         "query": {
             "bool": {
                 "must": [
@@ -108,9 +106,8 @@ const getRelatedProductsByCategory = async (categoryUrl, productUrl, size) => {
             }
         ]
     };
-    const data = await searchVariant(query);
-    return data.hits;
 };
+
 const getProductsByCategory = (categoryUrl, size) => {
     return {
         "query": {
@@ -220,17 +217,15 @@ const getAllVariantsCategory = async (categoryUrl) => {
     const data = await searchVariant(query);
     return data.hits;
 };
-const getVariant = async (variantUrl) => {
+const getVariant = (variantUrl) => {
 
-    const query = {
+    return {
         "query": {
             "term": {
                 "url": variantUrl
             }
         },
     };
-    const data = await searchVariant(query);
-    return data.hits[0];
 };
 
 

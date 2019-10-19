@@ -38,9 +38,9 @@ const getNewArticles = (size = 20) => {
     };
 };
 
-const getRelatedArticlesByProduct = async (productUrl, articleUrl, size) => {
-    const query = {
-        "size": size || 20,
+const getRelatedArticlesByProduct = (productUrl, articleUrl, size = 200) => {
+    return {
+        "size": size,
         "query": {
             "bool": {
                 "must": [
@@ -65,8 +65,6 @@ const getRelatedArticlesByProduct = async (productUrl, articleUrl, size) => {
             }
         }
     };
-    const data = await searchArticles(query);
-    return data.hits;
 };
 
 const getArticlesByProducts = async (productID, size) => {
