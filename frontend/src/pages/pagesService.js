@@ -1,9 +1,5 @@
-const {search} = require("../elasticsearch/search");
-
-const searchPages = search("pages");
-const getPage = async (url) => {
-
-	const data = await searchPages({
+const getPage = (url) => {
+	return {
         "query":{
             "term": {
                 "url":{
@@ -11,9 +7,7 @@ const getPage = async (url) => {
                 }
             }
         }
-
-    });
-    return data.hits[0];
+    }
 };
 
 const revealed = {
