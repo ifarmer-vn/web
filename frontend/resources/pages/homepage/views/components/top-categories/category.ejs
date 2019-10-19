@@ -1,7 +1,7 @@
 <% if(category._source.images){ %>
     <a href="<%= category._source.url %>/" class="single-item ml-3">
         <div class="mb2">
-            <div class="dib br-50 b-bold-1 w-131 h-131 overflow-hidden" title="Vegetables">
+            <div class="dib br-50 b-bold-1 w-131 h-131 overflow-hidden" title="<%= category._source.name %>">
                 <amp-img width="131" height="131" src="<%= category._source.images[0].url %>"
                          alt="<%= category._source.name %>"></amp-img>
             </div>
