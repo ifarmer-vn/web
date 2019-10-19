@@ -1,7 +1,12 @@
 const fs = require("fs");
 
+let css = {};
+
 const getFileContent = path => {
-	return fs.readFileSync(path, "utf8");
+	if(!css[path]){
+		css[path]= fs.readFileSync(path, "utf8");
+	}
+	return css[path];
 };
 
 const revealed = {

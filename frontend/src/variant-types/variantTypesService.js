@@ -1,13 +1,7 @@
-const {search} = require("../elasticsearch/search");
-
-const searchVariantTypes = search("variant-types");
-const getAllVariantTypes = async () => {
-
-	const data = await searchVariantTypes({
-        "size": 20
-
-    });
-    return data.hits;
+const getAllVariantTypes = (size = 200) => {
+    return {
+        "size": size
+    }
 };
 
 const revealed = {

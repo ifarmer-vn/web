@@ -14,9 +14,10 @@ const defaultArticleQuery = {
         ],
     }
 };
-const getTopArticles = async (size) => {
-    const query = {
-        "size": size || 20,
+
+const getTopArticles = (size = 20) => {
+    return {
+        "size": size,
         "query": defaultArticleQuery,
         "sort": {
             "impressions": {
@@ -24,13 +25,11 @@ const getTopArticles = async (size) => {
             }
         }
     };
-    const data = await searchArticles(query);
-    return data.hits;
 };
 
-const getNewArticles = async (size) => {
-    const query = {
-        "size": size || 20,
+const getNewArticles = (size = 20) => {
+    return {
+        "size": size,
         "query": defaultArticleQuery,
         "sort": {
             "updatedAt": {
@@ -38,13 +37,11 @@ const getNewArticles = async (size) => {
             }
         }
     };
-    const data = await searchArticles(query);
-    return data.hits;
 };
 
-const getRelatedArticlesByProduct = async (productUrl, articleUrl, size) => {
-    const query = {
-        "size": size || 20,
+const getRelatedArticlesByProduct = (productUrl, articleUrl, size = 200) => {
+    return {
+        "size": size,
         "query": {
             "bool": {
                 "must": [
@@ -69,22 +66,20 @@ const getRelatedArticlesByProduct = async (productUrl, articleUrl, size) => {
             }
         }
     };
-    const data = await searchArticles(query);
-    return data.hits;
 };
 
-const getArticlesByProducts = async (productID, size) => {
-    const query = {
-        "size": size || 20,
+const getArticlesByArticleCategory = (articleCategoryUrl, size = 200) => {
+    return {
+        "size": size,
         "query": {
             "bool": {
                 "must": [
                     {
-                        "match_phrase": {
-                            "related_products": productID
+                        "term": {
+                            "article_category": articleCategoryUrl
                         }
                     }
-                ]
+                ],
             }
         },
         "sort": {
@@ -93,9 +88,8 @@ const getArticlesByProducts = async (productID, size) => {
             }
         }
     };
-    const data = await searchArticles(query);
-    return data.hits;
 };
+
 const getAllArticles = async () => {
     const query = {
         "size": 10000
@@ -103,8 +97,9 @@ const getAllArticles = async () => {
     const data = await searchArticles(query);
     return data.hits;
 };
-const getArticle = async (articleUrl) => {
-    const query = {
+
+const getArticle = (articleUrl) => {
+    return {
         "query": {
             "term": {
                 "url": {
@@ -113,8 +108,6 @@ const getArticle = async (articleUrl) => {
             }
         }
     };
-    const data = await searchArticles(query);
-    return data.hits[0];
 };
 
 const revealed = {
@@ -122,7 +115,7 @@ const revealed = {
     getArticle,
     getNewArticles,
     getRelatedArticlesByProduct,
-    getArticlesByProducts,
+    getArticlesByArticleCategory,
     getAllArticles,
 };
 

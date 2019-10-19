@@ -1,5 +1,6 @@
 const css = require("../../../../src/css/css");
 const R = require("ramda");
+const searchProxy = require("../../../../src/elasticsearch/searchProxy");
 const variants = require("../../../../src/variants/variantsService");
 const articles = require("../../../../src/articles/articlesService");
 const variantTypes = require("../../../../src/variant-types/variantTypesService");
@@ -8,18 +9,19 @@ let data = require("../data-feed/pdp");
 
 const getData = async (productID) => {
     let result = R.clone(data);
-    result.topProducts = await variants.getTopProducts();
-    result.variant = await variants.getVariant(productID);
-    const productUrl = result.variant._source.productSource.url;
-    const relatedVariants = await variants.getVariantsByProduct(productUrl);
-    const variantTypesData = await variantTypes.getAllVariantTypes();
-    const product = await products.getProduct(productUrl);
-    const relatedArticles = await articles.getRelatedArticlesByProduct(productUrl, 8);
-    result.relatedProducts = await variants.getRelatedProductsByCategory(result.variant._source.category, productUrl);
-    result.relatedArticles = buildRelatedArticles(relatedArticles);
-    result.productDetail = buildProductDetail(product, result.variant);
-    result.variantGroups = buildVariantGroups(result.variant._source.url, result.variant._source.variantTypes, relatedVariants, variantTypesData);
-    result.breadcrumb = buildBreadcrumb(result.productDetail.categorySource,
+
+        await getDataFromES(result, productID);
+
+    result.relatedArticles = buildRelatedArticles(result.relatedArticles);
+    result.productDetail = buildProductDetail(result.product, result.variant);
+    result.variantGroups = buildVariantGroups(
+        result.variant._source.url,
+        result.variant._source.variantTypes,
+        result.relatedVariants,
+        result.variantTypesData
+    );
+    result.breadcrumb = buildBreadcrumb(
+        result.productDetail.categorySource,
         `${result.productDetail.productSource.title} ${result.productDetail.extraTitle}`);
     result.structuredData = buildStructuredData(result.productDetail.categorySource, result.productDetail);
     result.description = result.productDetail.description;
@@ -29,6 +31,30 @@ const getData = async (productID) => {
 
     result.css = css.getFileContent("./assets/css/ifarmer-pdp-min.css");
     return result;
+};
+
+const getDataFromES = async (result, productID) => {
+    let ship = searchProxy.createShip();
+    ship.addQuery("variants_v1", variants.getVariant(productID));
+    ship.addQuery("variant-types_v1", variantTypes.getAllVariantTypes());
+    let data = await ship.flush();
+    result.variant = data[0].hits.hits[0]; //for detail
+    result.variantTypesData = data[1].hits.hits;
+
+    const productUrl = result.variant._source.productSource.url;
+
+    ship.addQuery("products_v1", products.getProduct(productUrl));
+    ship.addQuery("variants_v1", variants.getVariantsByProduct(productUrl));
+    ship.addQuery("articles_v1", articles.getRelatedArticlesByProduct(productUrl, 8));
+    ship.addQuery("variants_v1", variants.getRelatedProductsByCategory(
+        result.variant._source.category,
+        productUrl
+    ));
+    data = await ship.flush();
+    result.product = data[0].hits.hits[0]; //for detail
+    result.relatedVariants = data[1].hits.hits; //for detail
+    result.relatedArticles = data[2].hits.hits; //for detail
+    result.relatedProducts = data[3].hits.hits; //for detail
 };
 
 const buildRelatedArticles = (relatedArticles) => {
