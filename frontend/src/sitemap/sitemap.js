@@ -18,18 +18,43 @@ async function productProcess() {
         console.log(products.length);
         category.totalProducts = products.length;
         if (category.totalProducts > 0) {
-            buildItemsSiteMap(category._source.url, products);
+            buildProductsSiteMap(category._source.url, products);
         }
     });
 
-    buildItemsSiteMap("categories", cats);
+    buildCategorySiteMap("categories", cats);
 }
 
 function articleProcess() {
-   return buildArticleSiteMapFile();
+    return buildArticleSiteMapFile();
 }
 
-function buildItemsSiteMap(fileName, items) {
+function buildCategorySiteMap(fileName, items) {
+    const xw = new XMLWriter();
+    xw.startDocument('1.0', 'UTF-8');
+    xw.startElement('urlset');
+    xw.writeAttribute('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9');
+    xw.writeAttribute('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
+    xw.writeAttribute('xsi:schemaLocation', 'http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd');
+    items.map(item => {
+        xw.startElement('url');
+        xw.startElement('loc');
+        xw.text(`https://ifarmer.vn/${item._source.url}/`);
+        xw.endElement('loc');
+        xw.startElement('changefreq');
+        xw.text("daily");
+        xw.endElement('changefreq');
+        xw.startElement('priority');
+        xw.text(1);
+        xw.endElement('priority');
+        xw.endElement('url')
+    });
+    xw.endElement('urlset');
+    xw.endDocument();
+    writeFile("../frontend/resources/pages/robots/sitemap-" + fileName + ".xml", xw);
+}
+
+function buildProductsSiteMap(fileName, items) {
     const xw = new XMLWriter();
     xw.startDocument('1.0', 'UTF-8');
     xw.startElement('urlset');
@@ -45,7 +70,7 @@ function buildItemsSiteMap(fileName, items) {
         xw.text("daily");
         xw.endElement('changefreq');
         xw.startElement('priority');
-        xw.text(1);
+        xw.text(item._source.default ? 1 : 0.5);
         xw.endElement('priority');
         xw.endElement('url')
     });

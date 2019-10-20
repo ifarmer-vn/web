@@ -433,4 +433,4 @@ Disallow:
 User-agent: *
 Allow: /
 
-Sitemap: https://ifarmer.vn/sitemap.xml/
+Sitemap: https://ifarmer.vn/sitemap.xml
