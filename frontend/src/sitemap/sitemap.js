@@ -70,7 +70,7 @@ function buildProductsSiteMap(fileName, items) {
         xw.text("daily");
         xw.endElement('changefreq');
         xw.startElement('priority');
-        xw.text(item.default ? 1 : 0.5);
+        xw.text(item._source.default ? 1 : 0.5);
         xw.endElement('priority');
         xw.endElement('url')
     });
