@@ -64,7 +64,7 @@ function buildProductsSiteMap(fileName, items) {
     items.map(item => {
         xw.startElement('url');
         xw.startElement('loc');
-        xw.text(`https://ifarmer.vn/san-phan/${item._source.url}/`);
+        xw.text(`https://ifarmer.vn/san-pham/${item._source.url}/`);
         xw.endElement('loc');
         xw.startElement('changefreq');
         xw.text("daily");
