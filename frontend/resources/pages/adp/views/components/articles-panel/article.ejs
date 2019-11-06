@@ -1,11 +1,11 @@
 <a
         class="w-100 w-50-m w-100-l flex flex-wrap mt1 items-center link"
         href="/bai-viet/<%= article._source.url %>/" data-vars-click-ga-trigger="click_popular_article_item"
-        data-vars-label="name:/bai-viet/dau-gac-rat-tot-cho-tre-em/" title="Dầu gấc rất tốt cho trẻ em">
+        data-vars-label="name:/bai-viet/<%= article._source.url %>/" title="<%= article._source.title %>">
     <div class="width-5rem height-5rem">
-        <% if(article._source.images[0]){ %>
+        <% if(article._source.transformedImages[0]){ %>
             <amp-img width="1" height="1" layout="responsive"
-                     src="<%= article._source.images[0].url %>"
+                     src="<%= article._source.transformedImages[0].image.small_1x1.url %>"
                      alt="<%= article._source.title %>"></amp-img>
         <% } %>
 

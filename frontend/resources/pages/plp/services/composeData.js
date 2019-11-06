@@ -52,9 +52,7 @@ const buildProductStructuredData = (products) => {
                 "priceCurrency": "VND"
             }
         };
-        if (productDetail.images) {
-            item.image = productDetail.images.url;
-        }
+        item.image = productDetail.transformedImages[0].image.large_16x9.url;
         itemListElement.push(item);
     });
 

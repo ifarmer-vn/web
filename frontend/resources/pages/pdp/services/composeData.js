@@ -124,7 +124,7 @@ const buildProductStructuredData = (productDetail) => {
     if (productDetail.images) {
         result["image"] = {
             "@type": "ImageObject",
-            "url": productDetail.images.url,
+            "url": productDetail.transformedImages[0].image.small_1x1.url,
             "height": 256,
             "width": 256
         };

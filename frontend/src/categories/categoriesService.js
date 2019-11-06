@@ -9,7 +9,8 @@ const getCategories = (size = 20) => {
         "_source": [
             "url",
             "name",
-            "images.url"
+            "images.url",
+            "transformedImages"
         ],
         "query": {
             "bool": {
@@ -34,7 +35,8 @@ const getAllCategories = async () => {
         "_source": [
             "url",
             "name",
-            "images.url"
+            "images.url",
+            "transformedImages"
         ],
         "query": {
             "bool": {

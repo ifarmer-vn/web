@@ -36,7 +36,8 @@ const getTopProducts = (size = 20) => {
             "name",
             "categorySource",
             "productSource",
-            "images.url"
+            "images.url",
+            "transformedImages",
         ],
         "size": size,
         "query": defaultVariantQuery,
@@ -61,7 +62,8 @@ const getNewProducts = (size = 20) => {
             "name",
             "categorySource",
             "productSource",
-            "images.url"
+            "images.url",
+            "transformedImages",
         ],
         "size": size,
         "query": defaultVariantQuery,

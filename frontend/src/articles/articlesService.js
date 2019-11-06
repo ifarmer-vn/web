@@ -23,7 +23,8 @@ const getTopArticles = (size = 20) => {
             "author",
             "updatedAt",
             "title",
-            "images"
+            "images",
+            "transformedImages",
         ],
         "size": size,
         "query": defaultArticleQuery,
@@ -43,7 +44,8 @@ const getNewArticles = (size = 20) => {
             "author",
             "updatedAt",
             "title",
-            "images"
+            "images",
+            "transformedImages",
         ],
         "size": size,
         "query": defaultArticleQuery,
@@ -65,7 +67,8 @@ const getRelatedArticlesByProduct = (productUrl, articleUrl, size = 200) => {
             "updatedAt",
             "title",
             "description",
-            "images"
+            "images",
+            "transformedImages",
         ],
         "query": {
             "bool": {
@@ -103,7 +106,8 @@ const getArticlesByArticleCategory = (articleCategoryUrl, size = 200) => {
             "updatedAt",
             "title",
             "content",
-            "images"
+            "images",
+            "transformedImages",
         ],
         "query": {
             "bool": {
