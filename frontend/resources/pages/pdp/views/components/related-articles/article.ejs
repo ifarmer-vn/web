@@ -1,11 +1,11 @@
 <a class="overflow-hidden mt2 db link"
    href="/bai-viet/<%= article._source.url %>/"
-   data-vars-click-ga-trigger="click_articles_item"
+   data-vars-click-ga-trigger="click_pdp_related_articles"
    data-vars-label="name:articles:<%= article._source.url %>">
     <div class="absolute  w4 h4 w-12-ns h-12-ns">
-        <% if(article._source.images[0]){ %>
+        <% if(article._source.transformedImages[0]){ %>
             <amp-img class="br-100" width="8rem" height="8rem" layout="responsive"
-                     src="<%= article._source.images[0].url %>"></amp-img>
+                     src="<%= article._source.transformedImages[0].image.small_1x1.url %>"></amp-img>
         <% } %>
     </div>
 

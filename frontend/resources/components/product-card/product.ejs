@@ -3,9 +3,7 @@
     <div>
 
         <amp-img class="margin-auto" width="212" height="212" layout="responsive"
-        <% if(product._source.images) { %>
-                 src="<%= product._source.images.url %>"
-                <% } %>
+                 src="<%= product._source.transformedImages[0].image.small_1x1.url %>"
                  alt="<%= product._source.productSource.title + " " + product._source.extraTitle %>"></amp-img>
         <div>
             <div class="f13 dusty-ray h1" tabindex="0">
