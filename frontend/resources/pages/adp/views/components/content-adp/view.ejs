@@ -2,7 +2,13 @@
     <% if(articleDetail._source.transformedImages[0]){ %>
         <amp-img width="16" height="9" layout="responsive"
                  src="<%= articleDetail._source.transformedImages[0].image.large_16x9.url %>"
-                 alt="<%= articleDetail._source.title %>>"></amp-img>
+                 alt="<%= articleDetail._source.title %>">
+                <amp-img width="16" height="9"
+                         fallback
+                         layout="responsive"
+                         src="<%= articleDetail._source.images[0].url %>"
+                         ></amp-img>
+        </amp-img>
     <% } %>
 
 </div>

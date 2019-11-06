@@ -4,7 +4,12 @@
 
         <amp-img class="margin-auto" width="212" height="212" layout="responsive"
                  src="<%= product._source.transformedImages[0].image.small_1x1.url %>"
-                 alt="<%= product._source.productSource.title + " " + product._source.extraTitle %>"></amp-img>
+                 alt="<%= product._source.productSource.title + " " + product._source.extraTitle %>">
+            <amp-img fallback
+                     class="margin-auto" width="212" height="212" layout="responsive"
+                     src="<%= product._source.images[0].url %>"
+            ></amp-img>
+        </amp-img>
         <div>
             <div class="f13 dusty-ray h1" tabindex="0">
                 <% if(product._source.categorySource){ %>
