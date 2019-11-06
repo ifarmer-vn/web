@@ -5,7 +5,12 @@
     <div class="absolute  w4 h4 w-12-ns h-12-ns">
         <% if(article._source.transformedImages[0]){ %>
             <amp-img class="br-100" width="8rem" height="8rem" layout="responsive"
-                     src="<%= article._source.transformedImages[0].image.small_1x1.url %>"></amp-img>
+                     src="<%= article._source.transformedImages[0].image.small_1x1.url %>">
+                <amp-img class="br-100" width="8rem" height="8rem" layout="responsive"
+                         fallback
+                         src="<%= article._source.images[0].url %>"></amp-img>
+
+            </amp-img>
         <% } %>
     </div>
 
