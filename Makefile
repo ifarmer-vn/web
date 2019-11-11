@@ -17,6 +17,8 @@ files:
 	cp -r docker/config/amppubkeys docker/nginx/config
 	cp -r docker/config/cert docker/nginx/config
 
+sitemap:
+	cd frontend && node src/sitemap/sitemap.js
 
 dev: files-dev
 	cd frontend && npm run dev
