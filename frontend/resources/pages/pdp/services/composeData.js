@@ -10,10 +10,11 @@ let data = require("../data-feed/pdp");
 const getData = async (productID) => {
     let result = R.clone(data);
 
-        await getDataFromES(result, productID);
+    await getDataFromES(result, productID);
 
     result.relatedArticles = buildRelatedArticles(result.relatedArticles);
     result.productDetail = buildProductDetail(result.product, result.variant);
+    result.productDetail.transformedImages = fallbackImage(result.productDetail);
     result.variantGroups = buildVariantGroups(
         result.variant._source.url,
         result.variant._source.variantTypes,
@@ -23,6 +24,7 @@ const getData = async (productID) => {
     result.breadcrumb = buildBreadcrumb(
         result.productDetail.categorySource,
         `${result.productDetail.productSource.title} ${result.productDetail.extraTitle}`);
+
     result.structuredData = buildStructuredData(result.productDetail.categorySource, result.productDetail);
     result.description = result.productDetail.description;
 
@@ -30,6 +32,27 @@ const getData = async (productID) => {
     result.title = result.productDetail.h1;
 
     result.css = css.getFileContent("./assets/css/ifarmer-pdp-min.css");
+    return result;
+};
+
+const fallbackImage = (data) => {
+    //Todo should fix why missing images
+    if (data.transformedImages[0].image) {
+        return data.transformedImages;
+    }
+    let result = [];
+    if (data.images) {
+        result = [
+            {
+                image:{
+                    small_1x1: {
+                        url:data.images[0].url
+                    },
+                }
+            }
+        ]
+    }
+    console.log("Missing transformedImages", data.url);
     return result;
 };
 
@@ -121,16 +144,18 @@ const buildProductStructuredData = (productDetail) => {
     if (isNaN(productDetail.price)) {
         delete result.offers;
     }
-    if (productDetail.images) {
+    if (productDetail.transformedImages[0].image) {
         result["image"] = {
             "@type": "ImageObject",
             "url": productDetail.transformedImages[0].image.small_1x1.url,
             "height": 256,
             "width": 256
         };
+
     }
     return result;
 };
+
 
 const buildBreadcrumb = (category, title) => {
     let result = [
@@ -205,6 +230,7 @@ const buildVariantGroups = (currentVariantUrl, currentVariantType, variants, var
     let foundedVariantTypes = {};
     variants.map(variant => {
         const source = variant._source;
+        source.transformedImages = fallbackImage(source);
         const vTypes = source.variantTypes;
         for (const pp in currentVariantType) {
             const valueVariantType = vTypes[pp];
