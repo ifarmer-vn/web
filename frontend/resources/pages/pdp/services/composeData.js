@@ -44,9 +44,9 @@ const fallbackImage = (data) => {
     if (data.images) {
         result = [
             {
-                image:{
+                image: {
                     small_1x1: {
-                        url:data.images[0].url
+                        url: data.images[0].url
                     },
                 }
             }
@@ -192,6 +192,13 @@ const convertArrayToObject = (arr, field) => {
     return result;
 };
 
+const convertObjectToArray = (obj) => {
+    let result = [];
+    for (let pp in obj) {
+        result.push(obj[pp]);
+    }
+    return result;
+};
 const convertObjectToArrayByOrder = (obj, field) => {
     let arr = R.values(obj);
     arr.sort((a, b) => {
@@ -211,6 +218,11 @@ const convertObjectToArrayByOrder = (obj, field) => {
             return true;
         }
         return a[field] > b[field];
+    });
+    arr.map(item => {
+        if (!item.variants) {
+            item.variants = convertObjectToArray(item.currentType);
+        }
     });
     return arr;
 };
