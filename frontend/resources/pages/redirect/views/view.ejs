@@ -1,0 +1,52 @@
+<%- include("../../../components/master-js/head") -%>
+
+<script>
+    setTimeout(function () {
+        document.location.href = "https://m.me/ifarmer.vn/";
+    }, 5000);
+</script>
+<div class="mv3 pa2 pa0-ns tc">
+    <h1>Bạn Đang Đặt Mua <%= productDetail.h1 %></h1>
+</div>
+
+<div class="pa2 pa0-ns tc">
+y        Vì trang web đang trong giai đoạn phát triển nên chúng tôi chưa kịp hoàn thành chức năng mua hàng trực tuyến
+        kính mong Quý Khách thông cảm.
+    </p>
+</div>
+
+<div class="pa2 pa0-ns tc">
+    <p>
+        Trang sẽ tự động chuyển sang facebook messenger của ifarmer.vn sau 5s
+    </p>
+</div>
+
+<div class="pa2 pa0-ns tc w-100 w-70-m w-50-l flex margin-0-auto">
+    <amp-img class="flex-grow-1" layout="responsive" width="200" height="200"
+             src="<%= productDetail.transformedImages[0].image.small_1x1.url %>"
+             alt="<%= productDetail.h1 %>">
+        <amp-img width="200" height="200" fallback
+                 src="<%= productDetail.images[0].url %>"></amp-img>
+    </amp-img>
+    
+    <amp-img class="flex-grow-1" layout="responsive" width="400" height="200"
+             src="/assets/images/redirect.gif"
+    ></amp-img>
+    <amp-img class="flex-grow-1" layout="responsive" width="200" height="200"
+             src="/assets/images/messenger.png"
+    ></amp-img>
+
+</div>
+
+
+<div class="pa2 pa0-ns tc">
+    <p>
+        <a href="https://m.me/ifarmer.vn/"
+           data-vars-click-ga-trigger="click_redirect_immediately"
+           data-vars-label="name:<%= productDetail.url %>"
+        >Bấm vào đây để chuyển lập tức</a>
+    </p>
+</div>
+
+
+<%- include("../../../components/master-js/footer") -%>

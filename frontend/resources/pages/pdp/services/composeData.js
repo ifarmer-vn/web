@@ -178,7 +178,7 @@ const buildProductDetail = (product, variant) => {
     let result = {
         ...product._source,
         ...variant._source,
-        h1: `${product._source.title}  ${variant._source.extraTitle}`
+        h1: variant._source.title ? variant._source.title : `${product._source.title}  ${variant._source.extraTitle}`
     };
     return result;
 };
