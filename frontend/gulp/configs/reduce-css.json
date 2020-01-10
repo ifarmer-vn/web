@@ -89,6 +89,14 @@
         "resources/components/header/*.ejs"
       ],
       "out": "resources/pages/plp/views/used.scss"
+    },
+    {
+      "path": [
+        "resources/pages/redirect/**/*.ejs",
+        "resources/components/master-js/*.ejs",
+        "resources/components/footer-js/*.ejs"
+      ],
+      "out": "resources/pages/redirect/views/used.scss"
     }
   ],
   "baseCSS": [

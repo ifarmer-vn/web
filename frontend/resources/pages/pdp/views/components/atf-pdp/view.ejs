@@ -12,11 +12,16 @@
         <p><%= productDetail.description%></p>
     </div>
     <div  class="width-fit-content margin-auto ttu pl4-l w-100-l">
-        <a href="https://m.me/ifarmer.vn/" target="_blank" rel="nofollow" class="dib background-color-80bb01 border-color-80bb01 color-ffffff font-size-15px text-transform-uppercase border-radius-50px padding-0-30px border-2px-solid-e0e0e0font-weight-500 height-45px line-height-43px min-width-130px padding-0-15px text-align-center">
+        <a href="/chuyen-huong/<%= productDetail.url %>/"
+           target="_blank"
+           rel="nofollow"
+           data-vars-click-ga-trigger="click_order"
+           data-vars-label="name:<%= productDetail.url %>"
+           class="dib background-color-80bb01 border-color-80bb01 color-ffffff font-size-15px text-transform-uppercase border-radius-50px padding-0-30px border-2px-solid-e0e0e0font-weight-500 height-45px line-height-43px min-width-130px padding-0-15px text-align-center">
             <amp-img class="dib v-mid" width="30" height="30"
                      src="/assets/images/svg/ios-cart.svg"
                      ></amp-img>
-            <div class="dib v-mid">Mua hàng</div></a>
+            <div class="dib v-mid">Đặt Hàng</div></a>
     </div>
     <div class="pl4-l w-100-l">
         <%- include("./variants.ejs") -%>
