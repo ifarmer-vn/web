@@ -1,10 +1,13 @@
 <a href="/san-pham/<%= product._source.url %>/" class="db relative b-bottom-2 b-right-2 pa-item"
 >
     <div>
-
+        <%
+        if (!product._source.transformedImages[0].image) {
+            console.log(product._source.productSource.title);
+        } %>
         <amp-img class="margin-auto" width="212" height="212" layout="responsive"
                  src="<%= product._source.transformedImages[0].image.small_1x1.url %>"
-                 alt="<%= product._source.productSource.title + " " + product._source.extraTitle %>">
+                 alt="<%= product._source.productSource.title %>">
             <amp-img fallback
                      class="margin-auto" width="212" height="212" layout="responsive"
                      src="<%= product._source.images[0].url %>"
@@ -17,7 +20,7 @@
                 <% } %>
             </div>
             <h3 class="line-height-15rem truncate height-15rem">
-                <%= product._source.productSource.title + " " + product._source.extraTitle %>
+                <%= product._source.productSource.title %>
             </h3>
             <div>
                 <% if(product._source.price) { %>

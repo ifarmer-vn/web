@@ -23,7 +23,7 @@ const getData = async (productID) => {
     );
     result.breadcrumb = buildBreadcrumb(
         result.productDetail.categorySource,
-        `${result.productDetail.productSource.title} ${result.productDetail.extraTitle}`);
+        `${result.productDetail.h1}`);
 
     result.structuredData = buildStructuredData(result.productDetail.categorySource, result.productDetail);
     result.description = result.productDetail.description;
@@ -124,7 +124,7 @@ const buildBreadcrumbStructuredData = (category) => {
 
 const buildProductStructuredData = (productDetail) => {
     const url = `https://ifarmer.vn/san-pham/${productDetail.url}/`;
-    const title = `${productDetail.productSource.title} ${productDetail.extraTitle}`;
+    const title = `${productDetail.productSource.h1}`;
     let result = {
         "@context": "http://schema.org",
         "@type": "Product",
@@ -178,7 +178,7 @@ const buildProductDetail = (product, variant) => {
     let result = {
         ...product._source,
         ...variant._source,
-        h1: variant._source.title ? variant._source.title : `${product._source.title}  ${variant._source.extraTitle}`
+        h1: variant._source.title ? variant._source.title : `${product._source.title}`
     };
     return result;
 };

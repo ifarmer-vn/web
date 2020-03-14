@@ -39,7 +39,7 @@ const buildProductStructuredData = (products) => {
     products.map((product, index) => {
         const productDetail = product._source;
         const url = `https://ifarmer.vn/san-pham/${productDetail.url}/`;
-        const title = `${productDetail.productSource.title} ${productDetail.extraTitle}`;
+        const title = `${productDetail.productSource.title}`;
         let item = {
             "@type": "Product",
             "position": index + 1,
