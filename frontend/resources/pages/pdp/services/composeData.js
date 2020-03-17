@@ -21,6 +21,7 @@ const getData = async (productID) => {
         result.relatedVariants,
         result.variantTypesData
     );
+
     result.breadcrumb = buildBreadcrumb(
         result.productDetail.categorySource,
         `${result.productDetail.h1}`);

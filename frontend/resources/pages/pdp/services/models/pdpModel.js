@@ -28,6 +28,9 @@ const pdpModel = {
 	get breadcrumb() {
 		return data.breadcrumb;
 	},
+	get ampLibraries() {
+		return data.ampLibraries;
+	},
 	get structuredData() {
 		return data.structuredData;
 	},
