@@ -1,7 +1,7 @@
 <div data-vars-click-ga-trigger="click_view_image"
      data-vars-label="name:<%= productDetail.url %>"
 >
-    <amp-carousel lightbox width="200" height="200" layout="responsive" type="slides">
+    <amp-carousel lightbox="view-images" width="200" height="200" layout="responsive" type="slides">
         <% productDetail.transformedImages.forEach((transformedImage, index) =>{ %>
             <amp-img width="200" height="200" layout="responsive"
                      src="<%= transformedImage.image.large_1x1.url %>"
