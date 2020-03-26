@@ -1,0 +1,27 @@
+<%- include("../../../components/master-js/head") -%>
+
+<script>
+
+</script>
+<div class="mv3 pa2 pa0-ns tc">
+    <h1>Bạn Đang Đặt Mua <%= productDetail.h1 %></h1>
+</div>
+
+<div class="mt3 bg-white pa2 flex-l flex-wrap-l">
+    <form class="w-100" id="order-form" action="submit-order" method="get">
+        <div class="flex-l">
+            <div class="w-50-l pa2">
+                <%- include("./components/order-detail") -%>
+            </div>
+            <div class="w-50-l pa2">
+                <%- include("./components/info") -%>
+            </div>
+        </div>
+        <div class="w-100 margin-bottom-20px">
+            <button class="background-fff border-2px-solid-e0e0e0 color-323232 display-inline-block font-size-16px font-weight-500 height-47px line-height-43px margin-0-4px min-width-130px padding-0-15px text-align-center text-transform-uppercase border-radius-5px" type="submit" value="submit" id="submit" name="submit">Đặt mua</button>
+        </div>
+    </form>
+
+</div>
+
+<%- include("../../../components/master-js/footer") -%>

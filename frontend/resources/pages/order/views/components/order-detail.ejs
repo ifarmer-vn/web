@@ -1,0 +1,62 @@
+<div>
+    <!--    {{&#45;&#45;determines how many "0's" there are.&#45;&#45;}}-->
+    <amp-bind-macro id="getLog10" arguments="num" expression="num.length - 1"></amp-bind-macro>
+    <!--    {{&#45;&#45;determines if the number should have a comma after it&#45;&#45;}}-->
+    <amp-bind-macro id="numShouldHaveComma" arguments="log10" expression="log10%3==0 && log10!=0"></amp-bind-macro>
+    <!--    {{&#45;&#45;helper function for formatNumber&#45;&#45;}}-->
+    <amp-bind-macro id="formatNumber_map" arguments="char, ind, numStr"
+                    expression="(numShouldHaveComma(getLog10(numStr.substr(ind)))) ? char+',' : char"></amp-bind-macro>
+    <!--    {{&#45;&#45;main number formatter&#45;&#45;}}-->
+    <amp-bind-macro id="formatNumber" arguments="num, numStr"
+                    expression="numStr.split('').map((char,ind)=>formatNumber_map(char,ind, numStr)).join('')"></amp-bind-macro>
+    <!--    {{&#45;&#45;calls formatNumber&#45;&#45;}}-->
+    <amp-bind-macro id="formatMoney" arguments="val"
+                    expression="formatNumber(round(val), round(val).toString())"></amp-bind-macro>
+
+    <h3 class="font-size-25px line-height-43px color-222222 font-weight-500 margin-bottom-35px">Thông tin đơn hàng</h3>
+    <div>
+        <input type="hidden" value="<%= productDetail.url %>" name="productID">
+        <div class="flex-l">
+            <div class="w-50-l pa2-l">
+                <div class="margin-bottom-20px">
+                    <amp-img class="flex-grow-1" layout="responsive" width="200" height="200"
+                             src="<%= productDetail.transformedImages[0].image.large_1x1.url %>"
+                             alt="<%= productDetail.h1 %>">
+                        <amp-img width="200" height="200" fallback
+                                 src="<%= productDetail.images[0].url %>"></amp-img>
+                    </amp-img>
+                </div>
+            </div>
+            <div class="w-50-l pa2-l">
+                <div class="margin-bottom-20px">
+                    <div class="pa2">
+                        <span>Đơn giá:</span>
+                        <span><b><%= productDetail.price.toString().money() %></b></span>
+                    </div>
+                    <div class="pa2">
+                        <label class="db font-size-15px line-height-29px font-weight-400 color-888888 margin-bottom-0">
+                            Số lượng
+                        </label>
+                        <input type="number" name="quantity" min="1" value="1"
+                               on="input-throttled:AMP.setState({total:event.valueAsNumber*<%= productDetail.price %>})"
+                               class="db w-100 background-color-ffffff height-50px line-height-50px outline-none border-1px-solid-e0e0e0 padding-left-20px">
+                    </div>
+                    <div class="pa2">
+                        <span>Tổng cộng:</span>
+                        <span><b [text]="formatMoney(total)"><%= productDetail.price.toString().money() %></b></span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="margin-bottom-20px pa2">
+            <label class="display-block font-size-15px line-height-29px font-weight-400 color-888888 margin-bottom-0">
+                Ghi chú thêm
+            </label>
+            <textarea
+                    class="background-color-ffffff width-100-percent outline-none border-1px-solid-e0e0e0 padding-left-20px line-height-50px height-200px overflow-auto resize-vertical"
+                    name="notes"></textarea>
+        </div>
+
+    </div>
+</div>

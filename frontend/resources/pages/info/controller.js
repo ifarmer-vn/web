@@ -1,6 +1,6 @@
 const infoService = require("./services/infoService");
 
-let infoController = async (req, res) => {
+let controller = async (req, res) => {
 	const path = req.originalUrl.replace(/\//g,'');
 	console.time("Prepare data for info");
 	let data = await infoService.prepareData(path);
@@ -8,4 +8,4 @@ let infoController = async (req, res) => {
 	return res.render("pages/info/views/info", data);
 };
 
-module.exports = infoController;
+module.exports = controller;

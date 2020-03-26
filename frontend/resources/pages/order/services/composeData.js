@@ -10,7 +10,7 @@ const getData = async (variantID) => {
 
     await getDataFromES(result, variantID);
     result.productDetail = buildProductDetail(result.product, result.variant);
-    result.css = css.getFileContent("./assets/css/ifarmer-redirect-min.css");
+    result.css = css.getFileContent("./assets/css/ifarmer-order-min.css");
     result.title = result.variant._source.title;
     result.canonical = `https://ifarmer.vn/chuyen-huong/${variantID}/`;
     return result;

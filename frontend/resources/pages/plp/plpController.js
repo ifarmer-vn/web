@@ -2,6 +2,7 @@ const plpService = require("./services/plpService");
 
 let plpController = async (req, res) => {
     let categoryID = req.params.categoryID;
+    console.log("categoryID",categoryID);
     if (!categoryID) {
         return;
     }

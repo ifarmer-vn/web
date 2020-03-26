@@ -7,3 +7,5 @@ docker-compose.yml
 **/*used.scss
 **/*combine.scss
 generated
+**/credentials.json
+**/data/assets/

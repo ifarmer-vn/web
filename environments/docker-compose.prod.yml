@@ -25,10 +25,13 @@ services:
     networks:
       - web
       - docker-elk_elk
-    command: "pm2 start --no-daemon server.js -i 1"
+      - cms_cms
+    command: "npm run dev"
 
 networks:
   web:
     driver: bridge
   docker-elk_elk:
+    external: true
+  cms_cms:
     external: true

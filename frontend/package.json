@@ -5,9 +5,16 @@
     "dev": "gulp dev",
     "build": "gulp build"
   },
+  "_moduleAliases": {
+    "@examples": "examples",
+    "@boilerplate": "boilerplate",
+    "@src": "src"
+  },
   "dependencies": {
+    "@google-cloud/datastore": "^5.1.0",
     "clean-css": "^4.2.1",
     "cookie-parser": "^1.4.4",
+    "cookie-session": "^1.4.0",
     "debug": "^4.1.1",
     "ejs": "^2.7.1",
     "elasticsearch": "^16.3.0",
@@ -16,9 +23,15 @@
     "http-errors": "^1.7.3",
     "jasmine": "^3.4.0",
     "library": "git+ssh://git@github.com/ifarmer-vn/elastic.git#develop",
+    "module-alias": "^2.2.2",
     "morgan": "^1.9.1",
     "node-env-file": "^0.1.8",
+    "node-fetch": "^2.6.0",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0",
     "ramda": "^0.26.1",
+    "randomstring": "^1.1.5",
+    "request": "^2.88.2",
     "serve-assets": "0.0.1",
     "xml-writer": "^1.7.0"
   },
@@ -26,7 +39,7 @@
     "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",
     "gulp-csso": "^3.0.1",
-    "gulp-nodemon": "^2.4.2",
+    "gulp-nodemon": "^2.5.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "reduce-css-hai-bui": "^2.0.3"
