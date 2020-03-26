@@ -7,13 +7,13 @@ const assets = require("./middewares/assets");
 const routes = require("./middewares/routes");
 // const passport = require('passport');
 const cookieSession = require('cookie-session');
-const keys = require('./key');
-server.use(
-    cookieSession({
-        maxAge: 30 * 24 * 60 * 60 * 1000,
-        keys: [keys.cookieKey]
-    })
-);
+// const keys = require('./key');
+// server.use(
+//     cookieSession({
+//         maxAge: 30 * 24 * 60 * 60 * 1000,
+//         keys: [keys.cookieKey]
+//     })
+// );
 // server.use(passport.initialize());
 // server.use(passport.session());
 // require("./passport");
