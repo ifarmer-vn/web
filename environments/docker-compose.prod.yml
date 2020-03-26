@@ -26,7 +26,7 @@ services:
       - web
       - docker-elk_elk
       - cms_cms
-    command: "npm run dev"
+    command: "pm2 start --no-daemon server.js -i 1"
 
 networks:
   web:
