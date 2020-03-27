@@ -20,8 +20,15 @@ files:
 sitemap:
 	cd frontend && node src/sitemap/sitemap.js
 
-dev: files-dev
-	cd frontend && npm run dev
+dev: build-dev
+	docker-compose up
+
+build-dev: files-dev
+	docker-compose build
 
 files-dev:
-	cp frontend/src/elasticsearch/credential.dev.json frontend/src/elasticsearch/credential.json
+	cp frontend/src/elasticsearch/credential.prod.json frontend/src/elasticsearch/credential.json
+	cp environments/docker-compose.dev.yml docker-compose.yml
+	cp docker/nodejs/Dockerfile frontend/Dockerfile
+	cp -r docker/config/amppubkeys docker/nginx/config
+	cp -r docker/config/cert docker/nginx/config

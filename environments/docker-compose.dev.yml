@@ -25,7 +25,7 @@ services:
     networks:
       - web
       - docker-elk_elk
-      - cms_web
+      - cms_cms
     command: "npm run dev"
 
 networks:
@@ -33,5 +33,5 @@ networks:
     driver: bridge
   docker-elk_elk:
     external: true
-  cms_web:
+  cms_cms:
     external: true

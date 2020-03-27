@@ -1,4 +1,5 @@
 const variantsService = require("../../../src/variants/variantsService");
+const utils = require("../../../src/utils.js");
 const customerCMS = require("../../../src/strapi/customers/customers");
 const orderDetailCMS = require("../../../src/strapi/orderDetails/orderDetails");
 const ordersCMS = require("../../../src/strapi/orders/orders");
@@ -33,6 +34,9 @@ let orderController = async (req, res) => {
     };
     const order = {
         product: product,
+        productName: params.productID,
+        phone: params.customerPhone,
+        timeOrder: utils.calcTime(7),
         customerID: customer.customer_id,
         totalPrice: price * parseInt(params.quantity),
         status: 'dang-cho',
