@@ -22,8 +22,12 @@
             <h3 class="line-height-15rem truncate height-15rem">
                 <%= product._source.productSource.title %>
             </h3>
+
             <div>
                 <% if(product._source.price) { %>
+                    <% if(product._source.original_price) { %>
+                        <span class="f14 strike"><%= product._source.original_price.toString().money() %></span>
+                    <% }%>
                     <span class="limeade1 f21"><%= product._source.price.toString().money() %></span>
                 <% }else{ %>
                     <span class="limeade1 f21">Liên Hệ</span>
