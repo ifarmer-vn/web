@@ -1,12 +1,12 @@
-<a href="/bai-viet/<%= article._source.url %>/" class="db pa2"
+<a href="/bai-viet/<%= article._source.url %>/" class="db pa2 pb4"
 >
     <div class="pa2 relative b-left-1">
-        <div class="f13 dusty-ray"
-             tabindex="0"><%= article._source.updatedAt.split('T')[0] + ' ' + article._source.author %>
-        </div>
         <h3 class="pv2 f16">
             <%= article._source.title %>
         </h3>
+        <div class="f13 dusty-ray"
+             tabindex="0"><%= article._source.updatedAt.split('T')[0] + ' ' + article._source.author %>
+        </div>
     </div>
     <amp-img width="212" height="212" layout="responsive"
              src="<%= article._source.transformedImages[0].image.small_1x1.url %>"
