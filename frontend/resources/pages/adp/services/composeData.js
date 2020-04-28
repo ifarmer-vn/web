@@ -1,5 +1,6 @@
 const css = require("../../../../src/css/css");
 const R = require("ramda");
+const ejs = require('ejs');
 const articles = require("../../../../src/articles/articlesService");
 const searchProxy = require("../../../../src/elasticsearch/searchProxy");
 const variants = require("../../../../src/variants/variantsService");
@@ -14,11 +15,12 @@ const getData = async (articleID) => {
     result.css = css.getFileContent("./assets/css/ifarmer-adp-min.css");
     result.description = result.articleDetail._source.description;
     result.title = result.articleDetail._source.title;
-    transformContent(result.articleDetail._source);
+    result.content = transformContent(result.articleDetail._source, result);
     result.ampLibraries = buildAmpLibraries(result.articleDetail._source.content);
     result.canonical = `https://ifarmer.vn/bai-viet/${articleID}/`;
     return result;
 };
+
 
 const getDataFromES = async (result, articleID) => {
     let ship = searchProxy.createShip();
@@ -39,8 +41,28 @@ const getDataFromES = async (result, articleID) => {
     result.relatedArticles = data[1].hits.hits;
 };
 
-const transformContent = (source) => {
-    source.content = source.content.replace(/<amp-youtube/g, "<amp-youtube layout=\"responsive\"");
+const transformContent = (source, data) => {
+    source.content = transformAmpYoutube(source.content);
+    source.content = addRelatedProducts(source.content, data.relatedProducts);
+
+};
+const transformAmpYoutube = (content) => {
+    return content.replace(/<amp-youtube/g, "<amp-youtube layout=\"responsive\"");
+
+}
+const addRelatedProducts = (content, relatedProducts) => {
+    let relatedProductsView = "";
+    if (relatedProducts.length > 0) {
+        relatedProductsView = ejs.render(`    <div class="mt3 pa2 pa0-ns">
+        <%- include("${process.cwd()}/resources/components/products-carousel/single-line.ejs", {products: relatedProducts, heading:"Sản phẩm Liên Quan"}) -%>
+    </div>
+`, {
+            relatedProducts: relatedProducts
+        });
+
+    }
+
+    return content.replace("</p>", `</p>${relatedProductsView}`) ;
 };
 
 const buildAmpLibraries = (content) => {

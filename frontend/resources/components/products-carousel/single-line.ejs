@@ -3,7 +3,7 @@
         <%= heading %>
     </h2>
     <amp-carousel
-            height="650"
+            height="350"
             layout="fixed-height"
             type="carousel"
             class="none-scrollbar slider-no-padding-container z-1"
@@ -13,11 +13,7 @@
             <div class="no-padding-item ws-normal w-212 v-top"
             >
                 <% let productData = products[i] %>
-                <% let productData1 = products[i + 1] %>
                 <%- include('../product-card/product', {product: productData}); %>
-                <% if(productData1){ %>
-                    <%- include('../product-card/product', {product: productData1}); %>
-                <% } %>
             </div>
         <% } %>
     </amp-carousel>

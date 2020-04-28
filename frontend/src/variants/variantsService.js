@@ -89,6 +89,14 @@ const getVariantsByProduct = (productUrl) => {
                                 "value": productUrl
                             }
                         }
+                    },
+                    {
+                        "term": {
+                            "default": {
+                                "value": "true"
+                            }
+                        }
+
                     }
                 ]
             }

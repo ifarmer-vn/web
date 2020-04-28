@@ -29,12 +29,6 @@
         <%- include("../../../components/articles-carousel/view.ejs", {articles: relatedArticles, heading:"Bài Viết Liên Quan"}) -%>
     </div>
 <% } %>
-<% if(relatedProducts.length){ %>
-
-    <div class="mt3 pa2 pa0-ns">
-        <%- include("../../../components/products-carousel/view.ejs", {products: relatedProducts, heading:"Sản phẩm Liên Quan"}) -%>
-    </div>
-<% } %>
 
 <%- include("../../../components/structured-data/view.ejs", {structuredData:structuredData}) -%>
 
