@@ -29,7 +29,7 @@ const getTopArticles = (size = 20) => {
         "size": size,
         "query": defaultArticleQuery,
         "sort": {
-            "impressions": {
+            "clicks": {
                 "order": "desc"
             }
         }
@@ -57,7 +57,7 @@ const getNewArticles = (size = 20) => {
     };
 };
 
-const getRelatedArticlesByProduct = (productUrl, articleUrl, size = 200) => {
+const getRelatedArticlesByProduct = (products, articleUrl, size = 200) => {
     return {
         "size": size,
         "_source": [
@@ -74,8 +74,8 @@ const getRelatedArticlesByProduct = (productUrl, articleUrl, size = 200) => {
             "bool": {
                 "must": [
                     {
-                        "match_phrase": {
-                            "related_products": productUrl
+                        "terms": {
+                            "related_products": products
                         }
                     }
                 ],

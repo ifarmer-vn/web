@@ -43,7 +43,7 @@ const getTopProducts = (size = 20) => {
         "size": size,
         "query": defaultVariantQuery,
         "sort": {
-            "impressions": {
+            "clicks": {
                 "order": "desc"
             }
         }
@@ -77,6 +77,31 @@ const getNewProducts = (size = 20) => {
     };
 };
 
+const getMainVariantsByProducts = (products) => {
+    return {
+        "size": 100,
+        "query": {
+            "bool": {
+                "must": [
+                    {
+                        "terms": {
+                            "product": products
+                        }
+                    },
+                    {
+                        "term": {
+                            "default": {
+                                "value": "true"
+                            }
+                        }
+
+                    }
+                ]
+            }
+        }
+    };
+};
+
 const getVariantsByProduct = (productUrl) => {
     return {
         "size": 100,
@@ -89,14 +114,6 @@ const getVariantsByProduct = (productUrl) => {
                                 "value": productUrl
                             }
                         }
-                    },
-                    {
-                        "term": {
-                            "default": {
-                                "value": "true"
-                            }
-                        }
-
                     }
                 ]
             }
@@ -224,7 +241,7 @@ const searchProductsByQuery = async (term, minimum_should_match, size) => {
             }
         ]
     };
-    console.log(JSON.stringify(query));
+    // console.log(JSON.stringify(query));
     const data = await searchVariant(query);
     return data.hits;
 };
@@ -271,6 +288,7 @@ const revealed = {
     getTopProducts,
     getNewProducts,
     getVariantsByProduct,
+    getMainVariantsByProducts,
     getVariant,
     getProductsByCategory,
     searchProductsByQuery,

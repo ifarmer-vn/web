@@ -14,6 +14,7 @@ const createShip = () => {
     };
     const flush = async () => {
         console.time("Time retrieve ES");
+        // console.log(JSON.stringify(queriesBody));
         let data = await realSearch.mSearch(queriesBody);
         console.timeEnd("Time retrieve ES");
         queriesBody = [];

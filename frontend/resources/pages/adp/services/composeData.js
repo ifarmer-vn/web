@@ -32,12 +32,13 @@ const getDataFromES = async (result, articleID) => {
     result.newArticles = data[1].hits.hits;
     result.topArticlesADP = data[2].hits.hits;
 
-    const related_products = result.articleDetail._source.related_products ? result.articleDetail._source.related_products.split(',')[0] : '';
+    const related_products = result.articleDetail._source.related_products ? result.articleDetail._source.related_products.split(',') : [];
 
-    ship.addQuery("variants_v1", variants.getVariantsByProduct(related_products));
+    ship.addQuery("variants_v1", variants.getMainVariantsByProducts(related_products));
     ship.addQuery("articles_v1", articles.getRelatedArticlesByProduct(related_products, articleID, 20));
     data = await ship.flush();
     result.relatedProducts = data[0].hits.hits;
+    console.log(result.relatedProducts.length);
     result.relatedArticles = data[1].hits.hits;
 };
 
