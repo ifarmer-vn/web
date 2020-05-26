@@ -33,6 +33,10 @@
         <lastmod>2020-01-01T08:42:38.592Z</lastmod>
     </sitemap>
     <sitemap>
+        <loc>https://ifarmer.vn/sitemap-cay-thuoc-nam.xml</loc>
+        <lastmod>2020-05-26T08:42:38.592Z</lastmod>
+    </sitemap>
+    <sitemap>
         <loc>https://ifarmer.vn/sitemap-cu.xml</loc>
         <lastmod>2020-01-01T08:42:38.592Z</lastmod>
     </sitemap>
@@ -87,5 +91,9 @@
     <sitemap>
         <loc>https://ifarmer.vn/sitemap-trai-cay.xml</loc>
         <lastmod>2020-01-01T08:42:38.592Z</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://ifarmer.vn/sitemap-vi-thuoc-bo.xml</loc>
+        <lastmod>2020-05-26T08:42:38.592Z</lastmod>
     </sitemap>
 </sitemapindex>
