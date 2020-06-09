@@ -2,6 +2,7 @@ version: "2"
 
 services:
   nginx:
+    container_name: "ifarmer_nginx"
     build: ./docker/nginx
     links:
       - frontend:frontend
