@@ -182,7 +182,8 @@ const buildProductDetail = (product, variant) => {
     let result = {
         ...product._source,
         ...variant._source,
-        h1: variant._source.title ? variant._source.title : `${product._source.title}`
+        h1: variant._source.title ? variant._source.title : `${product._source.title}`,
+        productName: product._source.title
     };
     return result;
 };
