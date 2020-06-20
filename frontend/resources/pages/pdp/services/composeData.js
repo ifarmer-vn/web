@@ -75,13 +75,13 @@ const getDataFromES = async (result, productID) => {
         result.variant._source.category,
         productUrl
     ));
-    ship.addQuery("offers_v1", offers.getShortOffers(productUrl));
+    // ship.addQuery("offers_v1", offers.getShortOffers(productUrl));
     data = await ship.flush();
     result.product = data[0].hits.hits[0]; //for detail
     result.relatedVariants = data[1].hits.hits;
     result.relatedArticles = data[2].hits.hits;
     result.relatedProducts = data[3].hits.hits;
-    result.offers = data[4].hits.hits;
+    // result.offers = data[4].hits.hits;
 };
 
 const buildRelatedArticles = (relatedArticles) => {
