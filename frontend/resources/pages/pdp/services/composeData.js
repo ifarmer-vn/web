@@ -12,10 +12,10 @@ const getData = async (productID) => {
     let result = R.clone(data);
 
     await getDataFromES(result, productID);
-
     result.relatedArticles = buildRelatedArticles(result.relatedArticles);
     result.productDetail = buildProductDetail(result.product, result.variant);
     result.productDetail.transformedImages = fallbackImage(result.productDetail);
+    result.preload = `<link rel="preload" as="image" href="${result.productDetail.transformedImages[0].image.small_1x1.url}">`
     result.variantGroups = buildVariantGroups(
         result.variant._source.url,
         result.variant._source.variantTypes,
