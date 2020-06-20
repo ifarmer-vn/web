@@ -43,6 +43,9 @@ const pdpModel = {
 	get offers(){
 		return data.offers;
 	},
+	get preload(){
+		return data.preload;
+	},
 	set __data(d) {
 		data = d;
 	},

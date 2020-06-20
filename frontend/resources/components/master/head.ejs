@@ -6,8 +6,11 @@
         <%- css%>
     </style>
     <meta charset="utf-8">
-    <link rel="preload" href="/assets/sprites.svg">
-    <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">
+    <%if(typeof preload !== "undefined"){%>
+        <%- preload -%>
+        <%}%>
+    <link rel="preload" as="image" type="image/svg+xml" href="/assets/sprites.svg">
+    <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js"> 
     <link rel="preconnect" href="//storage.googleapis.com" crossorigin>
     <link rel="dns-prefetch" href="//storage.googleapis.com" crossorigin>
     <link rel="preconnect" href="//cdn.ampproject.org" crossorigin>

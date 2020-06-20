@@ -1,13 +1,13 @@
 <div data-vars-click-ga-trigger="click_view_image"
      data-vars-label="name:<%= productDetail.url %>"
 >
-    <amp-carousel lightbox="view-images" width="200" height="200" layout="responsive" type="slides">
+    <amp-carousel lightbox="view-images" class="ma-auto" width="200" height="200" layout="responsive" type="slides">
         <% productDetail.transformedImages.forEach((transformedImage, index) =>{ %>
-            <amp-img width="200" height="200" layout="responsive"
+            <amp-img width="200" height="200"
                      src="<%= transformedImage.image.small_1x1.url %>"
                      srcset="<%= transformedImage.image.large_1x1.url %> 1000w"
                      alt="<%= productDetail.h1 %>">
-                <amp-img width="200" height="200" layout="responsive" fallback
+                <amp-img width="200" height="200" fallback
                          src="<%= productDetail.images[index].url %>"></amp-img>
             </amp-img>
         <% }) %>
