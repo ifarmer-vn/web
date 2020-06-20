@@ -12,7 +12,7 @@ services:
       - "80:80"
       - "443:443"
     networks:
-      - web
+      - ifarmer-web
       - docker-elk_elk
 
   frontend:
@@ -24,13 +24,13 @@ services:
     ports:
       - "3000:3000"
     networks:
-      - web
+      - ifarmer-web
       - docker-elk_elk
       - cms_cms
     command: "npm run dev"
 
 networks:
-  web:
+  ifarmer-web:
     driver: bridge
   docker-elk_elk:
     external: true

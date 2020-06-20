@@ -40,6 +40,9 @@ const pdpModel = {
 	get canonical(){
 		return data.canonical;
 	},
+	get offers(){
+		return data.offers;
+	},
 	set __data(d) {
 		data = d;
 	},

@@ -1,0 +1,19 @@
+<div class="background-color-e9e9e9 mt3 pa2">
+    <h2>Danh sách các nhà cung cấp <%= productDetail.h1 %></h2>
+
+    <table class="w-100 tc mt3">
+        <thead>
+        <tr>
+            <th>Tên</th>
+            <th>Địa chỉ</th>
+            <th>Số Điện Thoại</th>
+            <th>Giá</th>
+        </tr>
+        </thead>
+        <tbody>
+            <% offers.map(offer =>{ %>
+                <%- include("./offer.ejs", { offer:offer }) -%>
+            <% }) %>
+        </tbody>
+    </table>
+</div>

@@ -5,6 +5,7 @@ const variants = require("../../../../src/variants/variantsService");
 const articles = require("../../../../src/articles/articlesService");
 const variantTypes = require("../../../../src/variant-types/variantTypesService");
 const products = require("../../../../src/products/productsService");
+const offers = require("../../../../src/offers/offersService");
 let data = require("../data-feed/pdp");
 
 const getData = async (productID) => {
@@ -74,11 +75,13 @@ const getDataFromES = async (result, productID) => {
         result.variant._source.category,
         productUrl
     ));
+    ship.addQuery("offers_v1", offers.getShortOffers(productUrl));
     data = await ship.flush();
     result.product = data[0].hits.hits[0]; //for detail
-    result.relatedVariants = data[1].hits.hits; //for detail
-    result.relatedArticles = data[2].hits.hits; //for detail
-    result.relatedProducts = data[3].hits.hits; //for detail
+    result.relatedVariants = data[1].hits.hits;
+    result.relatedArticles = data[2].hits.hits;
+    result.relatedProducts = data[3].hits.hits;
+    result.offers = data[4].hits.hits;
 };
 
 const buildRelatedArticles = (relatedArticles) => {
