@@ -5,12 +5,17 @@ const server = express();
 const port = 3000;
 const assets = require("./middewares/assets");
 const routes = require("./middewares/routes");
+const CacheView = require("./middewares/cache-view");
 // const passport = require('passport');
 const cookieSession = require('cookie-session');
 const AmpOptimizerMiddleware = require('amp-toolbox-optimizer-express');
+let cacheView = new CacheView({});
+server.use(cacheView.middlewareStart);
+server.use(AmpOptimizerMiddleware.create());
+
+
 // It's important that the AmpOptimizerMiddleware is added *before* the static middleware.
 // This allows us to replace the parts needed before static handles the request.
-server.use(AmpOptimizerMiddleware.create());
 // const keys = require('./key');
 // server.use(
 //     cookieSession({
@@ -39,7 +44,8 @@ server.set('views', "resources");
 server.set('view engine', 'ejs');
 
 server.use(assets);
-
+server.use(cacheView.middlewareEnd1);
 server.use(routes);
+
 
 server.listen(port, () => console.log(`Ready on http://localhost:${port}!`));

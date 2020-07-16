@@ -24,6 +24,8 @@
     "http-errors": "^1.7.3",
     "jasmine": "^3.4.0",
     "library": "git+ssh://git@github.com/ifarmer-vn/elastic.git#develop",
+    "memcached": "^2.2.2",
+    "mime-types": "^2.1.27",
     "module-alias": "^2.2.2",
     "morgan": "^1.9.1",
     "node-env-file": "^0.1.8",

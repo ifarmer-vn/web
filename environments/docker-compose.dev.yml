@@ -1,11 +1,12 @@
 version: "2"
 
 services:
-  nginx:
+  ifarmer-nginx:
     container_name: "ifarmer_nginx"
     build: ./docker/nginx
     links:
-      - frontend:frontend
+      - ifarmer-frontend:frontend
+      - ifarmer-memcached:memcached
     volumes:
       - /var/log/ifarmer/nginx:/var/log/nginx
     ports:
@@ -15,12 +16,14 @@ services:
       - ifarmer-web
       - docker-elk_elk
 
-  frontend:
+  ifarmer-frontend:
     build: ./frontend
-    container_name: "ifarmer_dev"
+    container_name: "ifarmer_frontend"
     volumes:
       - ./frontend:/var/www/ifarmer
       - ./frontend/node_modules:/var/www/ifarmer/node_modules
+    links:
+      - ifarmer-memcached:memcached
     ports:
       - "3000:3000"
     networks:
@@ -28,6 +31,15 @@ services:
       - docker-elk_elk
       - cms_cms
     command: "npm run dev"
+
+  ifarmer-memcached:
+    image: memcached:1.6.6
+    container_name: ifarmer-memcached
+    ports:
+      - '11211:11211'
+    command: "-m 2048"
+    networks:
+      - ifarmer-web
 
 networks:
   ifarmer-web:

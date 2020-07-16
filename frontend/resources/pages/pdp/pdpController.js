@@ -1,6 +1,6 @@
 const pdpService = require("./services/pdpService");
 
-let pdpController = async (req, res) => {
+let pdpController = async (req, res,next) => {
 	let productID = req.params.productID;
 	console.time("Prepare data for pdp");
 	let data = await pdpService.prepareData(productID);

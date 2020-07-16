@@ -1,4 +1,7 @@
 let app;
+let memcached;
+const Memcached = require('memcached');
+const mime = require('mime-types');
 String.prototype.money = function () {
 	let target = this;
 	return target.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -7,6 +10,26 @@ String.prototype.replaceAll = function(search, replacement) {
 	let target = this;
 	return target.replace(new RegExp(search, 'g'), replacement);
 };
+function isResourceRequest_(req) {
+	// Checks if mime-type for request is text/html. If mime type is unknown, assume text/html,
+	// as it is probably a directory request.
+	const mimeType = mime.lookup(req.url) || 'text/html';
+	return (req.accepts && req.accepts('html') !== 'html') ||
+		mimeType !== 'text/html' &&
+		!req.url.endsWith('/'); // adjust for /abc.com/, which return application/x-msdownload
+}
+function getMemCached() {
+	if(!memcached){
+		initMemcached();
+	}
+	return memcached;
+}
+
+function initMemcached() {
+	Memcached.config.maxKeySize = 4000;
+	Memcached.config.maxValue = 2048576;
+	memcached = new Memcached('memcached:11211',{});
+}
 function getApp(ap) {
 	return app;
 }
@@ -35,6 +58,8 @@ let utils = {
 	getApp,
 	setApp,
 	calcTime,
+	isResourceRequest_,
+	getMemCached
 };
 
 module.exports = utils;

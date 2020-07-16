@@ -1,5 +1,5 @@
 # Set nginx base image
-FROM nginx
+FROM nginx:1.18
 
 # File Author / Maintainer
 
