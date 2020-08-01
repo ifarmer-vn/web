@@ -70,7 +70,7 @@ const getDataFromES = async (result, productID) => {
 
     ship.addQuery("products_v1", products.getProduct(productUrl));
     ship.addQuery("variants_v1", variants.getVariantsByProduct(productUrl));
-    ship.addQuery("articles_v1", articles.getRelatedArticlesByProduct([productUrl], 8));
+    ship.addQuery("articles_v1", articles.getAllRelatedArticlesByProduct(productUrl, 8));
     ship.addQuery("variants_v1", variants.getRelatedProductsByCategory(
         result.variant._source.category,
         productUrl
@@ -79,6 +79,7 @@ const getDataFromES = async (result, productID) => {
     data = await ship.flush();
     result.product = data[0].hits.hits[0]; //for detail
     result.relatedVariants = data[1].hits.hits;
+
     result.relatedArticles = data[2].hits.hits;
     result.relatedProducts = data[3].hits.hits;
     // result.offers = data[4].hits.hits;

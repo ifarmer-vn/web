@@ -57,7 +57,34 @@ const getNewArticles = (size = 20) => {
     };
 };
 
-const getRelatedArticlesByProduct = (products, articleUrl, size = 200) => {
+const getAllRelatedArticlesByProduct = (product, size = 200) => {
+    return {
+        "size": size,
+        "_source": [
+            "url",
+            "name",
+            "author",
+            "updatedAt",
+            "title",
+            "description",
+            "images",
+            "transformedImages",
+        ],
+        "query": {
+            "query_string": {
+                "query": `*${product}*`,
+                "fields": ["related_products"]
+            }
+        },
+        "sort": {
+            "impressions": {
+                "order": "desc"
+            }
+        }
+    };
+};
+
+const getRelatedArticlesByProduct = (product, articleUrl, size = 200) => {
     return {
         "size": size,
         "_source": [
@@ -75,7 +102,7 @@ const getRelatedArticlesByProduct = (products, articleUrl, size = 200) => {
                 "must": [
                     {
                         "terms": {
-                            "related_products": products
+                            "related_products": product
                         }
                     }
                 ],
@@ -154,6 +181,7 @@ const revealed = {
     getNewArticles,
     getRelatedArticlesByProduct,
     getArticlesByArticleCategory,
+    getAllRelatedArticlesByProduct,
     getAllArticles,
 };
 
