@@ -18,6 +18,7 @@ files:
 	cp -r docker/config/cert docker/nginx/config
 
 sitemap:
+	cp frontend/src/elasticsearch/credential.dev.json frontend/src/elasticsearch/credential.json
 	cd frontend && node src/sitemap/sitemap.js
 
 dev: build-dev
