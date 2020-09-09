@@ -1,9 +1,9 @@
-<script async src="https://cdn.ampproject.org/v0.js"></script>
-<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
-<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
-<!--<script async custom-element="amp-access" src="https://cdn.ampproject.org/v0/amp-access-0.1.js"></script>-->
-<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
-<script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+<script async src="/assets/js/v0.js"></script>
+<script async custom-element="amp-carousel" src="/assets/js/amp-carousel-0.1.js"></script>
+<script async custom-element="amp-analytics" src="/assets/js/amp-analytics-0.1.js"></script>
+<!--<script async custom-element="amp-access" src="/assets/js/amp-access-0.1.js"></script>-->
+<script async custom-element="amp-form" src="/assets/js/amp-form-0.1.js"></script>
+<script async custom-element="amp-sidebar" src="/assets/js/amp-sidebar-0.1.js"></script>
 <% if(typeof ampLibraries != "undefined"){ %>
     <% ampLibraries.map(library =>{ %>
         <%- include("./amp-library.ejs", { library:library }) -%>
