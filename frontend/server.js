@@ -7,10 +7,10 @@ const assets = require("./middewares/assets");
 const routes = require("./middewares/routes");
 // const passport = require('passport');
 const cookieSession = require('cookie-session');
-// const AmpOptimizerMiddleware = require('amp-toolbox-optimizer-express');
+const AmpOptimizerMiddleware = require('amp-toolbox-optimizer-express');
 // It's important that the AmpOptimizerMiddleware is added *before* the static middleware.
 // This allows us to replace the parts needed before static handles the request.
-// server.use(AmpOptimizerMiddleware.create());
+server.use(AmpOptimizerMiddleware.create());
 // const keys = require('./key');
 // server.use(
 //     cookieSession({
