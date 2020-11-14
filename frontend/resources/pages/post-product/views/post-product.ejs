@@ -1,10 +1,21 @@
-<%- include("../../../components/master/head") -%>
+<%- include("../../../components/master-js/head") -%>
 
-<div class="mt3 bg-white pa2 flex-l flex-wrap-l">
+<div class="mt3 bg-white pa2">
+    <div class="mv3 pa2 pa0-ns tc">
+        <h1>Đăng sản phẩm <%= productDetail.h1 %></h1>
+    </div>
+    <div class="mv3 pa2 pa0-ns tc">
+        <amp-img width="200" height="200"
+                 src="<%= productDetail.transformedImages[0].image.large_1x1.url %>"
+                 alt="<%= productDetail.h1 %>">
+            <amp-img width="200" height="200" fallback
+                     src="<%= productDetail.images[0].url %>"></amp-img>
+        </amp-img>
+    </div>
 
     <div class="mt3 pa2 pa0-ns">
         <%- include("./components/form") -%>
     </div>
 </div>
 
-<%- include("../../../components/master/footer") -%>
+<%- include("../../../components/master-js/footer") -%>

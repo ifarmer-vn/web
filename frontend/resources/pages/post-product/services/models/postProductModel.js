@@ -16,6 +16,9 @@ const postProductModel = {
 	get css() {
 		return data.css;
 	},
+	get productDetail() {
+		return data.productDetail;
+	},
 	get canonical(){
 		return data.canonical;
 	},

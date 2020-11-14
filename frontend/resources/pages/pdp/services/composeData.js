@@ -39,10 +39,12 @@ const getData = async (productID) => {
 
 const fallbackImage = (data) => {
     //Todo should fix why missing images
-    if (data.transformedImages[0].image) {
+    if (data.transformedImages[0] && data.transformedImages[0].image) {
+        console.log(data.transformedImages[0] );
         return data.transformedImages;
     }
     let result = [];
+    console.log("Missing transformedImages", data.url);
     if (data.images) {
         result = [
             {
@@ -54,7 +56,6 @@ const fallbackImage = (data) => {
             }
         ]
     }
-    console.log("Missing transformedImages", data.url);
     return result;
 };
 
