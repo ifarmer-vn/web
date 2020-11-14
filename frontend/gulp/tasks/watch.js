@@ -8,7 +8,7 @@ const allWatchers = () => {
     cssWatcher();
     jsWatcher();
     lazyCSSWatcher();
-    ejsWatcher();
+    // ejsWatcher();
     baseCSS();
 };
 

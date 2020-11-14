@@ -1,9 +1,11 @@
 const postProductService = require("./services/postProductService");
 
 let postProductController = async (req, res) => {
-	const path = req.originalUrl.replace(/\//g,'');
+	let variantID = req.params.variantID;
+
+
 	console.time("Prepare data for postProduct");
-	let data = await postProductService.prepareData(path);
+	let data = await postProductService.prepareData(variantID);
 	console.timeEnd("Prepare data for postProduct");
 	return res.render("pages/post-product/views/post-product", data);
 };
