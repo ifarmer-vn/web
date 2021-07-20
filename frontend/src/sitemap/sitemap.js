@@ -51,7 +51,7 @@ function buildCategorySiteMap(fileName, items) {
     });
     xw.endElement('urlset');
     xw.endDocument();
-    writeFile("../frontend/resources/pages/robots/sitemap-" + fileName + ".xml", xw);
+    writeFile("../frontend/resources/pages/robots/sitemap-" + fileName + ".xml", xw.output);
 }
 
 function buildProductsSiteMap(fileName, items) {
@@ -76,7 +76,7 @@ function buildProductsSiteMap(fileName, items) {
     });
     xw.endElement('urlset');
     xw.endDocument();
-    writeFile("../frontend/resources/pages/robots/sitemap-" + fileName + ".xml", xw);
+    writeFile("../frontend/resources/pages/robots/sitemap-" + fileName + ".xml", xw.output);
 }
 
 async function buildArticleSiteMapFile() {
@@ -101,10 +101,12 @@ async function buildArticleSiteMapFile() {
     });
     xw.endElement('urlset');
     xw.endDocument();
-    writeFile("../frontend/resources/pages/robots/sitemap-articles.xml", xw);
+    writeFile("../frontend/resources/pages/robots/sitemap-articles.xml", xw.output);
 }
 
 function writeFile(out, result) {
+    // console.log(out);
+    // console.log(result);
     fs.writeFile(out, result, function (err) {
         if (err) {
             return console.log(err);
