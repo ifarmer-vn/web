@@ -430,7 +430,9 @@ Disallow: /
 User-agent: Mozilla/5.0 (compatible;contxbot/1.0)
 Disallow:
 
+
 User-agent: *
+Disallow: /new/
 Allow: /
 
 Sitemap: https://ifarmer.vn/sitemap.xml
