@@ -1,5 +1,5 @@
 # Set nginx base image
-FROM nginx
+FROM nginx as ifarmer_nginx
 
 # File Author / Maintainer
 
