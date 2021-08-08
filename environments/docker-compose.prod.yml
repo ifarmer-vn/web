@@ -13,6 +13,7 @@ services:
       - "443:443"
     networks:
       - ifarmer-web
+      - ifarmer_ifarmer-vn
       - docker-elk_elk
 
   frontend:
@@ -27,6 +28,7 @@ services:
       - ifarmer-web
       - docker-elk_elk
       - cms_cms
+      - ifarmer_ifarmer-vn
     command: "pm2 start --no-daemon server.js -i 1"
 
 networks:
@@ -35,4 +37,6 @@ networks:
   docker-elk_elk:
     external: true
   cms_cms:
+    external: true
+  ifarmer_ifarmer-vn:
     external: true

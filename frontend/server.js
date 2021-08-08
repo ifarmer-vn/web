@@ -4,6 +4,7 @@ const utils = require('./src/utils');
 const server = express();
 const port = 3000;
 const assets = require("./middewares/assets");
+const assets1 = require("./middewares/assets1");
 const routes = require("./middewares/routes");
 // const passport = require('passport');
 const cookieSession = require('cookie-session');
@@ -39,6 +40,7 @@ server.set('views', "resources");
 server.set('view engine', 'ejs');
 
 server.use(assets);
+server.use(assets1);
 
 server.use(routes);
 

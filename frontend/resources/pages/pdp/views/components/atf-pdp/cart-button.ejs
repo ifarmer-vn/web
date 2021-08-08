@@ -1,11 +1,13 @@
 <div  class="width-fit-content margin-auto ttu pl4-l w-100-l">
-    <a href="/order/<%= productDetail.url %>/"
-       rel="nofollow"
-       data-vars-click-ga-trigger="click_order_online"
-       data-vars-label="name:<%= productDetail.url %>"
+    <span on="tap:AMP.navigateTo(url='/new/add-to-cart?product_url=<%= productDetail.url %>')" tabindex="0" role="button"
+
+       data-ga-trigger="ga-conversion"
+       data-vars-action="pdp-cart-button"
+       data-vars-product="<%= productDetail.url %>"
+
        class="dib background-color-80bb01 border-color-80bb01 color-ffffff font-size-15px text-transform-uppercase border-radius-50px padding-0-30px border-2px-solid-e0e0e0font-weight-500 height-45px line-height-43px min-width-130px padding-0-15px text-align-center">
         <amp-img class="dib v-mid" width="30" height="30"
                  src="/assets/sprites.svg#ios-cart"
         ></amp-img>
-        <div class="dib v-mid">Đặt Hàng</div></a>
+        <div class="dib v-mid">Đặt Hàng</div></span>
 </div>
