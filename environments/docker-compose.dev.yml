@@ -1,7 +1,7 @@
 version: "2"
 
 services:
-  nginx:
+  ifarmer_nginx:
     container_name: "ifarmer_nginx"
     build: ./docker/nginx
     links:
@@ -15,7 +15,7 @@ services:
       - ifarmer-web
       - docker-elk_elk
 
-  frontend:
+  ifarmer_frontend:
     build: ./frontend
     container_name: "ifarmer_dev"
     volumes:
