@@ -9,3 +9,5 @@ docker-compose.yml
 generated
 **/credentials.json
 **/data/assets/
+frontend/credentials
+backup
