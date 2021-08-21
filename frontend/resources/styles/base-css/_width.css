@@ -14,6 +14,10 @@
     min-width: 44px;
 }
 
+.width-max-content {
+    width: max-content;
+}
+
 @media screen and (min-width: 60em) {
     .width-fit-content-l {
         width: fit-content
