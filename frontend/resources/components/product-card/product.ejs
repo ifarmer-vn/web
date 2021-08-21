@@ -1,15 +1,20 @@
-<a href="/san-pham/<%= product._source.url %>/" class="db relative b-bottom-2 b-right-2 pa-item"
+<div href="/san-pham/<%= product._source.url %>/" class="db relative b-bottom-2 b-right-2 pa-item"
 >
-    <div>
+    <a href="/san-pham/<%= product._source.url %>/"
+       data-vars-click-ga-trigger="click_list_product_item"
+       data-vars-label="<%= product._source.url %>"
+       class="db"
+    >
+
         <%
         if (!product._source.transformedImages[0].image) {
             console.log(product._source.productSource.title);
         } %>
-        <amp-img class="margin-auto" width="212" height="212" layout="responsive"
+        <amp-img class="margin-auto" width="200" height="200" layout="responsive"
                  src="<%= product._source.transformedImages[0].image.small_1x1.url %>"
                  alt="<%= product._source.productSource.title %>">
             <amp-img fallback
-                     class="margin-auto" width="212" height="212" layout="responsive"
+                     class="margin-auto" width="200" height="200" layout="responsive"
                      src="<%= product._source.images[0].url %>"
             ></amp-img>
         </amp-img>
@@ -34,5 +39,18 @@
                 <% } %>
             </div>
         </div>
+    </a>
+
+    <div on="tap:AMP.navigateTo(url='/new/add-to-cart?product_url=<%= product._source.url %>')" tabindex="0" role="button"
+         class="pointer pa2 br2 background-color-80bb01 border-color-80bb01 color-ffffff"
+         data-ga-trigger="ga-conversion"
+         data-vars-action="list-product-cart-button"
+         data-vars-product="<%= product._source.url %>">
+        <div class="margin-auto db width-max-content">
+            <amp-img class="dib v-mid" width="30" height="30"
+                     src="/assets/sprites.svg#ios-cart"
+            ></amp-img>
+            <div class="dib v-mid">Đặt Hàng</div>
+        </div>
     </div>
-</a>
+</div>
