@@ -7,14 +7,15 @@ let plpController = async (req, res) => {
         return;
     }
     console.time("Prepare data for plp");
-    let data = await plpService.prepareData(categoryID);
-    console.timeEnd("Prepare data for plp");
-    if (!data.products.length) {
-        res.status(404);
-        res.type('txt').send('Not found');
-        return;
-    }
-    return res.render("pages/plp/views/plp", data);
+    plpService.prepareData(categoryID).then(data => {
+        console.timeEnd("Prepare data for plp");
+        return res.render("pages/plp/views/plp", data);
+    }).catch(error => {
+        console.error(error.message);
+        if (error.message === "Not Found") {
+            res.status(404).send(error.message);
+        }
+    });
 };
 
 module.exports = plpController;
