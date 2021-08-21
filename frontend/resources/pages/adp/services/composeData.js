@@ -32,13 +32,16 @@ const getDataFromES = async (result, articleID) => {
     result.newArticles = data[1].hits.hits;
     result.topArticlesADP = data[2].hits.hits;
 
+    if(!result.articleDetail){
+        throw Error("Not Found");
+    }
+
     const related_products = result.articleDetail._source.related_products ? result.articleDetail._source.related_products.split(',') : [];
 
     ship.addQuery("variants_v1", variants.getMainVariantsByProducts(related_products));
     ship.addQuery("articles_v1", articles.getRelatedArticlesByProduct(related_products, articleID, 20));
     data = await ship.flush();
     result.relatedProducts = data[0].hits.hits;
-    console.log(result.relatedProducts.length);
     result.relatedArticles = data[1].hits.hits;
 };
 
@@ -63,7 +66,9 @@ const addRelatedProducts = (content, relatedProducts) => {
 
     }
 
-    return content.replace("</p>", `</p>${relatedProductsView}`) ;
+    content =  content.replace("</p>", `</p>${relatedProductsView}`) ;
+    content += relatedProductsView;
+    return content;
 };
 
 const buildAmpLibraries = (content) => {
