@@ -1,4 +1,4 @@
-const sass = require("gulp-sass");
+const sass = require('gulp-sass')(require('sass'));
 const csso = require("gulp-csso");
 const rename = require("gulp-rename");
 const {src, dest} = require("gulp");

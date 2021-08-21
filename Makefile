@@ -25,7 +25,7 @@ dev: build-dev
 	docker-compose up
 
 build-dev: files-dev
-	docker-compose build
+	docker-compose build --force-rm
 
 files-dev:
 	cp frontend/src/elasticsearch/credential.prod.json frontend/src/elasticsearch/credential.json
