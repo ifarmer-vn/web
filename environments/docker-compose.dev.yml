@@ -16,7 +16,7 @@ services:
       - ifarmer_ifarmer-vn
       - docker-elk_elk
 
-  ifarmer_frontend:
+  frontend:
     build: ./frontend
     container_name: "ifarmer_dev"
     volumes:

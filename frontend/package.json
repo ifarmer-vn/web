@@ -37,13 +37,14 @@
     "xml-writer": "^1.7.0"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",
     "gulp-csso": "^3.0.1",
     "gulp-nodemon": "^2.2.1",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^5.0.0",
     "gulp-svg-sprite": "^1.5.0",
-    "reduce-css-hai-bui": "^2.0.3"
+    "reduce-css-hai-bui": "^2.0.3",
+    "sass": "^1.38.0"
   }
 }

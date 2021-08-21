@@ -64,7 +64,11 @@ const getDataFromES = async (result, productID) => {
     ship.addQuery("variant-types_v1", variantTypes.getAllVariantTypes());
     let data = await ship.flush();
     result.variant = data[0].hits.hits[0]; //for detail
+
     result.variantTypesData = data[1].hits.hits;
+    if(!result.variant){
+        throw Error("Not Found");
+    }
 
     const productUrl = result.variant._source.productSource.url;
 
