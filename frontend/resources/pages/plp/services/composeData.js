@@ -27,6 +27,9 @@ const getDataFromES = async (result, categoryID) => {
     let data = await ship.flush();
     result.products = data[0].hits.hits;
     result.category = data[1].hits.hits[0]; //for detail
+    if(!result.category || result.products.length === 0){
+        throw Error("Not Found");
+    }
 };
 
 const buildStructuredData = (products) => {
