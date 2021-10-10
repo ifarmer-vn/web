@@ -11,3 +11,5 @@ generated
 **/data/assets/
 frontend/credentials
 backup
+data
+log
