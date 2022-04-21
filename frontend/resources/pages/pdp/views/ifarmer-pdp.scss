@@ -8,3 +8,27 @@
 @include scorpion;
 @include bg-white;
 @include bg-theme-color;
+
+body[amp-x-order-button='orange'] .background-color-80bb01 {
+    background-color: orange;
+}
+
+body[amp-x-order-button='blue'] .background-color-80bb01 {
+    background-color: blue;
+}
+
+body[amp-x-order-button='red'] .background-color-80bb01 {
+    background-color: red;
+}
+
+body[amp-x-summer-product='1'] .fixed.bg-green {
+    border: solid 2px orange;
+}
+
+body[amp-x-summer-product='2'] .fixed.bg-green {
+    border: solid 2px blue;
+}
+
+body[amp-x-summer-product='3'] .fixed.bg-green {
+    border: solid 2px red;
+}

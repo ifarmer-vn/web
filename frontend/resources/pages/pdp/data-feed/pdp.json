@@ -8,7 +8,8 @@
   "productDetail": {},
   "relatedArticles": {},
   "ampLibraries": [
-    "amp-lightbox-gallery"
+    "amp-lightbox-gallery",
+    "amp-experiment"
   ],
   "relatedProducts": [],
   "breadcrumb": [],
