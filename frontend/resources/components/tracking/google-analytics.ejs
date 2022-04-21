@@ -7,7 +7,12 @@
             "triggers": {
                 "trackPageView": {
                     "on": "visible",
-                    "request": "pageview"
+                    "request": "pageview",
+                    "extraUrlParams":{
+                        "cd1":"oXMrcPQXQeu3oGpe0WZlcA.VARIANT(order-button)!A5x2QdN3SluHyOiCifRBvA.VARIANT(summer-product)",
+                        "xid": "oXMrcPQXQeu3oGpe0WZlcA",
+                        "xvar": "VARIANT(order-button)"
+                    }
                 },
                 "trackClicks": {
                     "on": "click",
@@ -17,6 +22,11 @@
                         "eventCategory": "click",
                         "eventAction": "${clickGaTrigger}",
                         "eventLabel": "${label}"
+                    },
+                    "extraUrlParams":{
+                        "cd1":"oXMrcPQXQeu3oGpe0WZlcA.VARIANT(order-button)!A5x2QdN3SluHyOiCifRBvA.VARIANT(summer-product)",
+                        "xid": "oXMrcPQXQeu3oGpe0WZlcA",
+                        "xvar": "VARIANT(order-button)"
                     }
                 },
                 "trackConversions": {
@@ -28,9 +38,15 @@
                         "eventAction": "${action}",
                         "eventLabel": "${product}",
                         "anonymizeIP": ""
+                    },
+                    "extraUrlParams":{
+                        "cd1":"oXMrcPQXQeu3oGpe0WZlcA.VARIANT(order-button)!A5x2QdN3SluHyOiCifRBvA.VARIANT(summer-product)",
+                        "xid": "oXMrcPQXQeu3oGpe0WZlcA",
+                        "xvar": "VARIANT(order-button)"
                     }
                 }
             }
         }
+
     </script>
 </amp-analytics>

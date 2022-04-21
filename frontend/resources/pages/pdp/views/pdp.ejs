@@ -1,5 +1,13 @@
 <%- include("../../../components/master/head") -%>
 
+<amp-experiment>
+    <script type="application/json">
+        {
+          "order-button": { "variants": {"original":25,"orange":25,"blue":25,"red":25}},
+          "summer-product": { "variants": {"0":25,"1":25,"2":25,"3":25} }
+        }
+    </script>
+</amp-experiment>
 
 <div class="pa2 pa0-ns">
     <%- include("../../../components/breadcrumb/view.ejs", {breadcrumb:breadcrumb}) -%>
