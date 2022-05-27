@@ -2,19 +2,12 @@
     <script type="application/json">{
             "vars": {
                 "gaPageName": "Ifarmer",
-                "account": "G-ZYSEJM2PZ6"
+                "account": "UA-119170930-1"
             },
             "triggers": {
                 "trackPageView": {
                     "on": "visible",
-                    "request": "pageview",
-                    "extraUrlParams":{
-                        "cd1":"VARIANTS",
-                        "cd2": "A5x2QdN3SluHyOiCifRBvA.VARIANT(summer-product)!oXMrcPQXQeu3oGpe0WZlcA.VARIANT(order-button)",
-                        "exp": "A5x2QdN3SluHyOiCifRBvA.VARIANT(summer-product)!oXMrcPQXQeu3oGpe0WZlcA.VARIANT(order-button)",
-                        "xid": "oXMrcPQXQeu3oGpe0WZlcA",
-                        "xvar": "VARIANT(order-button)"
-                    }
+                    "request": "pageview"
                 },
                 "trackClicks": {
                     "on": "click",
@@ -24,13 +17,6 @@
                         "eventCategory": "click",
                         "eventAction": "${clickGaTrigger}",
                         "eventLabel": "${label}"
-                    },
-                    "extraUrlParams":{
-                        "cd1":"VARIANTS",
-                        "cd2": "A5x2QdN3SluHyOiCifRBvA.VARIANT(summer-product)!oXMrcPQXQeu3oGpe0WZlcA.VARIANT(order-button)",
-                        "exp": "A5x2QdN3SluHyOiCifRBvA.VARIANT(summer-product)!oXMrcPQXQeu3oGpe0WZlcA.VARIANT(order-button)",
-                        "xid": "oXMrcPQXQeu3oGpe0WZlcA",
-                        "xvar": "VARIANT(order-button)"
                     }
                 },
                 "trackConversions": {
@@ -42,13 +28,6 @@
                         "eventAction": "${action}",
                         "eventLabel": "${product}",
                         "anonymizeIP": ""
-                    },
-                    "extraUrlParams":{
-                        "cd1":"VARIANTS",
-                        "cd2": "A5x2QdN3SluHyOiCifRBvA.VARIANT(summer-product)!oXMrcPQXQeu3oGpe0WZlcA.VARIANT(order-button)",
-                        "exp": "A5x2QdN3SluHyOiCifRBvA.VARIANT(summer-product)!oXMrcPQXQeu3oGpe0WZlcA.VARIANT(order-button)",
-                        "xid": "oXMrcPQXQeu3oGpe0WZlcA",
-                        "xvar": "VARIANT(order-button)"
                     }
                 }
             }
