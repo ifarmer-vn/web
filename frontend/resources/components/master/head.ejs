@@ -23,7 +23,7 @@
 
     <%- include("./amp-library/view.ejs") -%>
 
-    <meta name="robots" content="index,follow">
+    <meta name="robots" content="<%= typeof robots !== "undefined" ? robots : 'index,follow' %>">
     <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=4">
     <meta name="fo-verify" content="56bd2285-d29f-417d-81c6-2f3221b2f495">
     <style amp-boilerplate="">body {
